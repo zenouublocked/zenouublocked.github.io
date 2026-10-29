@@ -1,0 +1,19 @@
+{
+  "build": "2026-10-29T11:19:26.948Z",
+  "totals": {
+    "entries": 5920,
+    "playableOnSite": 4223,
+    "providerFileIframes": 278,
+    "crazygamesFileIframes": 2695,
+    "scratchEmbeds": 1250,
+    "externalOnly": 1697,
+    "crazygamesSitelocked": 1663,
+    "relevantOnly": 0
+  },
+  "verification": {
+    "method": "Per-game embeddability read from the official CrazyGames gameframe config (disableEmbedding flag) in the wrapper HTML of all 4,636 slugs; 4,636/4,636 configs parsed.",
+    "scratch": "1,250/1,250 project API probes OK · official /embed player",
+    "providerNote": "pf games load from the publisher's own hosting with no CrazyGames ad/branding shell.",
+    "slowNote": "pg embeds may show a pre-game ad. Player shows loading hints and an official-site escape."
+  }
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zenou Unblocked — Drive, stunt, run and Scratch games</title>
+<meta name="description" content="Zenou Unblocked is a browser gaming portal: driving and stunt games, wheelie bikes, endless runners, multiplayer .io, sports and hundreds of Scratch games — free, no install.">
+<meta name="theme-color" content="#05070a">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="wordmark" href="index.html" aria-label="Zenou Unblocked home">
+    <span class="wordmark-lines">Zen<span class="wordmark-joystick" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="stick" d="M12 4a3.2 3.2 0 0 1 3.2 3.2c0 1.4-.9 2.5-2 2.9V18h-2.4V10.1c-1.1-.4-2-1.5-2-2.9A3.2 3.2 0 0 1 12 4z"/><path class="base" d="M4.5 18h15c1.4 0 2.5 1.1 2.5 2.5V22H2v-1.5C2 19.1 3.1 18 4.5 18z"/></svg></span>u</span>
+    <span class="wordmark-sub">unblocked</span>
+  </a>
+  <div class="searchbox" role="search">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 3a7.5 7.5 0 1 1-4.32 13.64L3 19.85 3.94 20.8l3.18-3.18A7.5 7.5 0 0 1 10.5 3zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z"/></svg>
+    <input id="search" type="search" placeholder="Search games…" autocomplete="off" spellcheck="false" aria-label="Search games">
+  </div>
+  <nav class="mainnav" aria-label="Sections">
+    <a href="index.html" data-nav>Games</a>
+    <a href="movies.html" data-nav>Movies</a>
+    <a href="tv.html" data-nav>TV Shows</a>
+    <a href="music.html" data-nav>Music</a>
+    <a href="library.html" data-nav>My Library</a>
+  </nav>
+  <button id="randomBtn" class="btn btn-ghost" type="button">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h4v2H8.4l2.6 2.6L9.6 10 7 7.4V9H5V4h2zm10 0h2v5h-2V7.4L14.4 10 13 8.6 15.6 6H13V4h4zM5 15h2v1.6L9.6 14l1.4 1.4L8.4 18H11v2H7v-1h.1L5 20.6V15zm12 0h2v5.6L17.1 19H17v1h-4v-2h2.6L13 15.4 14.4 14l2.6 2.6V15z" transform="scale(0.85) translate(2 2)"/></svg>
+    <span>Random game</span>
+  </button>
+</header>
+
+<main id="main">
+
+  <!-- Home view -->
+  <section id="homeView">
+    <div id="heroRow" class="hero-row">
+      <a id="heroCard" class="hero-card" hidden></a>
+      <div id="heroList" class="hero-list" aria-label="Trending this week"></div>
+    </div>
+
+    <nav id="collectionRail" class="chip-rail" aria-label="Games collections"></nav>
+    <div id="railWrap"></div>
+
+    <div id="youRow"></div>
+
+    <div id="browse" class="browse">
+      <h2 class="section-title">All games</h2>
+      <div id="catalogMeta" class="catalog-meta"></div>
+      <div id="grid" class="grid"></div>
+      <div id="sentinel" class="sentinel" hidden><button id="moreBtn" class="btn btn-ghost" type="button">Show more</button></div>
+      <p id="emptyState" class="empty" hidden>No games match that. Try a shorter search — the catalog is sorted by what loads fastest.</p>
+    </div>
+  </section>
+
+  <!-- Collection / search results view -->
+  <section id="filteredView" hidden>
+    <div class="filtered-head">
+      <button id="backBtn" class="btn btn-ghost" type="button">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5l-7 7 7 7 1.4-1.4L7.8 13H20v-2H7.8l4.6-4.6L11 5z"/></svg>
+        <span>Back</span>
+      </button>
+      <h1 id="filteredTitle" class="filtered-title"></h1>
+    </div>
+    <div id="filteredGrid" class="grid"></div>
+    <div id="filteredSentinel" class="sentinel" hidden><button id="filteredMoreBtn" class="btn btn-ghost" type="button">Show more</button></div>
+    <p id="filteredEmpty" class="empty" hidden>Nothing here yet — try another collection.</p>
+  </section>
+</main>
+
+<footer class="sitefoot">
+  <p>Zenou Unblocked plays games straight on this site via official embeds from <a href="https://www.crazygames.com" rel="noopener">CrazyGames</a>, games developers' own hosted builds and <a href="https://scratch.mit.edu" rel="noopener">Scratch</a> (credited to each creator). A small number of publishers gate their builds to their own portal — those games link out instead. All games belong to their creators.</p>
+  <p>Media sections use metadata from <a href="https://www.themoviedb.org" rel="noopener">TMDB</a> — “This product uses the TMDB API but is not endorsed or certified by TMDB” — and music playback runs inside <a href="https://open.spotify.com" rel="noopener">Spotify</a> and <a href="https://soundcloud.com" rel="noopener">SoundCloud</a> official embeds.</p>
+  <p>Sister project: <a href="https://zenoutools.github.io/" rel="noopener">Zenou Tools</a>.</p>
+</footer>
+
+<div id="pbHost"></div>
+<script src="js/music-player.js" defer></script>
+<script src="js/settings.js" defer></script>
+<script src="js/app.js" defer></script>
+</body>
+</html>
