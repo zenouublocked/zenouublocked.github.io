@@ -1,0 +1,27 @@
+{
+  "build": "2026-10-30T20:20:00.000Z",
+  "totals": {
+    "entries": 6568,
+    "playableOnSite": 6568,
+    "lo": 4,
+    "pg": 2667,
+    "hm": 661,
+    "pf": 343,
+    "sc": 2893,
+    "selfhosted": 4,
+    "gamedistribution": 1,
+    "hoodamath": 661,
+    "crazygames-official": 3008,
+    "scratch": 2893,
+    "externalOnly": 0,
+    "publisher": 1
+  },
+  "verification": {
+    "method": "Every entry is embedded in play.html. Local app pages open directly; portal titles load from the publisher own build URL; no entry links out.",
+    "hoodamath": "Every HoodaMath game is played from their own build URL (hoodamath.com/mobile/games/<dir>/game.html), checked for HTTP 200 and for the absence of X-Frame-Options / CSP frame-ancestors. Maths categories are skipped; puzzle, logic and board games are kept.",
+    "scratch": "Every Scratch ID probed against the official Scratch API · official /embed player",
+    "crazygames": "Titles served from games.crazygames.com are embedded through that file host; publisher builds are embedded from their own domain.",
+    "providerNote": "pf games load from the publisher's own hosting with no portal shell.",
+    "noExternalRouting": "Entries that could not run in the page were removed rather than linked out."
+  }
+}
