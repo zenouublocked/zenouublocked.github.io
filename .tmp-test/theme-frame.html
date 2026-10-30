@@ -1,0 +1,15 @@
+<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1">
+<body style="margin:0;background:#05060a">
+<iframe id="f" src="../index.html" style="width:1280px;height:920px;border:0;display:block"></iframe>
+<script>
+  const f = document.getElementById('f');
+  let applied = false;
+  f.addEventListener('load', () => {
+    if (applied) return;
+    applied = true;
+    f.contentWindow.localStorage.setItem('zenou_prefs', JSON.stringify({
+      theme: 'cyan', glow: 'strong', radius: 'round', density: 'compact', bg: 'stars', motion: 'full'
+    }));
+    f.contentWindow.location.reload();
+  });
+</script>

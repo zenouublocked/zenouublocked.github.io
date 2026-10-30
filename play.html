@@ -3,20 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{var r=document.documentElement,p=JSON.parse(localStorage.getItem('zenou_prefs')||'{}'),m=JSON.parse(localStorage.getItem('zenou_mask')||'{}');var t=p.theme||m.theme;if(t)r.dataset.theme=t;['glow','radius','density','bg','motion'].forEach(function(k){if(p[k])r.dataset[k]=p[k]});if(p.bgDim!=null)r.style.setProperty('--bg-dim',Math.max(0,Math.min(85,+p.bgDim))/100);var g=localStorage.getItem('zenou_bgimg');if(g){r.style.setProperty('--custom-bg','url("'+g+'")');r.classList.add('has-custom')}}catch(e){}</script>
 <title>Player — Zenou Unblocked</title>
-<meta name="theme-color" content="#05070a">
+<meta name="theme-color" content="#07080e">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="play-body">
 
 <header class="topbar play-topbar">
   <a class="wordmark" href="index.html" aria-label="Back to Zenou Unblocked">
-    <span class="wordmark-lines">Zen<span class="wordmark-joystick" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="stick" d="M12 4a3.2 3.2 0 0 1 3.2 3.2c0 1.4-.9 2.5-2 2.9V18h-2.4V10.1c-1.1-.4-2-1.5-2-2.9A3.2 3.2 0 0 1 12 4z"/><path class="base" d="M4.5 18h15c1.4 0 2.5 1.1 2.5 2.5V22H2v-1.5C2 19.1 3.1 18 4.5 18z"/></svg></span>u</span>
-    <span class="wordmark-sub">unblocked</span>
+    <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4a3.2 3.2 0 0 1 3.2 3.2c0 1.4-.9 2.5-2 2.9V18h-2.4V10.1c-1.1-.4-2-1.5-2-2.9A3.2 3.2 0 0 1 12 4z"/><path d="M4.5 18h15c1.4 0 2.5 1.1 2.5 2.5V22H2v-1.5C2 19.1 3.1 18 4.5 18z"/></svg></span>
+    <span class="wordmark-text">
+      <span class="wordmark-lines">Zenou</span>
+      <span class="wordmark-sub">unblocked</span>
+    </span>
   </a>
   <button id="backBtn" class="btn btn-ghost" type="button">
     <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5l-7 7 7 7 1.4-1.4L7.8 13H20v-2H7.8l4.6-4.6L11 5z"/></svg>
@@ -55,7 +59,7 @@
         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.4l-8.3 8.3-1.4-1.4L17.6 5H14V3zM5 5h5v2H7v10h10v-3h2v5H5V5z"/></svg>
         <span>Open official website</span>
       </a>
-      <p class="ext-note">Opening a new tab to the publisher's own page — the game never re-hosted here.</p>
+      <p class="ext-note">Opening a new tab to the publisher's own page — the game is never re-hosted here.</p>
     </div>
 
     <div id="errorPanel" class="external-panel" hidden>
@@ -100,6 +104,8 @@
 </main>
 
 <div id="pbHost"></div>
+<script src="js/atmosphere.js" defer></script>
+
 <script src="js/music-player.js" defer></script>
 <script src="js/settings.js" defer></script>
 <script src="js/play.js" defer></script>

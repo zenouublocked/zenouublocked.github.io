@@ -12,7 +12,7 @@
 
   // preload game + film indexes
   let games = [];
-  try { games = (await fetch('catalog/games.json').then(r => r.json())).games; } catch { /* empty catalog still fine */ }
+  try { games = (await fetch('catalog/games.json?v=2026-10-30e').then(r => r.json())).games; } catch { /* empty catalog still fine */ }
   await TMDB.load();
 
   let tDeb;

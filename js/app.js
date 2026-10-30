@@ -46,6 +46,7 @@ const CATEGORY_META = [
   ['physics-fun', 'Physics'],
   ['arcade', 'Arcade'],
   ['scratch', 'Scratch games'],
+  ['chess', 'Chess'],
   ['crazygames-official', 'Offsite picks'],
   ['poki-official', 'Poki picks'],
   ['selfhosted', 'Self-hosted'],
@@ -161,15 +162,22 @@ function card(g, extra = {}) {
   name.textContent = g.t;
   a.append(name);
 
-  const sub = document.createElement('span');
-  sub.className = 'card-sub';
-  sub.textContent = g.s === 'scratch'
-    ? `by ${g.a || 'Scratch creator'}`
-    : (g.pc ? `${fmtPlays(g.pc)} plays` : (CAT_NAMES.get(catOf(g)) || ''));
-  a.append(sub);
+  // a creator credit means something; a category repeated on every tile does not
+  if (g.s === 'scratch') {
+    const sub = document.createElement('span');
+    sub.className = 'card-sub';
+    sub.textContent = `by ${g.a || 'Scratch creator'}`;
+    a.append(sub);
+  }
 
   if (badge.textContent) a.append(badge);
   return a;
+}
+
+/* the featured banner is full width, so ask the CDN for a larger copy of the thumb */
+function bigThumb(src) {
+  if (!src) return '';
+  return src.replace(/width=\d+/, 'width=1280');
 }
 
 function catOf(g) { return g.cs && g.cs[0] || 'arcade'; }
@@ -191,7 +199,7 @@ function renderHero() {
     heroCard.href = `play.html?id=${encodeURIComponent(f.id)}`;
     heroCard.innerHTML = '';
     const img = document.createElement('img');
-    img.src = f.img || '';
+    img.src = bigThumb(f.img);
     img.alt = '';
     const txt = document.createElement('div');
     txt.className = 'hero-card-text';
@@ -212,7 +220,7 @@ function renderHero() {
       const g = feat[idx];
       const img = heroCard.querySelector('img');
       const title = heroCard.querySelector('.hero-card-title');
-      if (img && title) { img.src = g.img || img.src; title.textContent = g.t; heroCard.href = `play.html?id=${encodeURIComponent(g.id)}`; }
+      if (img && title) { img.src = bigThumb(g.img) || img.src; title.textContent = g.t; heroCard.href = `play.html?id=${encodeURIComponent(g.id)}`; }
     }, 6000);
   }
 
@@ -220,9 +228,9 @@ function renderHero() {
   list.innerHTML = '';
   const head = document.createElement('p');
   head.className = 'hero-list-title';
-  head.innerHTML = 'Most played <small>· live play counts from the Scratch community</small>';
+  head.innerHTML = 'Most played <small>Live play counts from Scratch</small>';
   list.append(head);
-  const top = GAMES.filter(g => g.s === 'scratch' && g.pc).sort((a, b) => b.pc - a.pc).slice(0, 12);
+  const top = GAMES.filter(g => g.s === 'scratch' && g.pc).sort((a, b) => b.pc - a.pc).slice(0, 10);
   top.forEach((g, i) => {
     const it = document.createElement('a');
     it.className = 'hero-item';
@@ -286,11 +294,17 @@ function firstCategoryOverlap(games, cats) {
 function renderCollections() {
   const railEl = $('#collectionRail');
   railEl.innerHTML = '';
-  const chip = (label, cat, current) => {
+  const chip = (label, cat, current, count) => {
     const b = document.createElement('button');
     b.className = 'chip';
     b.type = 'button';
-    b.textContent = label;
+    b.append(document.createTextNode(label));
+    if (count) {
+      const n = document.createElement('span');
+      n.className = 'chip-count';
+      n.textContent = count.toLocaleString();
+      b.append(n);
+    }
     b.setAttribute('aria-current', current ? 'true' : 'false');
     b.addEventListener('click', () => current ? goHome() : goToCategory(cat));
     return b;
@@ -299,7 +313,7 @@ function renderCollections() {
   for (const [id, name] of CATEGORY_META) {
     const count = GAMES.filter(g => g.cs?.includes(id)).length;
     if (count < 4) continue;
-    railEl.append(chip(name, id, currentRoute().view === 'collection' && currentRoute().c === id));
+    railEl.append(chip(name, id, currentRoute().view === 'collection' && currentRoute().c === id, count));
   }
 }
 
@@ -452,7 +466,7 @@ async function boot() {
   window.addEventListener('popstate', render);
 
   try {
-    const res = await fetch('catalog/games.json');
+    const res = await fetch('catalog/games.json?v=2026-10-30e');
     if (!res.ok) throw new Error(res.status);
     const data = await res.json();
     GAMES = data.games;
@@ -462,6 +476,11 @@ async function boot() {
   }
   byId = new Map(GAMES.map(g => [g.id, g]));
   countsReady = true;
+
+  const total = document.getElementById('statTotal');
+  if (total) total.textContent = GAMES.length.toLocaleString();
+  const playable = document.getElementById('statPlayable');
+  if (playable) playable.textContent = GAMES.filter(g => g.p !== 'ex').length.toLocaleString();
 
   render();
   // restore search text if arriving on a search route

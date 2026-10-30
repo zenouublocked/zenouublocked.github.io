@@ -1,19 +1,20 @@
 {
-  "build": "2026-10-29T11:19:26.948Z",
+  "build": "2026-10-29T13:26:10.843Z",
   "totals": {
-    "entries": 5920,
-    "playableOnSite": 4223,
+    "entries": 6107,
+    "playableOnSite": 4226,
     "providerFileIframes": 278,
     "crazygamesFileIframes": 2695,
     "scratchEmbeds": 1250,
-    "externalOnly": 1697,
+    "externalOnly": 1881,
     "crazygamesSitelocked": 1663,
-    "relevantOnly": 0
+    "pokiExternal": 208
   },
   "verification": {
-    "method": "Per-game embeddability read from the official CrazyGames gameframe config (disableEmbedding flag) in the wrapper HTML of all 4,636 slugs; 4,636/4,636 configs parsed.",
-    "scratch": "1,250/1,250 project API probes OK · official /embed player",
-    "providerNote": "pf games load from the publisher's own hosting with no CrazyGames ad/branding shell.",
+    "method": "Per-game embeddability read from the official CrazyGames gameframe config (disableEmbedding flag) in the wrapper HTML of all slugs.",
+    "scratch": "Every Scratch ID probed against the official Scratch API · official /embed player",
+    "poki": "Every Poki slug HTTP-validated on poki.com (200) in October 2026; 16 dead slugs were pruned. Poki serves frame-ancestors https://*.poki.io, so all Poki titles are honest external links with official CDN thumbnails.",
+    "providerNote": "pf games load from the publisher own hosting with no CrazyGames ad/branding shell.",
     "slowNote": "pg embeds may show a pre-game ad. Player shows loading hints and an official-site escape."
   }
 }

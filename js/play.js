@@ -17,7 +17,7 @@ function touchRecent(id) {
 const PLAY_MODE = {
   lo: { source: 'this site (open source)', how: 'Runs entirely from this website\'s own hosting — no third-party portals, no pre-game ads.' },
   pf: { source: 'the game’s own publisher', how: 'Embedded directly from the publisher’s own service — the same build CrazyGames frames.' },
-  pg: { source: 'CrazyGames', how: 'Embedded through CrazyGames’ official game-file host, with the publisher’s own pre-game screen when one exists.' },
+  pg: { source: 'CrazyGames', how: 'Embedded from the official build CrazyGames uses — their game-file host or the publisher’s own server, with the publisher’s pre-game screen when one exists.' },
   sc: { source: 'Scratch', how: 'Runs in the official Scratch player. Credit stays with the project’s creator.' },
   ex: { source: '', how: '' },
 };
@@ -27,7 +27,7 @@ async function boot() {
   const id = p.get('id') || '';
   let GAMES;
   try {
-    const res = await fetch('catalog/games.json');
+    const res = await fetch('catalog/games.json?v=2026-10-30e');
     if (!res.ok) throw new Error(res.status);
     GAMES = (await res.json()).games;
   } catch {
@@ -77,7 +77,7 @@ async function boot() {
   // publisher gate hint for CrazyGames file-host embeds
     if (g.p === 'pg') {
     $('#embedNote').hidden = false;
-    $('#embedNote').textContent = 'A short pre-game ad may play first — heavy titles can take a minute. If the game never appears, use the Official site button above.';
+    $('#embedNote').textContent = 'A short pre-game ad may play first — heavy titles can take a minute. A few publishers hard-lock their title to crazygames.com; if you see that notice, use the Official site button below.';
   } else if (g.p === 'pf') {
     $('#embedNote').hidden = false;
     $('#embedNote').textContent = 'Loads straight from the developer\'s own hosting — no portal shell.';
@@ -112,7 +112,7 @@ async function boot() {
     }, 8000);
     const errorTimer = setTimeout(() => {
       if (!loaded) showFail(g);
-    }, 30000);
+    }, 45000);
     frame.addEventListener('load', () => {
       loaded = true;
       clearTimeout(failTimer);

@@ -20,6 +20,12 @@ const Queue = {
   cue(track) { if (!this.list.find(t => (t.url || t.id) === (track.url || track.id))) { this.list.push(track); this.pos = this.list.length - 1; this.save(); } },
 };
 
+function whichProvider(url) {
+  if (/open\.spotify\.com/.test(url)) return 'spotify';
+  if (/soundcloud\.com/.test(url)) return 'soundcloud';
+  return null;
+}
+
 function AudioPlayer(hostSel) {
   const host = document.querySelector(hostSel);
   if (!host) return null;
@@ -40,20 +46,24 @@ function AudioPlayer(hostSel) {
     <button type="button" class="pb-hide" aria-label="Show/hide player">▾</button>`;
   host.append(bar);
   document.body.classList.add('has-player');
+  /* an idle player shows a slim strip, not a 168px hole with an empty embed */
+  if (!Queue.list[Queue.pos]) bar.classList.add('empty');
 
   const $ = (s) => bar.querySelector(s);
   const frame = $('.pb-frame'), title = $('.pb-title'), artist = $('.pb-artist');
   const nextB = $('.next'), prevB = $('.prev'), open = $('.pb-open'), hide = $('.pb-hide');
   const barCSS = document.createElement('style');
   barCSS.textContent = `
-    .pb-embed { width: 340px; height: 152px; border-radius: 12px; overflow: hidden; flex: none; background: #0d1210; border: 1px solid var(--line); }
+    .pb-embed { width: 340px; height: 152px; overflow: hidden; flex: none; background: #0b0d10; border: 1px solid rgba(255, 255, 255, .22); }
     .pb-embed iframe { width: 100%; height: 100%; border: 0; display: block; }
     .pb-info { width: 200px; }
-    .pb-open { color: var(--muted); text-decoration: none; width: 34px; height: 34px; display: grid; place-items: center; border-radius: 999px; }
-    .pb-open:hover { color: var(--accent); }
-    .pb-hide { min-width: 30px; background: none; border: 0; color: var(--muted); cursor: pointer; height: 34px; border-radius: 999px; font-size: 15px; }
-    .pb-hide:hover { color: var(--text); }
+    .pb-open { color: rgba(237, 240, 243, .7); text-decoration: none; width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid rgba(255, 255, 255, .25); }
+    .pb-open:hover { color: #fff; border-color: rgba(255, 255, 255, .5); }
+    .pb-hide { min-width: 30px; background: none; border: 0; color: rgba(237, 240, 243, .6); cursor: pointer; height: 34px; font-size: 15px; }
+    .pb-hide:hover { color: #fff; }
     .player-bar { min-height: 168px; }
+    .player-bar.empty { min-height: 0; padding-top: 12px; padding-bottom: 12px; }
+    .player-bar.empty .pb-embed { display: none; }
     .player-bar.folded .pb-embed, .player-bar.folded .pb-info { display: none; }
     .player-bar.folded { transform: translateY(112px); }
     @media (max-width: 780px) {
@@ -70,21 +80,25 @@ function AudioPlayer(hostSel) {
   function playNow(track) {
     if (!track || !track.url) return false;
     title.textContent = track.t || track.title || 'Now playing';
-    artist.textContent = track.artist || PROVIDERS.which(track.url);
-    const kind = PROVIDERS.which(track.url);
-    const url = PROVIDERS[kind].url({ url: track.url });
+    artist.textContent = track.artist || whichProvider(track.url) || '';
+    if (typeof PROVIDERS === 'undefined') return false;
+    const kind = whichProvider(track.url);
+    const url = kind && PROVIDERS[kind] && PROVIDERS[kind].url({ url: track.url });
     if (!url) return false;
     frame.src = url;
     open.href = track.url;
     Queue.cue(track);
     // Spotify's compact embed misrenders inside a squeezed box; give it its documented 320px mode
     document.querySelectorAll('.player-bar').forEach(b => b.classList.remove('sc-mode'));
+    bar.classList.remove('empty');
     bar.classList.add('on');
     bar.classList.remove('folded');
     return true;
   }
 
-  PROVIDERS.which = (url) => (/open\.spotify\.com/.test(url) ? 'spotify' : /soundcloud\.com/.test(url) ? 'soundcloud' : null);
+  /* providers.js is not loaded on every page, so keep this helper local
+     instead of writing through PROVIDERS.which and throwing a ReferenceError */
+  if (typeof PROVIDERS !== 'undefined') PROVIDERS.which = whichProvider;
 
   nextB.addEventListener('click', () => { if (Queue.list.length) playNow(Queue.next(1)); });
   prevB.addEventListener('click', () => { if (Queue.list.length) playNow(Queue.next(-1)); });
@@ -94,7 +108,7 @@ function AudioPlayer(hostSel) {
   if (Queue.list[Queue.pos]) {
     const t = Queue.list[Queue.pos];
     title.textContent = t.t || 'Queued';
-    artist.textContent = t.artist || PROVIDERS.which(t.url) || '';
+    artist.textContent = t.artist || whichProvider(t.url) || '';
     open.href = t.url;
   }
   return { playNow, bar };

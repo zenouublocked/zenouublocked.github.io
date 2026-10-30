@@ -15,7 +15,11 @@ async function boot() {
 
   $('#skRow').hidden = true;
   $('#watchView').hidden = false;
-  if (!m) return noSource(null, 'This title isn\'t in the cached snapshot. Run scripts/fetch-tmdb.mjs to refresh, or open it from the catalogue.', '');
+  if (!m) {
+    const info = document.querySelector('.game-info');
+    if (info) info.hidden = true;
+    return noSource(null, 'This title isn\'t in the cached snapshot. Run scripts/fetch-tmdb.mjs to refresh, or open it from the catalogue.', '');
+  }
 
   $('#wTitle').textContent = m.t;
   document.title = `${m.t} — Watch — Zenou Unblocked`;
