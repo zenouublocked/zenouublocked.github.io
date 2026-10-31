@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{var r=document.documentElement,p=JSON.parse(localStorage.getItem('zenou_prefs')||'{}'),m=JSON.parse(localStorage.getItem('zenou_mask')||'{}');var t=p.theme||m.theme;if(t)r.dataset.theme=t;['glow','radius','density','bg','motion'].forEach(function(k){if(p[k])r.dataset[k]=p[k]});if(p.bgDim!=null)r.style.setProperty('--bg-dim',Math.max(0,Math.min(85,+p.bgDim))/100);var g=localStorage.getItem('zenou_bgimg');if(g){r.style.setProperty('--custom-bg','url("'+g+'")');r.classList.add('has-custom')}}catch(e){}</script>
+<title>Mineral | Minecraft in the browser | Zenou Unblocked</title>
+<meta name="description" content="Minecraft in your browser. Mineral runs an EaglercraftX client inside Zenou, no install and no launcher.">
+<meta name="theme-color" content="#07080e">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/logo-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/plus.css">
+<link rel="stylesheet" href="css/mineral.css">
+</head>
+<body class="min-body">
+
+<header class="min-bar">
+  <a class="wordmark" href="index.html" aria-label="Back to Zenou Unblocked">
+    <span class="brand-mark" aria-hidden="true"><img src="assets/logo.png" alt="" width="38" height="38" decoding="async"></span>
+    <span class="wordmark-text"><span class="wordmark-lines">Zenou</span><span class="wordmark-sub">unblocked</span></span>
+  </a>
+  <div class="min-title">
+    <b>Mineral</b>
+    <small>Minecraft in the browser · EaglercraftX</small>
+  </div>
+  <div class="min-controls">
+    <label class="min-select-wrap" for="minVersion">
+      <span class="sr-only">Client version</span>
+      <select id="minVersion" class="min-select" aria-label="Client version">
+        <option value="1.8.8_2/js">1.8.8 · JavaScript (recommended)</option>
+        <option value="1.12.2_2/js">1.12.2 · JavaScript</option>
+        <option value="1.8.8_2/wasm">1.8.8 · WASM (needs JSPI)</option>
+        <option value="1.12.2_2/wasm">1.12.2 · WASM (needs JSPI)</option>
+      </select>
+    </label>
+    <button id="minPlay" class="btn btn-solid" type="button">Play</button>
+    <button id="minFs" class="btn btn-ghost" type="button">Fullscreen</button>
+  </div>
+</header>
+
+<p id="minNote" class="min-note" hidden></p>
+
+<main class="min-stage">
+  <div id="minLoad" class="min-load">
+    <div class="min-load-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M3 4h7l2 2h9v14H3V4zm2 2v12h16V8h-8.4L10.6 6H5z"/><path d="M7 11h4v4H7v-4zm6 0h4v4h-4v-4z"/></svg>
+    </div>
+    <h1>Mineral is warming up</h1>
+    <p>The client downloads roughly 120 MB the first time, then the browser caches it. Give it a minute on a school connection.</p>
+    <p class="min-hint">Click inside the game once it appears so the keyboard and mouse reach it. Press Esc to release the mouse.</p>
+    <button id="minStart" class="btn btn-solid btn-lg" type="button">Start Minecraft</button>
+  </div>
+  <iframe id="minFrame" title="Mineral, Minecraft in the browser" hidden
+    allow="autoplay; fullscreen; pointer-lock; gamepad; clipboard-read; clipboard-write"
+    sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-modals allow-pointer-lock allow-downloads allow-presentation"
+    referrerpolicy="no-referrer"></iframe>
+</main>
+
+<footer class="min-foot">
+  <span>Client: EaglercraftX by lax1dude and the Eaglercraft team, served by q13x. Zenou only frames it, nothing is re-hosted here.</span>
+  <a href="web.html#mineral">Back to Web</a>
+</footer>
+
+<div id="pbHost"></div>
+<script src="js/atmosphere.js" defer></script>
+<script src="js/music-player.js" defer></script>
+<script src="js/settings.js" defer></script>
+<script src="js/zenou-plus.js" defer></script>
+<script>
+(function () {
+  'use strict';
+  var BASE = 'https://eaglercraft.q13x.com/';
+  var STORE = 'zenou_mineral_build';
+  var frame = document.getElementById('minFrame');
+  var load = document.getElementById('minLoad');
+  var select = document.getElementById('minVersion');
+  var note = document.getElementById('minNote');
+
+  /* WASM builds need JSPI, which most browsers still leave off. Only offer
+     that path when the engine actually exposes it, otherwise the client
+     dumps its own white "JSPI is not enabled" help page into the frame. */
+  function jspi() {
+    try {
+      return typeof WebAssembly.Suspending === 'function' ||
+             typeof WebAssembly.promising === 'function';
+    } catch (e) { return false; }
+  }
+
+  function savedBuild() {
+    try {
+      var v = localStorage.getItem(STORE);
+      if (v && Array.prototype.some.call(select.options, function (o) { return o.value === v; })) return v;
+    } catch (e) {}
+    return jspi() ? '1.8.8_2/wasm' : '1.8.8_2/js';
+  }
+
+  function say(msg) {
+    if (!msg) { note.hidden = true; note.textContent = ''; return; }
+    note.textContent = msg;
+    note.hidden = false;
+  }
+
+  select.value = savedBuild();
+  if (!jspi()) say('This browser has JSPI turned off, so Mineral runs the JavaScript build. Same game, no flags or extensions needed.');
+
+  function start() {
+    var v = select.value;
+    if (/\/wasm$/.test(v) && !jspi()) {
+      v = v.replace('/wasm', '/js');
+      select.value = v;
+      say('WASM needs JSPI, which this browser does not expose. Switched to the JavaScript build so it runs immediately.');
+    } else if (/\/wasm$/.test(v)) {
+      say('Running the WASM build. If the client shows a JSPI notice, switch to JavaScript in the menu above.');
+    } else {
+      say(jspi() ? '' : 'This browser has JSPI turned off, so Mineral runs the JavaScript build. Same game, no flags or extensions needed.');
+    }
+    try { localStorage.setItem(STORE, v); } catch (e) {}
+    load.classList.remove('is-gone');
+    load.hidden = false;
+    frame.hidden = false;
+    frame.src = BASE + v + '/?retina=true';
+  }
+
+  frame.addEventListener('load', function () {
+    if (!frame.src || frame.src === 'about:blank') return;
+    load.classList.add('is-gone');
+    setTimeout(function () { load.hidden = true; }, 420);
+    try { frame.focus(); } catch (e) {}
+  });
+
+  document.getElementById('minStart').addEventListener('click', start);
+  document.getElementById('minPlay').addEventListener('click', start);
+  select.addEventListener('change', function () {
+    try { localStorage.setItem(STORE, select.value); } catch (e) {}
+    if (!frame.hidden) start();
+  });
+  document.getElementById('minFs').addEventListener('click', function () {
+    var stage = document.querySelector('.min-stage');
+    if (document.fullscreenElement) document.exitFullscreen();
+    else stage.requestFullscreen && stage.requestFullscreen();
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{var r=document.documentElement,p=JSON.parse(localStorage.getItem('zenou_prefs')||'{}'),m=JSON.parse(localStorage.getItem('zenou_mask')||'{}');var t=p.theme||m.theme;if(t)r.dataset.theme=t;['glow','radius','density','bg','motion'].forEach(function(k){if(p[k])r.dataset[k]=p[k]});if(p.bgDim!=null)r.style.setProperty('--bg-dim',Math.max(0,Math.min(85,+p.bgDim))/100);if(p.hue!=null&&p.hueRgb){r.style.setProperty('--accent','hsl('+p.hue+' 92% 64%)');r.style.setProperty('--accent-2','hsl('+(((+p.hue)+42)%360)+' 92% 68%)');r.style.setProperty('--accent-rgb',p.hueRgb);r.style.setProperty('--accent-2-rgb',p.hue2Rgb)}var g=localStorage.getItem('zenou_bgimg');if(g){r.style.setProperty('--custom-bg','url("'+g+'")');r.classList.add('has-custom')}}catch(e){}</script>
+<title>PlayGTA5 | Local GTA V browser port | Zenou Unblocked</title>
+<meta name="description" content="PlayGTA5 is an unofficial, independently developed local GTA V browser port. Download the project ZIP and follow the steps to run it on your own Windows PC.">
+<meta name="theme-color" content="#07080e">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/plus.css">
+<style>
+  /* page-scoped styles, playgta5.html only */
+  .g5-hero {
+    position: relative;
+    margin-top: 40px;
+    padding: 38px 34px 32px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--line);
+    background:
+      radial-gradient(120% 180% at 0% 0%, rgb(var(--accent-rgb) / .18), transparent 55%),
+      linear-gradient(180deg, rgba(24, 27, 42, .72), rgba(11, 13, 22, .8));
+    backdrop-filter: blur(18px);
+    box-shadow:
+      0 40px 90px -50px rgba(0, 0, 0, .95),
+      0 0 calc(var(--glow-b) * 1.1) rgb(var(--accent-rgb) / calc(var(--glow-a) * .22)),
+      inset 0 1px 0 rgba(255, 255, 255, .06);
+    overflow: hidden;
+  }
+  .g5-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgb(var(--accent-rgb) / .7), rgb(var(--accent-2-rgb) / .5), transparent);
+  }
+  .g5-hero h1 {
+    font: 800 clamp(40px, 6vw, 74px)/0.92 var(--font-display);
+    font-stretch: 106%;
+    letter-spacing: -.05em;
+    margin: 0 0 10px;
+    background: linear-gradient(100deg, #fff 20%, #fff 55%, rgb(var(--accent-rgb)) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .g5-hero .g5-sub { color: var(--muted); max-width: 70ch; margin: 0 0 24px; font-size: 16px; }
+  .g5-hero code, .notice code, .steps code {
+    padding: 2px 7px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid var(--line);
+    font-size: 12.5px;
+    color: rgb(var(--accent-rgb));
+  }
+  .g5-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .g5-facts { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 22px; }
+
+  .notice {
+    margin: 18px 0;
+    padding: 22px 24px;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    border-left: 3px solid rgb(var(--accent-rgb));
+    background: linear-gradient(180deg, rgba(24, 27, 42, .58), rgba(11, 13, 22, .68));
+  }
+  .notice.danger { border-left-color: var(--danger); }
+  .notice h2 { font: 800 19px/1.25 var(--font-display); letter-spacing: -.02em; margin: 0 0 10px; color: #fff; }
+  .notice p { color: var(--muted); font-size: 14px; line-height: 1.7; margin: 0 0 10px; }
+  .notice p:last-child { margin-bottom: 0; }
+  .notice p b { color: var(--text); }
+
+  .steps { counter-reset: step; margin: 0; padding: 0; list-style: none; }
+  .steps li {
+    counter-increment: step;
+    position: relative;
+    margin-bottom: 10px;
+    padding: 20px 22px 18px 68px;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, .03);
+  }
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 18px;
+    top: 18px;
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: linear-gradient(140deg, rgb(var(--accent-rgb)), rgb(var(--accent-2-rgb)));
+    color: var(--accent-ink);
+    font: 800 15px/1 var(--font-display);
+    box-shadow: 0 0 18px rgb(var(--accent-rgb) / calc(var(--glow-a) * .5));
+  }
+  .steps h3 { font: 700 17px/1.3 var(--font-display); letter-spacing: -.015em; margin: 0 0 6px; color: #fff; }
+  .steps p { color: var(--muted); font-size: 13.5px; margin: 0 0 10px; }
+  .steps p b { color: var(--text); }
+
+  .copyline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 100%;
+    margin: 2px 0;
+    padding: 6px 8px 6px 11px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, .045);
+  }
+  .copyline code {
+    font: 600 12.5px/1.5 ui-monospace, "Cascadia Code", Consolas, monospace;
+    color: var(--text);
+    background: none;
+    border: 0;
+    padding: 0;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+  }
+  .copyline button {
+    flex: none;
+    padding: 4px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--line-strong);
+    background: rgba(255, 255, 255, .05);
+    color: var(--text);
+    font: 700 11px/1 var(--font-body);
+    cursor: pointer;
+    transition: border-color .2s var(--ease), background .2s var(--ease);
+  }
+  .copyline button:hover { border-color: rgb(var(--accent-rgb) / .6); background: rgba(255, 255, 255, .09); }
+  .copyline button.ok { background: linear-gradient(120deg, rgb(var(--accent-rgb)), rgb(var(--accent-2-rgb))); border-color: transparent; color: var(--accent-ink); }
+
+  .shot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .shot-grid figure {
+    margin: 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, .03);
+  }
+  .shot-grid img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; cursor: zoom-in; }
+  .shot-grid figcaption { padding: 8px 10px; font-size: 11px; color: var(--muted-2); }
+  .shot-grid figure.zoomed {
+    position: fixed;
+    inset: 4vmin;
+    z-index: 100;
+    margin: 0;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    background: #06070c;
+    border-color: rgb(var(--accent-rgb) / .5);
+    box-shadow: 0 0 80px rgb(var(--accent-rgb) / .25);
+  }
+  .shot-grid figure.zoomed img { width: 100%; height: 100%; aspect-ratio: auto; object-fit: contain; cursor: zoom-out; }
+
+  .g5-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+  @media (max-width: 720px) { .g5-cols { grid-template-columns: 1fr; } }
+  .g5-panel {
+    padding: 22px 24px;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, .03);
+  }
+  .g5-panel h2 { font: 800 18px/1.3 var(--font-display); letter-spacing: -.02em; margin: 0 0 8px; color: #fff; }
+  .g5-panel p, .g5-panel li { color: var(--muted); font-size: 13px; line-height: 1.7; }
+  .g5-panel ul { margin: 0; padding-left: 18px; }
+  .g5-panel code { padding: 1px 5px; border-radius: 5px; background: rgba(255, 255, 255, .06); border: 1px solid var(--line); font-size: 11.5px; color: var(--text); }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="wordmark" href="index.html" aria-label="Zenou Unblocked home">
+    <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4a3.2 3.2 0 0 1 3.2 3.2c0 1.4-.9 2.5-2 2.9V18h-2.4V10.1c-1.1-.4-2-1.5-2-2.9A3.2 3.2 0 0 1 12 4z"/><path d="M4.5 18h15c1.4 0 2.5 1.1 2.5 2.5V22H2v-1.5C2 19.1 3.1 18 4.5 18z"/></svg></span>
+    <span class="wordmark-text">
+      <span class="wordmark-lines">Zenou</span>
+      <span class="wordmark-sub">unblocked</span>
+    </span>
+  </a>
+  <nav class="mainnav" aria-label="Sections">
+    <a href="index.html" data-nav>Games</a>
+    <a href="web.html" data-nav>Web</a>
+    <a href="social.html" data-nav>Media</a>
+    <a href="music.html" data-nav>Music</a>
+    <a href="playgta5.html" data-nav aria-current="page">PlayGTA5</a>
+    <a href="library.html" data-nav>My Library</a>
+  </nav>
+  <div class="bar-tools">
+    <form class="searchbox" role="search" action="search.html" method="get">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 3a7.5 7.5 0 1 1-4.32 13.64L3 19.85 3.94 20.8l3.18-3.18A7.5 7.5 0 0 1 10.5 3zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z"/></svg>
+      <input name="q" type="search" placeholder="Search everything…" autocomplete="off" spellcheck="false" aria-label="Search games, films and music">
+    </form>
+  </div>
+</header>
+
+<main>
+  <section class="g5-hero">
+    <h1>PlayGTA5</h1>
+    <p class="g5-sub">
+      A local, self-hosted <b>GTA V browser port</b>, the complete project ships as one ZIP from this page,
+      and the heavy game data (<code>.mirror</code>, ≈ 19.7 GB) is something you place on
+      your own PC yourself. Everything runs from <code>http://localhost:8000/</code> on your machine -
+      never from this website.
+    </p>
+    <div class="g5-actions">
+      <a class="btn btn-solid btn-lg" href="downloads/playgta5.zip" download>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v10.6l3.8-3.8 1.4 1.4L12 16.4l-5.2-5.2L8.2 9.8 12 13.6V3h0zM5 19h14v2H5v-2z"/></svg>
+        <span>Download playgta5.zip</span>
+      </a>
+      <a class="btn btn-lg" href="playgta5/README.md" target="_blank" rel="noopener">
+        <span>Read the project README</span>
+      </a>
+    </div>
+    <div class="g5-facts">
+      <span class="stat">ZIP ≈ 16 MB</span>
+      <span class="stat">Bundled Windows Python runtime (runtime\python.exe)</span>
+      <span class="stat">Game data (.mirror) ≈ 19.7 GB, not included</span>
+      <span class="stat">Windows only (uses Launch-Local.cmd)</span>
+    </div>
+  </section>
+
+  <div class="notice">
+    <h2>Hosted site vs. local project</h2>
+    <p>
+      <b>This page and the download are hosted on the Zenou Unblocked website.</b>
+      Running the game itself always happens on <b>your own Windows computer</b>, a
+      <code>.cmd</code> file cannot be executed by the website, your browser, or this page.
+      The ZIP bundles the project source and a portable Python runtime only.
+    </p>
+    <p>
+      The <code>.mirror</code> folder is <b>not</b> hosted or distributed by this site and was never
+      part of the download. You bring your own game data for private local use.
+    </p>
+  </div>
+
+  <div class="notice danger">
+    <h2>Takedown contact &amp; disclaimer</h2>
+    <p>
+      If you believe this website or any of its content should be taken down, contact
+      <b><a href="mailto:nuxxzul@gmail.com">nuxxzul@gmail.com</a></b>, we respond to takedown
+      requests and will remove the relevant content.
+    </p>
+    <p>
+      <b>PlayGTA5</b> is an <b>unofficial, independently developed, reverse-engineered and
+      vibe-coded project</b> designed to closely recreate GTA V's features and gameplay.
+      It is <b>not an official copy of GTA V</b> and is <b>not affiliated with or endorsed by
+      Rockstar Games</b>.
+    </p>
+    <p>
+      No claim of legal authorization is made, and no claim that its resemblances exempt it
+      from copyright laws is made. Grand Theft Auto V and Rockstar Games are trademarks of
+      their respective owners; all game data, engine code and trademarks remain the property
+      of their respective rights holders.
+    </p>
+  </div>
+
+  <h2 class="section-title" style="margin-top:32px">Steps</h2>
+  <ol class="steps">
+    <li>
+      <h3>Download the project</h3>
+      <p>Download the ZIP archive using the button above, or clone a repository with Git if you have one. Make sure all required files and folders are included after extraction.</p>
+      <div class="copyline"><code>playgta5.zip</code><button type="button" data-copy="playgta5.zip">Copy</button></div>
+    </li>
+    <li>
+      <h3>Locate the project directory</h3>
+      <p>Open the downloaded project directory and locate the folder <b>playgta5</b> (in the ZIP contents this is just the extracted folder itself).</p>
+      <div class="copyline"><code>playgta5\</code><button type="button" data-copy="playgta5">Copy</button></div>
+    </li>
+    <li>
+      <h3>Add the .mirror folder</h3>
+      <p>Place your <code>.mirror</code> folder at your desired path inside the project. The expected folder size is approximately <b>19.7 GB</b>. Check the folder properties to verify its size, the screenshots below show the reference values.</p>
+      <div class="copyline"><code>.mirror</code><button type="button" data-copy=".mirror">Copy</button></div>
+      <div class="shot-grid" aria-label="Reference screenshots"></div>
+    </li>
+    <li>
+      <h3>Launch the project</h3>
+      <p>Run <b>Launch-Local.cmd</b>. The script starts the local server and automatically opens the project in your browser. (Double-click from the extracted folder, Windows will ask once for confirmation.)</p>
+      <div class="copyline"><code>Launch-Local.cmd</code><button type="button" data-copy="Launch-Local.cmd">Copy</button></div>
+    </li>
+    <li>
+      <h3>Access the website locally</h3>
+      <p>If the browser does not open automatically, navigate to <b>http://localhost:8000/</b> after confirming that the local server has started successfully.</p>
+      <div class="copyline"><code>http://localhost:8000/</code><button type="button" data-copy="http://localhost:8000/">Copy</button></div>
+    </li>
+  </ol>
+
+  <div class="g5-cols">
+    <section class="g5-panel">
+      <h2>What's inside the ZIP</h2>
+      <ul>
+        <li><code>Launch-Local.cmd</code>, double-click Windows launcher for the local server</li>
+        <li><code>serve_local.py</code> / <code>mirror_site.py</code>, range-aware local file server</li>
+        <li><code>runtime\python.exe</code>, bundled Python 3.12, no install needed</li>
+        <li><code>game.js</code>, <code>loader.js</code>, <code>io_worker.js</code>, <code>wgpu_worker.js</code>, <code>homepage.html</code>, the port's runtime code</li>
+        <li><code>data-manifest.json</code> + <code>shader-index.json</code>, inventories the server checks your <code>.mirror</code> against</li>
+        <li><code>snapshot\</code>, <code>media\</code>, investigation docs, build evidence and reference screenshots</li>
+      </ul>
+    </section>
+    <section class="g5-panel">
+      <h2>Good to know</h2>
+      <ul>
+        <li>Requirements: Windows (for the <code>.cmd</code> launcher), a browser with WebGPU, and your own <code>.mirror</code> data.</li>
+        <li>The scripts only need Python's standard library; the bundled <code>runtime\python.exe</code> is already wired in.</li>
+        <li>Actual gameplay hasn't been validated here, the harness (server, isolation, range reads, WASM signature) is verified, but results depend on your machine, data files and browser.</li>
+        <li>This is a separate download, not a playable embed: it never runs from the website itself.</li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<footer class="sitefoot">
+  <div class="foot-grid">
+    <div>
+      <span class="foot-mark">Zenou <b>Unblocked</b></span>
+      <p>Browser games, playlists and stats in one place. Free, no account, no install.</p>
+      <p class="foot-small">Sister project: <a href="https://zenoutools.github.io/" rel="noopener">Zenou Tools</a></p>
+    </div>
+    <div>
+      <h3>Where it comes from</h3>
+      <p>Games run inside official embeds from <a href="https://www.crazygames.com" rel="noopener">CrazyGames</a>, <a href="https://scratch.mit.edu" rel="noopener">Scratch</a> and publishers' own builds, credited to each creator. Music plays through Spotify and SoundCloud official embeds.</p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <p>Takedown requests and content concerns: <a href="mailto:nuxxzul@gmail.com">nuxxzul@gmail.com</a></p>
+      <p>Also see the <a href="playgta5.html">PlayGTA5 disclaimer</a> above.</p>
+    </div>
+  </div>
+</footer>
+
+<div id="pbHost"></div>
+
+
+<script src="js/atmosphere.js" defer></script>
+
+<script src="js/music-player.js" defer></script>
+<script src="js/settings.js" defer></script>
+<script src="js/zenou-plus.js" defer></script>
+<script defer>
+/* screenshots + copy buttons */
+(() => {
+  const shots = [
+    ['playgta5/media/Screenshot 2026-10-07 172103.png', 'Project folder contents'],
+    ['playgta5/media/Screenshot 2026-10-07 172216.png', 'Folder properties, size reference'],
+    ['playgta5/media/Screenshot 2026-10-07 172718.png', 'Folder properties, size reference'],
+    ['playgta5/media/Screenshot 2026-10-07 172758.png', 'Folder properties, size reference'],
+  ];
+  const grid = document.querySelector('.shot-grid');
+  shots.forEach(([src, cap]) => {
+    const f = document.createElement('figure');
+    const img = document.createElement('img');
+    img.loading = 'lazy'; img.decoding = 'async'; img.alt = cap;
+    img.src = encodeURI(src);
+    const fc = document.createElement('figcaption');
+    fc.textContent = cap;
+    f.append(img, fc);
+    img.addEventListener('click', () => f.classList.toggle('zoomed'));
+    grid.append(f);
+  });
+
+  document.querySelectorAll('.copyline button[data-copy]').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const v = btn.dataset.copy;
+      try { await navigator.clipboard.writeText(v); }
+      catch {
+        const ta = document.createElement('textarea');
+        ta.value = v; document.body.append(ta); ta.select();
+        document.execCommand('copy'); ta.remove();
+      }
+      btn.textContent = 'Copied';
+      btn.classList.add('ok');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('ok'); }, 1400);
+    });
+  });
+})();
+</script>
+</body>
+</html>

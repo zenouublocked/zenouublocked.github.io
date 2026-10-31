@@ -1,0 +1,20 @@
+const { chromium } = require('playwright-core');
+const path = require('path');
+(async () => {
+  const browser = await chromium.launch({ executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe', headless: true, args: ['--no-sandbox','--enable-unsafe-swiftshader','--use-angle=swiftshader','--hide-scrollbars'] });
+  const page = await browser.newPage({ viewport: { width: 1600, height: 1000 }, deviceScaleFactor: 1 });
+  await page.addInitScript(() => { try { localStorage.setItem('zenou_tour_done', 'true'); } catch (e) {} });
+  const root = path.resolve('../../trailer/assets/shots');
+  await page.goto('http://127.0.0.1:8000/index.html', { waitUntil: 'networkidle', timeout: 45000 });
+  await page.waitForTimeout(4000);
+  await page.screenshot({ path: path.join(root, 'home.png') });
+  await page.locator('.brand-mark').screenshot({ path: path.join(root, 'logo-mark.png') }).catch(() => {});
+  await page.locator('.wordmark').screenshot({ path: path.join(root, 'wordmark.png') }).catch(() => {});
+  await page.evaluate(() => document.querySelector('#browse')?.scrollIntoView({ block: 'start' }));
+  await page.waitForTimeout(2200);
+  await page.screenshot({ path: path.join(root, 'library.png') });
+  await page.evaluate(() => window.scrollTo(0, 620));
+  await page.waitForTimeout(1600);
+  await page.screenshot({ path: path.join(root, 'library2.png') });
+  await browser.close();
+})();

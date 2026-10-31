@@ -1,0 +1,122 @@
+127.0.0.1 - - [31/Oct/2026 17:22:07] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:22:26] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:22:26] "GET /css/plus.css HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:22:26] "GET /css/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:22:26] "GET /css/home.css HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:22:26] "GET /assets/logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:22:26] "GET /js/atmosphere.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:22:26] "GET /js/music-player.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:22:26] "GET /js/settings.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:22:26] "GET /js/app.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:22:26] "GET /js/zenou-plus.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:22:27] "GET /catalog/games.json?v=2026-10-31b HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:22:28] "GET /assets/favicon.png HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:12] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:12] "GET /css/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:12] "GET /css/plus.css HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:12] "GET /css/home.css HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:12] "GET /assets/logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:12] "GET /js/atmosphere.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:12] "GET /js/music-player.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:12] "GET /js/settings.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:12] "GET /js/zenou-plus.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:12] "GET /js/app.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:13] "GET /catalog/games.json?v=2026-10-31b HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:13] "GET /assets/favicon.png HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:16] "GET /assets/thumbs/skate-3.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:16] "GET /assets/thumbs/clustertruck.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:16] "GET /assets/thumbs/crossy-road.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:16] "GET /assets/thumbs/how-to-fish.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:16] "GET /assets/thumbs/fiveplay.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:16] "GET /assets/thumbs/among-us.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:16] "GET /assets/thumbs/mineral.svg HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:16] "GET /assets/thumbs/buildnow-gg.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:16] "GET /assets/thumbs/geometry-dash.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:16] "GET /assets/thumbs/hexgl.svg HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:49] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:49] "GET /css/plus.css HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:49] "GET /css/home.css HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:49] "GET /css/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:49] "GET /assets/logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:49] "GET /js/atmosphere.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:49] "GET /js/music-player.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:49] "GET /js/settings.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:49] "GET /js/zenou-plus.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:49] "GET /js/app.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:50] "GET /catalog/games.json?v=2026-10-31b HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:50] "GET /assets/favicon.png HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:53] "GET /assets/thumbs/skate-3.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:53] "GET /assets/thumbs/crossy-road.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:53] "GET /assets/thumbs/clustertruck.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:53] "GET /assets/thumbs/how-to-fish.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:53] "GET /assets/thumbs/fiveplay.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:53] "GET /assets/thumbs/mineral.svg HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:53] "GET /assets/thumbs/among-us.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:53] "GET /assets/thumbs/buildnow-gg.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:53] "GET /assets/thumbs/geometry-dash.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:54] "GET /assets/thumbs/granny.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:23:54] "GET /assets/thumbs/hexgl.svg HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:25:53] "GET /trailer.html HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:25:53] "GET /css/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:25:53] "GET /css/plus.css HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:25:53] "GET /media/zenou-trailer.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:25:53] "GET /assets/logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:25:53] "GET /js/atmosphere.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:25:53] "GET /js/music-player.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:25:53] "GET /js/settings.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:25:53] "GET /js/zenou-plus.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:25:53] "GET /media/zenou-trailer.mp4 HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:25:53] "GET /catalog/games.json?v=2026-10-31b HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 17:25:54] "GET /assets/favicon.png HTTP/1.1" 200 -
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 56748)
+Traceback (most recent call last):
+  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 697, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 1311, in finish_request
+    self.RequestHandlerClass(request, client_address, self,
+  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 672, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 766, in __init__
+    self.handle()
+  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 679, in do_GET
+    self.copyfile(f, self.wfile)
+  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 878, in copyfile
+    shutil.copyfileobj(source, outputfile)
+  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 204, in copyfileobj
+    fdst_write(buf)
+  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 845, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+----------------------------------------
+127.0.0.1 - - [31/Oct/2026 17:26:09] "GET /media/zenou-trailer.mp4 HTTP/1.1" 200 -
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 61455)
+Traceback (most recent call last):
+  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 697, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 1311, in finish_request
+    self.RequestHandlerClass(request, client_address, self,
+  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 672, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 766, in __init__
+    self.handle()
+  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 679, in do_GET
+    self.copyfile(f, self.wfile)
+  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 878, in copyfile
+    shutil.copyfileobj(source, outputfile)
+  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 204, in copyfileobj
+    fdst_write(buf)
+  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 845, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+----------------------------------------
+127.0.0.1 - - [31/Oct/2026 17:28:29] "GET /index.html HTTP/1.1" 200 -

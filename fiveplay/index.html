@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FivePlay | Zenou Unblocked</title>
+<meta name="theme-color" content="#07080e">
+<link rel="icon" href="../assets/favicon.png" type="image/png">
+<style>
+  :root { color-scheme: dark; --ink:#eef1f8; --muted:#99a2b4; --line:rgba(255,255,255,.12); --accent:#ff4fb0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #05060b; color: var(--ink); }
+  body { display: flex; flex-direction: column; font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; overflow: hidden; }
+  .bar {
+    flex: none; height: 54px; display: flex; align-items: center; gap: 14px;
+    padding: 0 16px; border-bottom: 1px solid var(--line);
+    background: linear-gradient(180deg, #10131f, #0a0c14);
+  }
+  .bar a { color: var(--muted); text-decoration: none; font-weight: 600; }
+  .bar a:hover { color: #fff; }
+  .title { display: flex; flex-direction: column; line-height: 1.15; margin-right: auto; }
+  .title b { font-size: 14px; letter-spacing: -.01em; }
+  .title small { color: var(--muted); font-size: 10.5px; letter-spacing: .04em; }
+  .btn {
+    border: 1px solid var(--line); background: rgba(255,255,255,.05); color: var(--ink);
+    border-radius: 999px; padding: 7px 13px; font: 700 11.5px/1 system-ui, sans-serif; cursor: pointer;
+  }
+  .btn:hover { border-color: rgba(255,79,176,.55); color: #fff; }
+  .stage { position: relative; flex: 1; min-height: 0; background: #000; }
+  .stage iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #000; }
+  .boot {
+    position: absolute; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center;
+    background: radial-gradient(55% 55% at 50% 0%, rgba(255,79,176,.14), transparent 70%), #07080e;
+  }
+  .boot-card { max-width: 470px; }
+  .boot-mark {
+    width: 54px; height: 54px; margin: 0 auto 16px; display: grid; place-items: center;
+    border: 1px solid rgba(255,79,176,.35); border-radius: 14px; background: rgba(255,79,176,.1);
+    color: var(--accent); font: 800 20px/1 system-ui, sans-serif;
+    box-shadow: 0 0 40px rgba(255,79,176,.18);
+  }
+  .boot h1 { margin: 0 0 8px; font-size: 22px; letter-spacing: -.03em; }
+  .boot p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.65; }
+  .boot .err { color: #ff8a9d; }
+  .boot .btn {
+    display: inline-flex; margin-top: 16px; padding: 11px 18px; text-decoration: none;
+    background: var(--accent); border-color: transparent; color: #0a0a14; font-weight: 800;
+  }
+  .boot .btn:hover { filter: brightness(1.08); }
+  .boot .url { display: block; margin-top: 10px; color: var(--accent); font: 600 12px/1.4 ui-monospace, monospace; }
+  .compat {
+    flex: none; padding: 8px 16px; text-align: center; font-size: 11.5px; line-height: 1.5;
+    color: #ffd9a6; background: rgba(255, 176, 76, .10); border-bottom: 1px solid rgba(255, 176, 76, .24);
+  }
+  .noscript { padding: 24px; color: var(--muted); }
+</style>
+</head>
+<body>
+<header class="bar">
+  <a href="../index.html">← Zenou</a>
+  <div class="title">
+    <b>FivePlay</b>
+    <small>gta-style open world · isolated player</small>
+  </div>
+  <a class="btn" href="https://fiveplay.lol/" target="_blank" rel="noopener noreferrer">Open in new tab</a>
+  <button id="fs" class="btn" type="button">Fullscreen</button>
+</header>
+<div id="compat" class="compat" hidden></div>
+<main id="stage" class="stage">
+  <div id="boot" class="boot">
+    <div class="boot-card">
+      <div class="boot-mark">5</div>
+      <h1>Starting FivePlay</h1>
+      <p id="bootText">Preparing the isolated player. The page reloads once, then the game streams in.</p>
+    </div>
+  </div>
+</main>
+<script>
+(function () {
+  'use strict';
+  var stage = document.getElementById('stage');
+  var boot = document.getElementById('boot');
+  var bootText = document.getElementById('bootText');
+  var RELOAD_KEY = 'zenou_fiveplay_coi';
+
+  function hasMemory64() {
+    try {
+      new WebAssembly.Memory({ initial: 1n, maximum: 2n, shared: true, address: 'i64' });
+      return true;
+    } catch (e) { return false; }
+  }
+
+  function fail(message) {
+    bootText.className = 'err';
+    bootText.textContent = message;
+  }
+
+  function mount() {
+    boot.remove();
+    var f = document.createElement('iframe');
+    f.title = 'FivePlay, GTA-style open world';
+    f.src = 'https://fiveplay.lol/';
+    f.allow = 'autoplay; fullscreen; gamepad; clipboard-read; clipboard-write';
+    f.setAttribute('allowfullscreen', '');
+    f.referrerPolicy = 'no-referrer-when-downgrade';
+    f.sandbox = 'allow-scripts allow-same-origin allow-forms allow-popups allow-modals allow-pointer-lock allow-downloads allow-presentation';
+    stage.append(f);
+  }
+
+  async function bootGame() {
+    if (!hasMemory64()) {
+      var bar = document.getElementById('compat');
+      bar.hidden = false;
+      bar.textContent = 'This browser engine is older than FivePlay needs (64-bit WebAssembly memory). Open it in a current Chrome, Edge or Firefox instead.';
+      bootText.textContent = 'FivePlay cannot start inside this browser engine. Open it in a different tab, in a current browser. The rest of Zenou works normally.';
+      var link = document.createElement('a');
+      link.className = 'btn btn-solid';
+      link.href = 'https://fiveplay.lol/';
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = 'Open FivePlay in a new tab';
+      var url = document.createElement('code');
+      url.className = 'url';
+      url.textContent = 'https://fiveplay.lol/';
+      var card = boot.querySelector('.boot-card');
+      if (card) card.append(link, url);
+      return;
+    }
+    if (window.crossOriginIsolated) { mount(); return; }
+    if (!('serviceWorker' in navigator)) {
+      fail('This browser cannot start the isolated player FivePlay needs. Try Chrome, Edge or Firefox on https.');
+      return;
+    }
+    try {
+      await navigator.serviceWorker.register('coi-sw.js', { scope: './' });
+      await navigator.serviceWorker.ready;
+      var n = +(sessionStorage.getItem(RELOAD_KEY) || 0);
+      if (n < 2) {
+        sessionStorage.setItem(RELOAD_KEY, String(n + 1));
+        location.reload();
+        return;
+      }
+      fail('The isolated player did not start. Reload this page once, then try again.');
+    } catch (err) {
+      fail('The isolated player could not start: ' + (err && err.message ? err.message : 'service worker blocked') + '. Open this page over https or localhost.');
+    }
+  }
+
+  document.getElementById('fs').addEventListener('click', function () {
+    var el = document.documentElement;
+    if (document.fullscreenElement) document.exitFullscreen();
+    else el.requestFullscreen && el.requestFullscreen();
+  });
+
+  bootGame();
+})();
+</script>
+</body>
+</html>

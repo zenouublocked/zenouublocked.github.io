@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{var r=document.documentElement,p=JSON.parse(localStorage.getItem('zenou_prefs')||'{}'),m=JSON.parse(localStorage.getItem('zenou_mask')||'{}');var t=p.theme||m.theme;if(t)r.dataset.theme=t;['glow','radius','density','bg','motion'].forEach(function(k){if(p[k])r.dataset[k]=p[k]});if(p.bgDim!=null)r.style.setProperty('--bg-dim',Math.max(0,Math.min(85,+p.bgDim))/100);if(p.hue!=null&&p.hueRgb){r.style.setProperty('--accent','hsl('+p.hue+' 92% 64%)');r.style.setProperty('--accent-2','hsl('+(((+p.hue)+42)%360)+' 92% 68%)');r.style.setProperty('--accent-rgb',p.hueRgb);r.style.setProperty('--accent-2-rgb',p.hue2Rgb)}var g=localStorage.getItem('zenou_bgimg');if(g){r.style.setProperty('--custom-bg','url("'+g+'")');r.classList.add('has-custom')}}catch(e){}</script>
+<title>Trailer · Zenou Unblocked</title>
+<meta name="description" content="The Zenou Unblocked trailer: 5,710 games, the embedded web, media, music and the library that remembers, in seventy-two seconds.">
+<meta name="theme-color" content="#07080e">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/logo-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/plus.css">
+<style>
+  .tr-main { max-width: 1180px; margin: 0 auto; padding: 16px 22px 80px; }
+  .tr-hero { margin: 34px 0 22px; }
+  .tr-eyebrow { font: 700 11px/1 var(--font-body); letter-spacing: .28em; text-transform: uppercase; color: rgb(var(--accent-rgb)); margin: 0 0 14px; }
+  .tr-title { font: 800 clamp(44px, 6.4vw, 88px)/0.94 var(--font-display); font-stretch: 106%; letter-spacing: -.045em; margin: 0 0 14px; }
+  .tr-title em { font-style: normal; background: linear-gradient(100deg, rgb(var(--accent-rgb)), rgb(var(--accent-2-rgb))); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .tr-deck { margin: 0; max-width: 64ch; color: var(--muted); font-size: 15.5px; line-height: 1.7; }
+
+  .tr-player { position: relative; margin: 26px 0 10px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--line); background: #05060b;
+    box-shadow: 0 40px 100px -60px #000, 0 0 70px -30px rgb(var(--accent-rgb) / .5); aspect-ratio: 16 / 9; }
+  .tr-player video { display: block; width: 100%; height: 100%; object-fit: cover; background: #05060b; }
+  .tr-bigplay { position: absolute; inset: 0; display: grid; place-items: center; border: 0; cursor: pointer;
+    background: radial-gradient(70% 70% at 50% 45%, rgba(4,6,12,.35), rgba(4,6,12,.72)); transition: opacity .3s; }
+  .tr-bigplay.hide { opacity: 0; pointer-events: none; }
+  .tr-play-ring { width: 96px; height: 96px; border-radius: 50%; display: grid; place-items: center;
+    border: 1px solid rgb(var(--accent-rgb) / .7); background: rgba(8,10,18,.55); backdrop-filter: blur(8px);
+    box-shadow: 0 0 60px rgb(var(--accent-rgb) / .45); transition: transform .2s; }
+  .tr-bigplay:hover .tr-play-ring { transform: scale(1.06); }
+  .tr-play-ring svg { width: 34px; height: 34px; fill: #fff; margin-left: 4px; }
+  .tr-bigplay span { position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%);
+    font: 700 11.5px/1 var(--font-body); letter-spacing: .24em; text-transform: uppercase; color: #d9d3ea; }
+  .tr-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 14px 0 34px; }
+  .tr-meta .stat { font-size: 11.5px; }
+  .tr-dl { margin-left: auto; font: 700 12px/1 var(--font-body); color: var(--text); text-decoration: none; padding: 9px 14px; border: 1px solid var(--line-strong); border-radius: 999px; }
+  .tr-dl:hover { border-color: rgb(var(--accent-rgb) / .6); }
+
+  .tr-section-title { font: 800 22px/1.2 var(--font-display); letter-spacing: -.02em; margin: 34px 0 14px; }
+  .tr-chapters { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px; }
+  .tr-chapter { display: flex; align-items: baseline; gap: 12px; padding: 13px 15px; border: 1px solid var(--line);
+    border-radius: var(--radius); background: rgba(255,255,255,.025); color: var(--text); text-align: left; cursor: pointer; font: inherit; transition: border-color .2s, background .2s; }
+  .tr-chapter:hover { border-color: rgb(var(--accent-rgb) / .5); background: rgba(255,255,255,.05); }
+  .tr-chapter time { font: 700 11px/1 var(--font-body); color: rgb(var(--accent-2-rgb)); letter-spacing: .04em; }
+  .tr-chapter b { display: block; font: 700 13.5px/1.2 var(--font-body); }
+  .tr-chapter small { display: block; color: var(--muted-2); font-size: 11px; margin-top: 3px; }
+
+  .tr-notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; margin-top: 14px; }
+  .tr-note { padding: 18px 20px; border-radius: var(--radius); border: 1px solid var(--line); background: rgba(255,255,255,.025); }
+  .tr-note h3 { font: 700 14px/1.3 var(--font-body); margin: 0 0 7px; color: #fff; }
+  .tr-note p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
+  .tr-note code { font-size: 12px; padding: 1px 5px; border-radius: 5px; background: rgba(255,255,255,.06); border: 1px solid var(--line); }
+
+  @media (max-width: 640px) {
+    .tr-hero { margin-top: 20px; }
+    .tr-dl { margin-left: 0; }
+    .tr-play-ring { width: 70px; height: 70px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="wordmark" href="index.html" aria-label="Zenou Unblocked home">
+    <span class="brand-mark" aria-hidden="true"><img src="assets/logo.png" alt="" width="38" height="38" decoding="async"></span>
+    <span class="wordmark-text">
+      <span class="wordmark-lines">Zenou</span>
+      <span class="wordmark-sub">unblocked</span>
+    </span>
+  </a>
+  <nav class="mainnav" aria-label="Sections">
+    <a href="index.html" data-nav>Games</a>
+    <a href="web.html" data-nav>Web</a>
+    <a href="social.html" data-nav>Media</a>
+    <a href="music.html" data-nav>Music</a>
+    <a href="trailer.html" data-nav aria-current="page">Trailer</a>
+    <a href="library.html" data-nav>My Library</a>
+  </nav>
+  <div class="bar-tools">
+    <form class="searchbox" role="search" action="search.html" method="get">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 3a7.5 7.5 0 1 1-4.32 13.64L3 19.85 3.94 20.8l3.18-3.18A7.5 7.5 0 0 1 10.5 3zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z"/></svg>
+      <input name="q" type="search" placeholder="Search games…" autocomplete="off" spellcheck="false" aria-label="Search games">
+    </form>
+  </div>
+</header>
+
+<main class="tr-main">
+  <header class="tr-hero">
+    <p class="tr-eyebrow">The trailer</p>
+    <h1 class="tr-title">One tab.<br><em>Everything, in motion.</em></h1>
+    <p class="tr-deck">Seventy-two seconds through the whole site: the catalogue, the embedded web, the media library, the music desk, the library that remembers, and the settings that make it yours. Narrated, scored, and cut from the real interface.</p>
+  </header>
+
+  <div class="tr-player">
+    <video id="trailer" poster="media/zenou-trailer.jpg" preload="metadata" playsinline controls>
+      <source src="media/zenou-trailer.mp4" type="video/mp4">
+      Your browser cannot play this video. <a href="media/zenou-trailer.mp4">Download it here</a>.
+    </video>
+    <button class="tr-bigplay" id="bigPlay" type="button" aria-label="Play the trailer">
+      <span class="tr-play-ring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+      <span>Play the trailer</span>
+    </button>
+  </div>
+
+  <div class="tr-meta">
+    <span class="stat">72 seconds</span>
+    <span class="stat">1920 × 1080 · 30 fps</span>
+    <span class="stat">Narration + original score</span>
+    <a class="tr-dl" href="media/zenou-trailer.mp4" download>Download the MP4</a>
+  </div>
+
+  <h2 class="tr-section-title">Chapters</h2>
+  <div class="tr-chapters" id="chapters">
+    <button class="tr-chapter" data-at="0"><time>00:00</time><span><b>The shelf</b><small>5,710 games, one tab</small></span></button>
+    <button class="tr-chapter" data-at="6.25"><time>00:06</time><span><b>No friction</b><small>No installs, no sign-ups, no waiting</small></span></button>
+    <button class="tr-chapter" data-at="11.25"><time>00:11</time><span><b>This is Zenou</b><small>Every page, in one place</small></span></button>
+    <button class="tr-chapter" data-at="18"><time>00:18</time><span><b>Games</b><small>5,710 in the catalogue · 3,043 with no pre-roll</small></span></button>
+    <button class="tr-chapter" data-at="26.25"><time>00:26</time><span><b>The web</b><small>Links load inside the page</small></span></button>
+    <button class="tr-chapter" data-at="34.25"><time>00:34</time><span><b>Media</b><small>YouTube, TikTok, Instagram, Discord</small></span></button>
+    <button class="tr-chapter" data-at="42"><time>00:42</time><span><b>Music</b><small>Spotify and SoundCloud</small></span></button>
+    <button class="tr-chapter" data-at="49"><time>00:49</time><span><b>My Library</b><small>It remembers everything</small></span></button>
+    <button class="tr-chapter" data-at="56.5"><time>00:56</time><span><b>Make it yours</b><small>Themes, backgrounds, shortcuts</small></span></button>
+    <button class="tr-chapter" data-at="63.5"><time>01:03</time><span><b>One tab. Everything.</b><small>Outro</small></span></button>
+  </div>
+
+  <h2 class="tr-section-title">How it was made</h2>
+  <div class="tr-notes">
+    <section class="tr-note">
+      <h3>Real captures</h3>
+      <p>Every screen in the trailer is a screenshot of the live site, taken at 1600 × 1000 from Chrome. Nothing is a mock-up.</p>
+    </section>
+    <section class="tr-note">
+      <h3>Motion graphics</h3>
+      <p>Every frame is a Three.js scene rendered headlessly in Chrome: real 3D cards, a perspective grid, camera moves and kinetic type, 2,160 frames at 1080p.</p>
+    </section>
+    <section class="tr-note">
+      <h3>Sound</h3>
+      <p>Neural narration over a score synthesised from scratch at 120 BPM, side-chain ducked under the voice, then cut to the same clock as the picture.</p>
+    </section>
+    <section class="tr-note">
+      <h3>Rebuild it</h3>
+      <p>The whole pipeline lives in <code>trailer/</code>. Run <code>python build_trailer.py</code> after capturing new shots.</p>
+    </section>
+  </div>
+</main>
+
+<footer class="sitefoot">
+  <div class="foot-grid">
+    <div>
+      <span class="foot-mark">Zenou <b>Unblocked</b></span>
+      <p>Games, media, music and the web in one tab. Free, no account, no install.</p>
+      <p class="foot-small">Sister project: <a href="https://zenoutools.github.io/" rel="noopener">Zenou Tools</a></p>
+    </div>
+    <div>
+      <h3>Where it comes from</h3>
+      <p>Games run through publisher embeds and self-hosted builds. Music plays through Spotify and SoundCloud official players.</p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <p>Takedown requests and content concerns: <a href="mailto:nuxxzul@gmail.com">nuxxzul@gmail.com</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/atmosphere.js" defer></script>
+<script src="js/music-player.js" defer></script>
+<script src="js/settings.js" defer></script>
+<script src="js/zenou-plus.js" defer></script>
+<script>
+(() => {
+  const video = document.getElementById('trailer');
+  const big = document.getElementById('bigPlay');
+  const start = () => { video.play().catch(() => {}); };
+  big.addEventListener('click', start);
+  video.addEventListener('play', () => big.classList.add('hide'));
+  video.addEventListener('pause', () => { if (!video.ended) big.classList.remove('hide'); });
+  document.querySelectorAll('.tr-chapter').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      video.currentTime = Number(btn.dataset.at) || 0;
+      start();
+      video.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  });
+})();
+</script>
+</body>
+</html>

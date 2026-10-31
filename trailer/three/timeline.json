@@ -1,0 +1,119 @@
+{
+ "fps": 30,
+ "width": 1920,
+ "height": 1080,
+ "duration": 72.0,
+ "bpm": 120,
+ "shots": [
+  {
+   "id": "hook",
+   "start": 0.0,
+   "end": 6.25,
+   "vo": {
+    "id": "hook",
+    "start": 0.55,
+    "end": 4.623,
+    "text": "Five thousand, seven hundred games. One tab. Nothing to install."
+   }
+  },
+  {
+   "id": "rules",
+   "start": 6.25,
+   "end": 11.25,
+   "vo": {
+    "id": "rules",
+    "start": 6.8,
+    "end": 9.674,
+    "text": "No sign-ups. No waiting. You just press play."
+   }
+  },
+  {
+   "id": "site",
+   "start": 11.25,
+   "end": 18.0,
+   "vo": {
+    "id": "site",
+    "start": 11.8,
+    "end": 13.216,
+    "text": "This is Zenou Unblocked."
+   }
+  },
+  {
+   "id": "games",
+   "start": 18.0,
+   "end": 26.25,
+   "vo": {
+    "id": "games",
+    "start": 18.55,
+    "end": 25.166,
+    "text": "Arcade classics, racing, sandbox worlds, full 3D adventures. Every one of them opens right here."
+   }
+  },
+  {
+   "id": "web",
+   "start": 26.25,
+   "end": 34.25,
+   "vo": {
+    "id": "web",
+    "start": 26.8,
+    "end": 30.864,
+    "text": "The web is in here too. Paste a link, and it loads inside the page."
+   }
+  },
+  {
+   "id": "media",
+   "start": 34.25,
+   "end": 42.0,
+   "vo": {
+    "id": "media",
+    "start": 34.8,
+    "end": 39.958,
+    "text": "YouTube, TikTok, Instagram, Discord. Everything you would normally switch tabs for."
+   }
+  },
+  {
+   "id": "music",
+   "start": 42.0,
+   "end": 49.0,
+   "vo": {
+    "id": "music",
+    "start": 42.55,
+    "end": 44.382,
+    "text": "And your music keeps playing the whole time."
+   }
+  },
+  {
+   "id": "library",
+   "start": 49.0,
+   "end": 56.5,
+   "vo": {
+    "id": "library",
+    "start": 49.55,
+    "end": 53.281,
+    "text": "It remembers what you played, what you loved, and exactly where you stopped."
+   }
+  },
+  {
+   "id": "yours",
+   "start": 56.5,
+   "end": 63.5,
+   "vo": {
+    "id": "yours",
+    "start": 57.05,
+    "end": 60.193,
+    "text": "Themes, backgrounds, shortcuts. Make it yours."
+   }
+  },
+  {
+   "id": "outro",
+   "start": 63.5,
+   "end": 72.0,
+   "vo": {
+    "id": "outro",
+    "start": 64.05,
+    "end": 66.732,
+    "text": "Zenou Unblocked. One tab. Everything."
+   }
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Zenou trailer render</title>
+<style>
+  @font-face { font-family: Archivo; src: url("../assets/fonts/Archivo.ttf") format("truetype");
+               font-weight: 100 900; font-stretch: 75% 125%; font-display: block; }
+  html, body { margin: 0; padding: 0; background: #04050a; overflow: hidden; }
+  #gl, #ui { position: fixed; inset: 0; width: 1920px; height: 1080px; display: block; }
+  #ui { pointer-events: none; }
+</style>
+<script type="importmap">{ "imports": { "three": "./vendor/three.module.js" } }</script>
+</head>
+<body>
+<canvas id="gl" width="1920" height="1080"></canvas>
+<canvas id="ui" width="1920" height="1080"></canvas>
+<script type="module" src="./film.js"></script>
+</body>
+</html>

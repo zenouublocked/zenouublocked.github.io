@@ -1,0 +1,17 @@
+{
+  "voice": "en-US-AndrewNeural",
+  "rate": "+3%",
+  "pitch": "-1Hz",
+  "lines": [
+    {"id": "hook",    "text": "Five thousand, seven hundred games. One tab. Nothing to install."},
+    {"id": "rules",   "text": "No sign-ups. No waiting. You just press play."},
+    {"id": "site",    "text": "This is Zenou Unblocked."},
+    {"id": "games",   "text": "Arcade classics, racing, sandbox worlds, full 3D adventures. Every one of them opens right here."},
+    {"id": "web",     "text": "The web is in here too. Paste a link, and it loads inside the page."},
+    {"id": "media",   "text": "YouTube, TikTok, Instagram, Discord. Everything you would normally switch tabs for."},
+    {"id": "music",   "text": "And your music keeps playing the whole time."},
+    {"id": "library", "text": "It remembers what you played, what you loved, and exactly where you stopped."},
+    {"id": "yours",   "text": "Themes, backgrounds, shortcuts. Make it yours."},
+    {"id": "outro",   "text": "Zenou Unblocked. One tab. Everything."}
+  ]
+}
