@@ -268,7 +268,7 @@ try {
     check('.env is never served', env.status === 404);
     const srv = await fetch(`${BASE}/server/index.mjs`);
     check('server source is not served', srv.status === 404);
-    const page = await fetch(`${BASE}/movies.html`);
+    const page = await fetch(`${BASE}/movies`);
     const html = await page.text();
     check('static pages still serve', page.status === 200 && html.includes('<!DOCTYPE html>'));
     check('no TMDB key in the page', !/fixture-key|api_key/i.test(html));

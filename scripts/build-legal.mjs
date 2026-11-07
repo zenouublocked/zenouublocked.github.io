@@ -164,6 +164,17 @@ ${doc.body}
 `;
 }
 
+/* Clean out any flat file that would shadow a directory index, so re-running
+   this script can never reintroduce the redirect loop. */
+if (fs.existsSync(path.join(ROOT, 'legal'))) {
+  for (const entry of fs.readdirSync(path.join(ROOT, 'legal'))) {
+    if (entry.endsWith('.html')) {
+      fs.rmSync(path.join(ROOT, 'legal', entry), { force: true });
+      console.log(`  removed shadow ${entry}`);
+    }
+  }
+}
+
 for (const doc of DOCS) {
   const dir = doc.slug ? path.join(ROOT, 'legal', doc.slug) : path.join(ROOT, 'legal');
   fs.mkdirSync(dir, { recursive: true });
@@ -171,26 +182,13 @@ for (const doc of DOCS) {
   console.log(`  ${doc.slug ? '/legal/' + doc.slug : '/legal'}`);
 }
 
-/* Old flat addresses (/legal/terms.html) keep working: same rule as the rest
-   of the site, a meta refresh plus a canonical, no JavaScript required. */
-const LEGACY = [
-  ['terms', 'terms'],
-  ['privacy', 'privacy'],
-  ['acceptable-use', null],
-  ['copyright', 'copyright'],
-  ['takedown', 'dmca'],
-  ['disclaimer', 'disclaimer'],
-  ['liability', null],
-  ['contact', 'contact'],
-];
-for (const [slug, legacy] of LEGACY) {
-  for (const name of [slug, legacy]) {
-    if (!name) continue;
-    const target = `/legal/${slug}`;
-    fs.writeFileSync(
-      path.join(ROOT, 'legal', `${name}.html`),
-      `<!DOCTYPE html>\n<html lang="en"><head><meta charset="utf-8">\n<title>Moved | ZenouMath</title>\n<link rel="canonical" href="${DOMAIN}${target}">\n<meta name="robots" content="noindex,follow">\n<meta http-equiv="refresh" content="0; url=${target}">\n<script>location.replace(${JSON.stringify(target)} + location.search + location.hash);</script>\n</head><body style="margin:0;background:#07080e;color:#e8e8f0;font:15px system-ui,sans-serif;display:grid;place-items:center;height:100vh"><p><a style="color:#c084fc" href="${target}">${target}</a></p></body></html>\n`,
-    );
-  }
-}
+/* No flat .html shadows are written here.
+
+   GitHub Pages resolves an extensionless URL by trying `NAME`, then
+   `NAME.html`, then `NAME/index.html` — the flat file wins over the directory
+   index. A `legal/terms.html` stub therefore hijacks `/legal/terms`, and when
+   that stub redirects back to `/legal/terms` the result is a redirect loop in
+   the address bar. The same trap applies to every page on this site, so the
+   rule is absolute: one address, one file, and it is always
+   `<slug>/index.html`. Old flat addresses 404 into the site's own page. */
 console.log(`built ${DOCS.length} legal pages (version ${VERSION})`);

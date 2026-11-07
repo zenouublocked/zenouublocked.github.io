@@ -89,11 +89,29 @@ for (const m of sitemap.matchAll(/<loc>https:\/\/zenoumath\.space([^<]*)<\/loc>/
   if (code !== 200) problems.push(`sitemap: ${url} -> HTTP ${code}`);
 }
 
-/* Old flat paths must still land somewhere real, not on a 404. */
-for (const legacy of ['/web.html', '/movies.html', '/legal/terms.html', '/legal/dmca.html']) {
-  const html = await (await fetch(BASE + legacy)).text();
-  const ok = /Moved \| ZenouMath/.test(html) || /http-equiv="refresh"/.test(html);
-  if (!ok) problems.push(`legacy ${legacy}: no redirect stub`);
+/* The one failure the HTTP checks below cannot see.
+
+   GitHub Pages resolves `/web` as `web`, then `web.html`, then
+   `web/index.html`. A flat `web.html` therefore shadows `web/index.html`, and
+   if that flat file redirects to `/web` the browser sits in a redirect loop
+   that never reaches this server. Catching it needs the filesystem, not a
+   request. */
+for (const entry of fs.readdirSync(ROOT, { withFileTypes: true })) {
+  if (!entry.isFile() || !entry.name.endsWith('.html')) continue;
+  const slug = entry.name.slice(0, -5);
+  const dirIndex = path.join(ROOT, slug, 'index.html');
+  if (fs.existsSync(dirIndex)) {
+    problems.push(`shadow: /${entry.name} hides /${slug}/index.html`);
+  }
+}
+
+/* And a clean URL must serve the real page, not a "moved" stub. */
+for (const page of PAGES) {
+  if (page.endsWith('.html')) continue;
+  const html = await (await fetch(BASE + page)).text();
+  if (html.includes('Moved | ZenouMath')) {
+    problems.push(`${page}: serving a redirect stub instead of the page`);
+  }
 }
 
 /* The root 404 handler must still be the site's own page. */

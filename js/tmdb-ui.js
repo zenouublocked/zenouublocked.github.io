@@ -1,7 +1,7 @@
 /* ZenouMath, shared TMDB presentation helpers.
  *
- * Both movies.html and title.html render the same card, the same poster
- * fallback and the same meta line, so they share this instead of drifting.
+ * Both /movies and /title render the same card, the same poster fallback and
+ * the same meta line, so they share this instead of drifting.
  * No network here: callers hand in data the API already shaped.
  */
 'use strict';

@@ -290,7 +290,20 @@ function stub(page) {
 `;
 }
 
-if (fs.readFileSync(path.join(ROOT, 'web.html'), 'utf8').includes('Moved | ZenouMath')) {
+/* One-shot migration: it reads the original flat pages, writes the directory
+   form, then replaces the flat originals with stubs it would refuse to
+   overwrite on a second run. The flat pages are gone for good now — the stubs
+   shadowed the directories on GitHub Pages and caused a redirect loop — so
+   this exits cleanly instead of throwing ENOENT. */
+const SOURCE = path.join(ROOT, 'web.html');
+if (!fs.existsSync(SOURCE)) {
+  console.error(
+    'Nothing to do: the flat pages are gone and the site already lives at /<slug>/.\n' +
+      'This migration script is spent; edit <slug>/index.html directly.',
+  );
+  process.exit(1);
+}
+if (fs.readFileSync(SOURCE, 'utf8').includes('Moved | ZenouMath')) {
   console.error('Already restructured. Restore the flat pages from .tmp/orig first.');
   process.exit(1);
 }

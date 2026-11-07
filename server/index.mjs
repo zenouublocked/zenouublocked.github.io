@@ -327,9 +327,15 @@ async function serveStatic(req, res, pathname) {
     return;
   }
 
+  /* A directory only ever serves through its own index, and that case is
+     already resolved above. Reaching here means the directory has no index,
+     so 404 rather than advertising an /index.html address the rest of the
+     site never uses. */
   if (stat.isDirectory()) {
-    res.writeHead(302, { location: pathname.replace(/\/?$/, '/') + 'index.html' });
-    res.end();
+    const notFound = path.join(ROOT, '404.html');
+    res.writeHead(404, { 'content-type': MIME['.html'] });
+    if (fs.existsSync(notFound)) res.end(await fsp.readFile(notFound));
+    else res.end('Not found');
     return;
   }
 

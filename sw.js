@@ -9,9 +9,11 @@
  * is answered by a request with no file extension, not by a filename match.
  * That is the `extensionless` test below.
  *
- * Bump CACHE_VERSION when the shell changes shape.
+ * Bump CACHE_VERSION when the shell changes shape. v3 dropped the .html
+ * redirect stubs: they shadowed their own directory index on GitHub Pages,
+ * so any cached copy of one has to go.
  */
-const CACHE_VERSION = 'zenoumath-v2';
+const CACHE_VERSION = 'zenoumath-v3';
 const SHELL = [
   '/',
   '/css/style.css',

@@ -47,14 +47,25 @@ GitHub Pages serves a directory index for `/web` natively; `server/index.mjs`
 does the same resolution locally so development and production behave
 identically.
 
-The old flat paths still work. Each one is a ten-line stub that sets a
-canonical, refreshes to the new path and carries the query string and hash
-across, so an old bookmark or a link in someone's notes does not dead-end.
+**One address, one file.** No flat `.html` file may exist next to a directory
+of the same name. GitHub Pages resolves an extensionless path by trying a file
+called `web`, then `web.html`, and only then `web/index.html` — the flat file
+wins. A stub at `web.html` that redirects to `/web` therefore shadows the real
+page and reloads itself forever. That is not a hypothetical: it put every page
+of this site except `/` and `/doorway` into a redirect loop in production.
+`audit.mjs` now fails the build if any `.html` at the root would shadow a
+directory index, and `scripts/build-legal.mjs` deletes stray flat files before
+writing so regenerating the legal centre cannot bring the loop back.
 
-`node scripts/restructure.mjs` is the one-shot that produced this layout. It
-refuses to run twice; the flat originals are restored from `.tmp/orig` if it
-ever needs re-running. `node scripts/clean-links.mjs` rewrites page references
-inside `js/`, which is where most of them were.
+Old flat addresses (`/web.html`, `/legal/terms.html`) now 404 into the site's
+own not-found page. GitHub Pages cannot issue a server-side redirect, and the
+client-side substitute is exactly what caused the loop, so the trade is
+accepted: bookmarks need updating once, nothing loops.
+
+`node scripts/restructure.mjs` is the spent one-shot that produced this
+layout; it now exits with a message instead of failing on the deleted flat
+sources. `node scripts/clean-links.mjs` rewrites page references inside `js/`,
+which is where most of them were.
 
 ## The first-visit agreement
 
@@ -170,7 +181,7 @@ in `js/web.js` and a list in `/doorway`.
 ## Verification
 
 ```
-node scripts/audit.mjs            # links, canonicals, sitemap routes, 404, stubs
+node scripts/audit.mjs            # links, canonicals, sitemap routes, 404, route shadows
 node scripts/test-api.mjs         # every API route
 node scripts/verify-ai.mjs        # re-probe the AI directory (--write to update)
 node scripts/verify-movies.mjs    # re-probe the lecture sources
@@ -178,7 +189,9 @@ node scripts/verify-movies.mjs    # re-probe the lecture sources
 
 `audit.mjs` checks every internal `href`/`src`/`action` on 23 pages, that no
 reference still ends in `.html`, that every sitemap route answers 200, that the
-old flat paths still redirect and that the 404 handler is the site's own page.
+404 handler is the site's own page, that no clean URL serves a redirect stub,
+and — the check that HTTP alone cannot make — that no flat `.html` file on disk
+shadows a directory index.
 
 ## Deployment
 
@@ -188,6 +201,16 @@ GitHub Pages, custom domain, repository root.
 - `.nojekyll` → so directory pages are served as-is
 - `404.html` → a real not-found page, exempt from the agreement gate
 - `sitemap.xml`, `robots.txt` → clean URLs only
+
+A publish must **delete** the removed flat pages, not just upload new ones. If
+your upload tool merges instead of mirroring, delete these from the repository
+before the next publish, or the loop comes straight back:
+
+```
+web.html movies.html ai.html social.html music.html library.html search.html
+sources.html title.html play.html mineral.html mantle.html _shot.html
+webtest.html webtest2.html webtest3.html legal/*.html
+```
 
 Both `zenoumath.space` and `www.zenoumath.space` should resolve; the `www`
 host is a DNS alias, not a second copy of the site.
