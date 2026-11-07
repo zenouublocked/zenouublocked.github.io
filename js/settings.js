@@ -1,4 +1,4 @@
-/* Zenou Unblocked, settings panel.
+/* ZenouMath, settings panel.
  * Appearance: accent pair, glow strength, corner style, card density,
  * background style and motion. Disguise: tab title, preset/custom favicon.
  * Everything applies instantly and is stored in this browser only.
@@ -305,10 +305,10 @@
           <div class="settings-field">
             <span>Your library</span>
             <div class="play-tools">
-              <a class="btn btn-ghost" href="library.html#overview">Stats</a>
-              <a class="btn btn-ghost" href="library.html#playlists">Playlists</a>
-              <a class="btn btn-ghost" href="library.html#achievements">Achievements</a>
-              <a class="btn btn-ghost" href="library.html#data">Backup</a>
+              <a class="btn btn-ghost" href="/library#overview">Stats</a>
+              <a class="btn btn-ghost" href="/library#playlists">Playlists</a>
+              <a class="btn btn-ghost" href="/library#achievements">Achievements</a>
+              <a class="btn btn-ghost" href="/library#data">Backup</a>
             </div>
           </div>
         </section>

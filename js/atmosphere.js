@@ -1,4 +1,4 @@
-/* Zenou Unblocked, atmosphere layer.
+/* ZenouMath, atmosphere layer.
  * Builds one fixed stack behind the page (nebula, custom image, dim, grid)
  * and draws a canvas starfield / snowfall for the particle modes.
  * Driven by html[data-bg] and html[data-motion]; the saved custom image

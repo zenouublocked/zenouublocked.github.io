@@ -1,4 +1,4 @@
-/* Zenou Unblocked, media hub.
+/* ZenouMath, media hub.
  *
  * The YouTube tab is a real library: a verified list in catalog/media.json,
  * filtered instantly as you type, played through YouTube's own embed. Links
@@ -253,7 +253,7 @@
 
   async function loadLibrary() {
     try {
-      const res = await fetch('catalog/media.json');
+      const res = await fetch('/catalog/media.json');
       if (!res.ok) throw new Error(res.status);
       const data = await res.json();
       library.base = Array.isArray(data.videos) ? data.videos : [];
@@ -287,7 +287,7 @@
   function tab(name) {
     $$('.social-tab').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === name)));
     $$('.social-panel').forEach(p => { p.hidden = p.id !== `panel-${name}`; });
-    history.replaceState(null, '', `social.html#${name}`);
+    history.replaceState(null, '', `/social#${name}`);
   }
 
   function boot() {
@@ -306,7 +306,7 @@
       const q = e.target.value.trim();
       if (!q) return;
       if (library.shown) return;
-      location.href = `web.html?yt=${encodeURIComponent(q)}`;
+      location.href = `/web?yt=${encodeURIComponent(q)}`;
     });
 
     $('#ytForm').addEventListener('submit', async (e) => {

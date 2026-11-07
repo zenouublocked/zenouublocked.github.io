@@ -1,4 +1,4 @@
-/* Zenou Unblocked, homepage logic.
+/* ZenouMath, homepage logic.
  * Single catalog file fetched once at boot; all views render from memory.
  * URL routes: index.html            -> home
  *             index.html?c=wheelie  -> collection view
@@ -181,16 +181,16 @@ function byName(nameOrCat) {
   return null;
 }
 function goToSearch(q, replace = false) {
-  const url = `index.html?q=${encodeURIComponent(q)}`;
+  const url = `/?q=${encodeURIComponent(q)}`;
   if (replace) history.replaceState(null, '', url); else history.pushState(null, '', url);
   render();
 }
 function goToCategory(cat) {
-  history.pushState(null, '', `index.html?c=${encodeURIComponent(cat)}`);
+  history.pushState(null, '', `/?c=${encodeURIComponent(cat)}`);
   render();
 }
 function goHome() {
-  history.pushState(null, '', 'index.html');
+  history.pushState(null, '', '/');
   render();
 }
 
@@ -207,7 +207,7 @@ function initials(t) {
 function card(g, extra = {}) {
   const a = document.createElement('a');
   a.className = 'card';
-  a.href = g.direct ? g.direct : `play.html?id=${encodeURIComponent(g.id)}`;
+  a.href = g.direct ? g.direct : `/play?id=${encodeURIComponent(g.id)}`;
   a.setAttribute('aria-label', `${g.t}, ${SOURCE_BADGES[g.s] || 'game'}`);
 
   const badge = document.createElement('span');
@@ -321,7 +321,7 @@ function renderHero() {
   const bigs = (feat.length ? feat : GAMES.filter(g => g.img).slice(0, 6)).slice(0, 6);
   const paint = (g) => {
     heroCard.hidden = false;
-    heroCard.href = `play.html?id=${encodeURIComponent(g.id)}`;
+    heroCard.href = `/play?id=${encodeURIComponent(g.id)}`;
     heroCard.innerHTML = '';
     const img = document.createElement('img');
     img.src = heroImage(g);
@@ -343,7 +343,7 @@ function renderHero() {
   bigs.slice(1, 3).forEach(g => {
     const a = document.createElement('a');
     a.className = 'lp-mini';
-    a.href = `play.html?id=${encodeURIComponent(g.id)}`;
+    a.href = `/play?id=${encodeURIComponent(g.id)}`;
     a.innerHTML = '<img alt="" loading="lazy" decoding="async"><span class="lp-mini-copy"><b></b><small></small></span>';
     const img = a.querySelector('img');
     img.src = heroImage(g);
@@ -376,7 +376,7 @@ function renderHero() {
   wheelie.forEach(g => {
     const a = document.createElement('a');
     a.className = 'lp-fresh';
-    a.href = `play.html?id=${encodeURIComponent(g.id)}`;
+    a.href = `/play?id=${encodeURIComponent(g.id)}`;
     a.innerHTML = '<img alt="" loading="lazy" decoding="async"><span class="lp-fresh-copy"><b></b><small></small></span>';
     const img = a.querySelector('img');
     img.src = g.img;
@@ -421,7 +421,7 @@ function renderVibes() {
   const quick = $('#lpQuick');
   if (quick) {
     quick.innerHTML = '';
-    [['Moto X3M', 'index.html?q=moto x3m'], ['Drift', 'index.html?c=drift'], ['2 player', 'index.html?c=multiplayer'], ['No ads', 'index.html?c=noads'], ['Scratch', 'index.html?c=scratch']].forEach(([label, href]) => {
+    [['Moto X3M', '/?q=moto x3m'], ['Drift', '/?c=drift'], ['2 player', '/?c=multiplayer'], ['No ads', '/?c=noads'], ['Scratch', '/?c=scratch']].forEach(([label, href]) => {
       const a = document.createElement('a');
       a.className = 'lp-quick-link';
       a.href = href;
@@ -439,7 +439,7 @@ function renderChart() {
   top.forEach((g, i) => {
     const a = document.createElement('a');
     a.className = 'lp-rank';
-    a.href = `play.html?id=${encodeURIComponent(g.id)}`;
+    a.href = `/play?id=${encodeURIComponent(g.id)}`;
     a.innerHTML = '<span class="lp-rank-n"></span><span class="lp-rank-art"></span><span class="lp-rank-copy"><b></b><small></small></span><span class="lp-rank-go" aria-hidden="true">▶</span>';
     a.querySelector('.lp-rank-n').textContent = String(i + 1).padStart(2, '0');
     a.querySelector('.lp-rank-copy b').textContent = g.t;
@@ -629,15 +629,15 @@ function renderYou() {
     wrap.append(s);
   };
   const hidden = hiddenSet();
-  sec('Your favorites', [...favs].map(id => byId.get(id)).filter(g => g && !hidden.has(g.id)), () => location.href = 'library.html');
-  sec('Recently played', recent.map(r => byId.get(r.id)).filter(g => g && !hidden.has(g.id)).slice(0, 18), () => location.href = 'library.html');
+  sec('Your favorites', [...favs].map(id => byId.get(id)).filter(g => g && !hidden.has(g.id)), () => location.href = '/library');
+  sec('Recently played', recent.map(r => byId.get(r.id)).filter(g => g && !hidden.has(g.id)).slice(0, 18), () => location.href = '/library');
 
   /* user playlists as shelves */
   const store2 = window.Zenou ? window.Zenou.store : null;
   if (store2) {
     store2.playlists.slice(0, 3).forEach(pl => {
       const list = pl.ids.map(id => byId.get(id)).filter(Boolean);
-      sec(`Playlist, ${pl.name}`, list, () => location.href = 'library.html#playlists');
+      sec(`Playlist, ${pl.name}`, list, () => location.href = '/library#playlists');
     });
   }
 }
@@ -765,7 +765,7 @@ async function boot() {
     const playable = browseList();
     if (!playable.length) return;
     const g = playable[Math.floor(Math.random() * playable.length)];
-    location.href = `play.html?id=${encodeURIComponent(g.id)}`;
+    location.href = `/play?id=${encodeURIComponent(g.id)}`;
   };
   $('#randomBtn').addEventListener('click', rollRandom);
   $('#lpRandom')?.addEventListener('click', rollRandom);
@@ -845,7 +845,7 @@ async function boot() {
   window.addEventListener('popstate', render);
 
   try {
-    const res = await fetch('catalog/games.json?v=2026-10-31b');
+    const res = await fetch('/catalog/games.json?v=2026-10-31b');
     if (!res.ok) throw new Error(res.status);
     const data = await res.json();
     GAMES = data.games;

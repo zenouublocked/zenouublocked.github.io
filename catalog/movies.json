@@ -1,0 +1,1127 @@
+{
+  "generated": "2026-11-07",
+  "checked": "2026-11-07",
+  "method": "scripts/verify-movies.mjs follows every redirect, then reads X-Frame-Options and CSP frame-ancestors on the final response. Redirect farms and parking hosts are listed in the script. Players are asked for a known film and a known episode.",
+  "sources": [
+    {
+      "id": "movy",
+      "name": "Movy",
+      "url": "https://www.movy.sx/",
+      "glyph": "MV",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [
+        "no-signup",
+        "hd",
+        "tmdb-ids"
+      ],
+      "status": "up",
+      "frame": "blocked",
+      "featured": true,
+      "note": "Takes a TMDB id in the path (/movie/550, /tv/1399/2/5) and opens its own player with ?play=true. Refuses framing, so it runs in its own tab.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "streamex",
+      "name": "StreamEx",
+      "url": "https://streamex.ws/",
+      "glyph": "SX",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [
+        "no-signup",
+        "hd",
+        "subs"
+      ],
+      "status": "up",
+      "frame": "blocked",
+      "note": "Human title slugs (/watch-movie-fight-club-1999-2j39fo). Refuses framing, so it opens in its own tab; the title page resolves the exact watch page through its own search.",
+      "checked": "2026-11-07",
+      "featured": true
+    },
+    {
+      "id": "fmoviesz",
+      "name": "FMoviesZ",
+      "url": "https://fmoviesz.to/",
+      "glyph": "FZ",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [
+        "no-signup",
+        "hd",
+        "subs"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Same library as the FMovies family with a lighter page weight.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "sflix",
+      "name": "SFlix",
+      "url": "https://sflixhd.to/",
+      "glyph": "SF",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [
+        "no-signup",
+        "hd"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Big TV shelf, season and episode picker on every show.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "cineb",
+      "name": "Cineb",
+      "url": "https://cineb.rs/",
+      "glyph": "CB",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [
+        "no-signup",
+        "subs"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Clean catalogue, quick servers, decent subtitle coverage.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "hurawatch",
+      "name": "HuraWatch",
+      "url": "https://hurawatch.cc/",
+      "glyph": "HW",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [
+        "no-signup",
+        "hd"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Long-running aggregator with a solid series index.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "hurawatchbz",
+      "name": "HuraWatch mirror",
+      "url": "https://hurawatch.bz/",
+      "glyph": "HW",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [
+        "no-signup"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Alternate door for HuraWatch when the main domain is blocked.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "solarmovie",
+      "name": "SolarMovie",
+      "url": "https://www.solarmovie.cr/",
+      "glyph": "SM",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [
+        "no-signup"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Old name, still up. Simple grid, no account.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "streamm4u",
+      "name": "StreamM4u",
+      "url": "https://streamm4u.ws/",
+      "glyph": "M4U",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [
+        "no-signup"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Plain catalogue with several mirrors per title.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "kaas",
+      "name": "Kaas",
+      "url": "https://kaas.to/",
+      "glyph": "KS",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [
+        "no-signup",
+        "hd"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Minimal portal, fast search, no signup.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "myflixer",
+      "name": "MyFlixer",
+      "url": "https://myflixer.pw/",
+      "glyph": "MX",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [
+        "no-signup",
+        "hd"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Netflix-style layout. Moves domains often, this one answers today.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "lookmovie",
+      "name": "LookMovie",
+      "url": "https://www.lookmovie2.to/",
+      "glyph": "LM",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [
+        "no-signup",
+        "hd"
+      ],
+      "status": "down",
+      "frame": "unknown",
+      "note": "Aimed at new releases, needs a free account for some titles.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "yesmovies",
+      "name": "YesMovies",
+      "url": "https://yesmovies.ag/",
+      "glyph": "YM",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [
+        "no-signup"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "One of the oldest names in the scene. Hops mirrors on the way in.",
+      "checked": "2026-11-07",
+      "finalUrl": "https://ww2.yesmovies.ag/"
+    },
+    {
+      "id": "gomovies",
+      "name": "GoMovies",
+      "url": "https://gomovies.sx/",
+      "glyph": "GM",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [
+        "no-signup"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Redirects through a mirror gate before it lands on the catalogue.",
+      "checked": "2026-11-07",
+      "finalUrl": "https://ww16.gomovies.sx/?sub1=20261107-1312-3764-8a3e-ae10bd13f1ee"
+    },
+    {
+      "id": "soap2day",
+      "name": "Soap2Day",
+      "url": "https://www2.soap2day.to/",
+      "glyph": "S2D",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [
+        "no-signup"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "The survivor of the Soap2Day clones. Expect a mirror hop.",
+      "checked": "2026-11-07",
+      "finalUrl": "https://ww38.soap2day.to/"
+    },
+    {
+      "id": "hydrahd",
+      "name": "HydraHD",
+      "url": "https://hydrahd.com/",
+      "glyph": "HD",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [
+        "no-signup",
+        "hd",
+        "4k"
+      ],
+      "status": "up",
+      "frame": "blocked",
+      "note": "Higher bitrate than most, worth it on a good screen.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "primewire",
+      "name": "PrimeWire",
+      "url": "https://primewire.nexus/",
+      "glyph": "PW",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [
+        "no-signup"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Forum-shaped directory with a link per host, old school.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "archive",
+      "name": "Internet Archive",
+      "url": "https://archive.org/details/movies",
+      "glyph": "IA",
+      "cats": [
+        "movies",
+        "docs"
+      ],
+      "tags": [
+        "public-domain",
+        "free",
+        "no-signup",
+        "direct"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Public-domain and orphaned film, free and legal. Frames here without a fight.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "tubi",
+      "name": "Tubi",
+      "url": "https://tubitv.com/",
+      "glyph": "TB",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [
+        "free",
+        "ads",
+        "subs"
+      ],
+      "status": "up",
+      "frame": "blocked",
+      "note": "Genuinely free, ad-supported, studio-licensed. Signup optional.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "pluto",
+      "name": "Pluto TV",
+      "url": "https://pluto.tv/",
+      "glyph": "PL",
+      "cats": [
+        "tv",
+        "live"
+      ],
+      "tags": [
+        "free",
+        "ads",
+        "live"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Free live channels, no account at all. Closest thing to cable here.",
+      "checked": "2026-11-07",
+      "finalUrl": "https://pluto.tv/intl/"
+    },
+    {
+      "id": "plexfree",
+      "name": "Plex Free",
+      "url": "https://www.plex.tv/watch-free/",
+      "glyph": "PX",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [
+        "free",
+        "ads"
+      ],
+      "status": "up",
+      "frame": "blocked",
+      "note": "Free tier of Plex, films rotate monthly.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "roku",
+      "name": "The Roku Channel",
+      "url": "https://therokuchannel.roku.com/",
+      "glyph": "RK",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [
+        "free",
+        "ads"
+      ],
+      "status": "up",
+      "frame": "blocked",
+      "note": "Free with an account, originals included.",
+      "checked": "2026-11-07",
+      "finalUrl": "https://therokuchannel.roku.com/enguard/en-au"
+    },
+    {
+      "id": "cineverse",
+      "name": "Cineverse",
+      "url": "https://www.cineverse.com/",
+      "glyph": "CV",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [
+        "free",
+        "ads",
+        "cult"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Horror and cult catalogue, free with ads. Frames without complaint.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "youtubefree",
+      "name": "YouTube Free Movies",
+      "url": "https://www.youtube.com/feed/storefront",
+      "glyph": "YT",
+      "cats": [
+        "movies"
+      ],
+      "tags": [
+        "free",
+        "ads"
+      ],
+      "status": "up",
+      "frame": "blocked",
+      "note": "YouTube's own licensed film shelf, no rental involved.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "kanopy",
+      "name": "Kanopy",
+      "url": "https://www.kanopy.com/",
+      "glyph": "KN",
+      "cats": [
+        "movies",
+        "docs"
+      ],
+      "tags": [
+        "library-card",
+        "free"
+      ],
+      "status": "up",
+      "frame": "blocked",
+      "note": "Free with a public library or university card. Criterion, arthouse, docs.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "hoopla",
+      "name": "Hoopla",
+      "url": "https://www.hoopladigital.com/",
+      "glyph": "HP",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [
+        "library-card",
+        "free"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Same idea as Kanopy, different library catalogue.",
+      "checked": "2026-11-07",
+      "finalUrl": "https://www.hoopladigital.com.au/"
+    },
+    {
+      "id": "pbs",
+      "name": "PBS",
+      "url": "https://www.pbs.org/",
+      "glyph": "PBS",
+      "cats": [
+        "docs"
+      ],
+      "tags": [
+        "free",
+        "docs"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Documentary series and Frontline, free and permanent.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "kisskh",
+      "name": "KissKH",
+      "url": "https://kisskh.co/",
+      "glyph": "KK",
+      "cats": [
+        "asian",
+        "anime"
+      ],
+      "tags": [
+        "no-signup",
+        "subs"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Korean, Chinese, Japanese drama with English subs. Frames here.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "dramanice",
+      "name": "DramaNice",
+      "url": "https://dramance.app/",
+      "glyph": "DN",
+      "cats": [
+        "asian"
+      ],
+      "tags": [
+        "no-signup",
+        "subs"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Asian drama with soft subs. Moved here from dramanice.io.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "viki",
+      "name": "Viki",
+      "url": "https://www.viki.com/",
+      "glyph": "VK",
+      "cats": [
+        "asian"
+      ],
+      "tags": [
+        "subs",
+        "free"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Licensed Asian drama, fan subtitles, free tier with ads. Frames here.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "animepahe",
+      "name": "AnimePahe",
+      "url": "https://animepahe.pw/",
+      "glyph": "AP",
+      "cats": [
+        "anime"
+      ],
+      "tags": [
+        "no-signup",
+        "subs"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Small files, fast episodes, sub and dub split per release.",
+      "pinned": true,
+      "probe": "blocked-http/blocked/403",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "gogoanime",
+      "name": "Gogoanime",
+      "url": "https://www1.gogoanime.bid/",
+      "glyph": "GG",
+      "cats": [
+        "anime"
+      ],
+      "tags": [
+        "no-signup",
+        "subs"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Huge back catalogue, mirror domain changes often.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "crunchyroll",
+      "name": "Crunchyroll",
+      "url": "https://www.crunchyroll.com/",
+      "glyph": "CR",
+      "cats": [
+        "anime"
+      ],
+      "tags": [
+        "subs",
+        "paid"
+      ],
+      "status": "up",
+      "frame": "blocked",
+      "note": "The licensed option. Free tier exists, simulcasts need a sub.",
+      "pinned": true,
+      "probe": "blocked-http/blocked/403",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "iq",
+      "name": "iQIYI",
+      "url": "https://www.iq.com/",
+      "glyph": "IQ",
+      "cats": [
+        "asian"
+      ],
+      "tags": [
+        "subs",
+        "paid"
+      ],
+      "status": "up",
+      "frame": "blocked",
+      "note": "Chinese and Korean originals, some free episodes.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "wetv",
+      "name": "WeTV",
+      "url": "https://wetv.vip/",
+      "glyph": "WTV",
+      "cats": [
+        "asian"
+      ],
+      "tags": [
+        "subs",
+        "free"
+      ],
+      "status": "up",
+      "frame": "blocked",
+      "note": "Tencent's drama catalogue, fast subs on new episodes.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "mydramalist",
+      "name": "MyDramaList",
+      "url": "https://mydramalist.com/",
+      "glyph": "MDL",
+      "cats": [
+        "asian"
+      ],
+      "tags": [
+        "discovery"
+      ],
+      "status": "up",
+      "frame": "blocked",
+      "note": "Ratings and episode guides, use it to pick then come back.",
+      "pinned": true,
+      "probe": "blocked-http/blocked/403",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "justwatch",
+      "name": "JustWatch",
+      "url": "https://www.justwatch.com/",
+      "glyph": "JW",
+      "cats": [
+        "discovery"
+      ],
+      "tags": [
+        "discovery"
+      ],
+      "status": "up",
+      "frame": "blocked",
+      "note": "Tells you which paid service actually has the film in your country.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "letterboxd",
+      "name": "Letterboxd",
+      "url": "https://letterboxd.com/",
+      "glyph": "LB",
+      "cats": [
+        "discovery"
+      ],
+      "tags": [
+        "discovery"
+      ],
+      "status": "up",
+      "frame": "blocked",
+      "note": "Lists, ratings, the good kind of film nerd.",
+      "pinned": true,
+      "probe": "blocked-http/blocked/403",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "imdb",
+      "name": "IMDb",
+      "url": "https://www.imdb.com/",
+      "glyph": "IM",
+      "cats": [
+        "discovery"
+      ],
+      "tags": [
+        "discovery"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Cast, runtime, and the tt id the players take.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "tmdb",
+      "name": "TMDB",
+      "url": "https://www.themoviedb.org/",
+      "glyph": "TM",
+      "cats": [
+        "discovery"
+      ],
+      "tags": [
+        "discovery"
+      ],
+      "status": "up",
+      "frame": "blocked",
+      "note": "Where the numeric ids come from. It is in the address of any film page.",
+      "pinned": true,
+      "probe": "blocked-http/blocked/403",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "rottentomatoes",
+      "name": "Rotten Tomatoes",
+      "url": "https://www.rottentomatoes.com/",
+      "glyph": "RT",
+      "cats": [
+        "discovery"
+      ],
+      "tags": [
+        "discovery"
+      ],
+      "status": "up",
+      "frame": "blocked",
+      "note": "Scores and consensus, nothing more.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "trakt",
+      "name": "Trakt",
+      "url": "https://trakt.tv/",
+      "glyph": "TR",
+      "cats": [
+        "discovery"
+      ],
+      "tags": [
+        "discovery"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Episode tracking for people who finish things.",
+      "checked": "2026-11-07",
+      "finalUrl": "https://app.trakt.tv/"
+    },
+    {
+      "id": "kitsu",
+      "name": "Kitsu",
+      "url": "https://kitsu.io/",
+      "glyph": "KT",
+      "cats": [
+        "anime",
+        "discovery"
+      ],
+      "tags": [
+        "discovery"
+      ],
+      "status": "up",
+      "frame": "direct",
+      "note": "Anime database with season charts. Frames here.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "anilist",
+      "name": "AniList",
+      "url": "https://anilist.co/",
+      "glyph": "AL",
+      "cats": [
+        "anime",
+        "discovery"
+      ],
+      "tags": [
+        "discovery"
+      ],
+      "status": "up",
+      "frame": "blocked",
+      "note": "Best seasonal charts and airing schedules.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "fmovies24",
+      "name": "FMovies24",
+      "url": "https://fmovies24.to/",
+      "glyph": "F24",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [],
+      "status": "parked",
+      "frame": "blocked",
+      "note": "Sold. The domain redirects to a survey farm, not to FMovies.",
+      "pinned": true,
+      "probe": "up/direct/200",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "bingewatch",
+      "name": "Bingewatch",
+      "url": "https://www.bingewatch.to/",
+      "glyph": "BW",
+      "cats": [
+        "tv"
+      ],
+      "tags": [],
+      "status": "parked",
+      "frame": "blocked",
+      "note": "Sold. The domain lands on an ad network, not on a catalogue.",
+      "pinned": true,
+      "probe": "up/direct/200",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "moviesjoy",
+      "name": "MoviesJoy",
+      "url": "https://moviesjoy.to/",
+      "glyph": "MJ",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [],
+      "status": "parked",
+      "frame": "blocked",
+      "note": "Sold. The redirect ends on a parked token page.",
+      "pinned": true,
+      "probe": "up/direct/200",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "nineanime",
+      "name": "9anime",
+      "url": "https://9animetv.to/",
+      "glyph": "9A",
+      "cats": [
+        "anime"
+      ],
+      "tags": [],
+      "status": "slow",
+      "frame": "unknown",
+      "note": "Stopped answering on 7 November 2026.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "hianime",
+      "name": "HiAnime",
+      "url": "https://hianime.to/",
+      "glyph": "HA",
+      "cats": [
+        "anime"
+      ],
+      "tags": [],
+      "status": "slow",
+      "frame": "unknown",
+      "note": "Stopped answering on 7 November 2026 after the domain move.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "aniwatch",
+      "name": "Aniwatch",
+      "url": "https://aniwatchtv.to/",
+      "glyph": "AW",
+      "cats": [
+        "anime"
+      ],
+      "tags": [],
+      "status": "slow",
+      "frame": "unknown",
+      "note": "Stopped answering on 7 November 2026, the Zoro rebrand lost this host.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "animekai",
+      "name": "AnimeKai",
+      "url": "https://www.animekai.to/",
+      "glyph": "AK",
+      "cats": [
+        "anime"
+      ],
+      "tags": [],
+      "status": "down",
+      "frame": "unknown",
+      "note": "DNS no longer resolves.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "cineby",
+      "name": "Cineby",
+      "url": "https://www.cineby.sc/",
+      "glyph": "CY",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [],
+      "status": "down",
+      "frame": "unknown",
+      "note": "DNS stopped resolving on 7 November 2026.",
+      "checked": "2026-11-07",
+      "finalUrl": "https://www.cineby.at/"
+    },
+    {
+      "id": "flixhq",
+      "name": "FlixHQ",
+      "url": "https://flixhq.to/",
+      "glyph": "FH",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [],
+      "status": "slow",
+      "frame": "unknown",
+      "note": "Brand moved on, this host stopped answering.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "primewiremx",
+      "name": "PrimeWire (.mx)",
+      "url": "https://primewire.mx/",
+      "glyph": "PW",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [],
+      "status": "down",
+      "frame": "unknown",
+      "note": "DNS no longer resolves. primewire.nexus is the live door.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "sflixold",
+      "name": "SFlix (sflix.to)",
+      "url": "https://sflix.to/",
+      "glyph": "SF",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [],
+      "status": "slow",
+      "frame": "unknown",
+      "note": "Stopped answering. The sflixhd.to door still works.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "myflixerz",
+      "name": "MyFlixerZ",
+      "url": "https://myflixerz.to/",
+      "glyph": "MZ",
+      "cats": [
+        "movies",
+        "tv"
+      ],
+      "tags": [],
+      "status": "slow",
+      "frame": "unknown",
+      "note": "Timed out. Use myflixer.pw instead.",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "crackle",
+      "name": "Crackle",
+      "url": "https://www.crackle.com/",
+      "glyph": "CK",
+      "cats": [
+        "movies"
+      ],
+      "tags": [],
+      "status": "down",
+      "frame": "unknown",
+      "note": "DNS no longer resolves. Chicken Soup folded the service.",
+      "checked": "2026-11-07"
+    }
+  ],
+  "players": [
+    {
+      "id": "movy",
+      "name": "Movy",
+      "url": "https://www.movy.sx/",
+      "glyph": "MV",
+      "movie": "https://www.movy.sx/movie/{id}?play=true",
+      "tv": "https://www.movy.sx/tv/{id}/{s}/{e}?play=true",
+      "status": "up",
+      "frame": "blocked",
+      "tvOk": true,
+      "note": "Id-addressable: paste any TMDB number. Sends X-Frame-Options: DENY, so the stage hands it to a tab."
+    },
+    {
+      "id": "vidnest",
+      "name": "VidNest",
+      "url": "https://vidnest.fun/",
+      "glyph": "VN",
+      "movie": "https://vidnest.fun/movie/{id}",
+      "tv": "https://vidnest.fun/tv/{id}/{s}/{e}",
+      "status": "up",
+      "frame": "direct",
+      "note": "One of the six hosts StreamEx embeds. Cleanest of the bunch.",
+      "tvOk": true
+    },
+    {
+      "id": "vidfast",
+      "name": "VidFast",
+      "url": "https://vidfast.vc/",
+      "glyph": "VF",
+      "movie": "https://vidfast.vc/movie/{id}",
+      "tv": "https://vidfast.vc/tv/{id}/{s}/{e}",
+      "status": "up",
+      "frame": "direct",
+      "note": "Starts quickly and stays out of the way. Moved here from vidfast.pro.",
+      "tvOk": true
+    },
+    {
+      "id": "vidrock",
+      "name": "VidRock",
+      "url": "https://vidrock.to/",
+      "glyph": "VR",
+      "movie": "https://vidrock.to/movie/{id}",
+      "tv": "https://vidrock.to/tv/{id}/{s}/{e}",
+      "status": "up",
+      "frame": "direct",
+      "note": "Solid on newer releases, several upstreams per title.",
+      "tvOk": true
+    },
+    {
+      "id": "vidup",
+      "name": "VidUp",
+      "url": "https://vidup.to/",
+      "glyph": "VU",
+      "movie": "https://vidup.to/movie/{id}?autoPlay=true",
+      "tv": "https://vidup.to/tv/{id}/{s}/{e}?autoPlay=true",
+      "status": "up",
+      "frame": "direct",
+      "note": "Autoplays on arrival, which is what you want in a stage.",
+      "tvOk": true
+    },
+    {
+      "id": "vidcore",
+      "name": "VidCore",
+      "url": "https://vidcore.io/",
+      "glyph": "VC",
+      "movie": "https://vidcore.io/movie/{id}?autoPlay=true",
+      "tv": "https://vidcore.io/tv/{id}/{s}/{e}?autoPlay=true",
+      "status": "up",
+      "frame": "direct",
+      "note": "The one with the cinema-red theme. Same family, own servers.",
+      "tvOk": true
+    },
+    {
+      "id": "vaplayer",
+      "name": "VA Player",
+      "url": "https://vaplayer.ru/",
+      "glyph": "VA",
+      "movie": "https://vaplayer.ru/embed/movie/{id}",
+      "tv": "https://vaplayer.ru/embed/tv/{id}/{s}/{e}",
+      "status": "up",
+      "frame": "direct",
+      "note": "Bare embed, no interface around the video at all.",
+      "tvOk": true
+    },
+    {
+      "id": "vidsrc",
+      "name": "VidSrc",
+      "url": "https://vidsrc.to/",
+      "glyph": "VS",
+      "movie": "https://vidsrc.to/embed/movie/{id}",
+      "tv": "https://vidsrc.to/embed/tv/{id}/{s}/{e}",
+      "status": "up",
+      "frame": "direct",
+      "note": "The oldest player API still standing.",
+      "tvOk": true
+    },
+    {
+      "id": "vidlink",
+      "name": "VidLink",
+      "url": "https://vidlink.pro/",
+      "glyph": "VL",
+      "movie": "https://vidlink.pro/movie/{id}",
+      "tv": "https://vidlink.pro/tv/{id}/{s}/{e}",
+      "status": "up",
+      "frame": "direct",
+      "note": "Good fallback when the first choice buffers.",
+      "tvOk": true
+    },
+    {
+      "id": "multiembed",
+      "name": "MultiEmbed",
+      "url": "https://multiembed.mov/",
+      "glyph": "ME",
+      "movie": "https://multiembed.mov/?video_id={id}&tmdb=1",
+      "tv": "https://multiembed.mov/?video_id={id}&tmdb=1&s={s}&e={e}",
+      "status": "up",
+      "frame": "direct",
+      "note": "Several upstreams behind one id.",
+      "tvOk": true
+    },
+    {
+      "id": "embed2",
+      "name": "2Embed",
+      "url": "https://2embed.cc/",
+      "glyph": "2E",
+      "movie": "https://www.2embed.cc/embed/{id}",
+      "tv": "https://www.2embed.cc/embedtv/{id}&s={s}&e={e}",
+      "status": "up",
+      "frame": "direct",
+      "note": "Works from a bare id, used by half the clones out there.",
+      "tvOk": true
+    }
+  ],
+  "doors": [],
+  "doorHint": "A door is any proxy that takes a target URL in its own address. Add yours with a template: {url} is the address, {enc} is its encoded form, {b64} is base64. Example: https://proxy.example/service/{enc}"
+}

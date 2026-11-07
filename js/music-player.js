@@ -1,4 +1,4 @@
-/* Zenou Unblocked, persistent bottom music player (Spotify + SoundCloud official embeds).
+/* ZenouMath, persistent bottom music player (Spotify + SoundCloud official embeds).
  * Queue persists in localStorage. Playback happens inside the provider's own
  * official embed, nothing is scraped or re-hosted. Spotify embeds play 30-second
  * previews for signed-out visitors (or full tracks when the visitor is signed in),

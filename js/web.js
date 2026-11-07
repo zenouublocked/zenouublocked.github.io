@@ -1,10 +1,13 @@
-/* Zenou Unblocked, embedded web.
+/* ZenouMath, reference desk.
  *
  * A frame, an address bar and six tabs the visitor binds in Settings. The
  * frame is sandboxed without allow-top-navigation, so a site can never take
  * the tab with it. Sites that send X-Frame-Options still win: no page can
  * force another server to allow framing, and this one says so instead of
  * pretending a blank frame loaded.
+ *
+ * The proxy is the one thing here that cannot live in the frame, and the
+ * reason is structural rather than a bug to route around — see MAGMA below.
  */
 'use strict';
 
@@ -14,8 +17,22 @@
 
   const SIZE_KEY = 'zenou_web_size';
   const RECENT_KEY = 'zenou_web_recent';
-  const MAGMA = 'https://magma3-mantle.laneesports.com/&';
-  const HOME_TITLE = 'Web, Zenou Unblocked';
+  /* Magma is an Ultraviolet/Scramjet proxy: the page you ask for is fetched by
+     a service worker it registers on its own origin. A document inside a
+     sandboxed iframe cannot register a service worker at all, and a proxy
+     whose worker never installed is a page that looks fine and loads nothing.
+     So the door is a top-level tab — the only context where the worker, and
+     therefore the proxy, actually runs.
+
+     This replaces the previous approach, which wrapped Mantle's menu in a
+     srcdoc frame and then opened the app from a window.open() issued after an
+     await: the popup arrived outside the click gesture, so browsers dropped it
+     and the row did nothing. It also depended on seven CDN mirrors before it
+     could draw anything. Neither problem exists now.
+
+     The upstream app is third-party and its address moves every few months. */
+  const MAGMA = 'https://magma-mantle.truegrid.cloud/';
+  const HOME_TITLE = 'Reference desk, ZenouMath';
 
   const SITES = [
     {
@@ -27,24 +44,30 @@
     {
       id: 'movy', label: 'Movy', glyph: 'M',
       url: 'https://www.movy.sx/',
-      note: 'Streaming portal. It sends X-Frame-Options: DENY, so Magma has to carry it.',
+      note: 'Streaming portal. It sends X-Frame-Options: DENY, so a proxy has to carry it.',
       kind: 'proxy',
     },
     {
       id: 'magma', label: 'Magma', glyph: '⌁',
       url: MAGMA,
-      note: 'The proxy app. Open it here, then paste any address into its bar.',
-      kind: 'proxy-app',
+      note: 'The proxy itself. Opens in its own tab, because it needs a service worker and a frame forbids one.',
+      kind: 'doorway',
+    },
+    {
+      id: 'slate', label: 'Slate', glyph: '✦',
+      url: 'https://slate-mantle.truegrid.cloud/',
+      note: 'Mantle\u2019s own AI chat. It frames cleanly, so it also has a room of its own under AI.',
+      kind: 'site',
     },
     {
       id: 'mineral', label: 'Mineral', glyph: '⛏',
-      url: 'mineral.html',
+      url: '/mineral',
       note: 'Minecraft in the browser. ~120 MB on first launch, cached after that.',
       kind: 'app', newPage: true,
     },
     {
       id: 'youtube', label: 'YouTube library', glyph: '▶',
-      url: 'social.html',
+      url: '/social',
       note: 'Search a curated library, add your own links and watch in-page.',
       kind: 'app', newPage: true,
     },
@@ -125,6 +148,9 @@
     const v = (raw || '').trim();
     if (!v) return '';
     if (/^(https?:|about:)/i.test(v)) return v;
+    /* A page of ours is a path, not a hostname: without this, '/web' would be
+       treated as a search and '/mineral' would gain an https:// prefix. */
+    if (v.startsWith('/') || /^[\w-]+\.html?$/i.test(v)) return v;
     if (/^[\w-]+(\.[\w-]+)+([/?#].*)?$/.test(v)) return `https://${v}`;
     return `https://www.google.com/search?q=${encodeURIComponent(v)}`;
   }
@@ -218,18 +244,32 @@
   }
 
   /* ---------- built-in sites ---------- */
+  /* Opening a tab from here is deliberately an anchor click, not window.open():
+     a real <a target="_blank"> is never dropped by a popup blocker, and it keeps
+     the new tab out of this window's opener chain. */
+  function openMagma(target) {
+    if (target) copy(target);
+    const a = document.createElement('a');
+    a.href = MAGMA;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.style.display = 'none';
+    document.body.append(a);
+    a.click();
+    a.remove();
+  }
+
   function openSite(site) {
     if (site.code) { showCode(site); return; }
     if (site.newPage) { location.href = site.url; return; }
-    if (site.kind === 'proxy-app') {
-      load(site.url, { label: 'Magma' });
-      toast('Magma is open', 'Type or paste any address into its own bar.');
+    if (site.kind === 'doorway') {
+      openMagma();
+      toast('Magma opened in a new tab', 'Type or paste an address into its bar. It runs there, not here, because a proxy needs its own origin.');
       return;
     }
     if (site.kind === 'proxy') {
-      load(MAGMA, { label: 'Magma' });
-      copy(site.url);
-      toast(`Magma opened · ${site.label} address copied`, 'Paste it into Magma’s bar to load the site.');
+      openMagma(site.url);
+      toast(`Magma opened · ${site.label} address copied`, 'Paste it into Magma’s bar. The tab is already waiting.');
       return;
     }
     load(site.url, { label: site.label });
@@ -253,7 +293,10 @@
       b.querySelector('small').textContent = site.note;
       const badge = b.querySelector('i');
       badge.dataset.kind = site.kind === 'app' ? 'app' : site.kind === 'site' ? 'site' : 'proxy';
-      badge.textContent = site.kind === 'app' ? 'Built-in' : site.kind === 'site' ? 'Direct' : 'Via Magma';
+      badge.textContent = site.kind === 'app' ? 'Built-in'
+        : site.kind === 'site' ? 'Direct'
+        : site.kind === 'doorway' ? 'New tab'
+        : 'Via Magma';
       b.addEventListener('click', () => openSite(site));
       wrap.append(b);
     });
@@ -397,7 +440,7 @@
       document.querySelectorAll('link[rel~="icon"]').forEach(n => n.remove());
       const link = document.createElement('link');
       link.rel = 'icon';
-      link.href = 'assets/favicon.png';
+      link.href = '/assets/favicon.png';
       link.type = 'image/png';
       document.head.append(link);
       return;
@@ -492,9 +535,14 @@
       setTimeout(() => { frame.src = current.url; }, 80);
     });
     $('#webMagma').addEventListener('click', () => {
-      load(MAGMA, { label: 'Magma' });
-      if (current && current.url !== MAGMA) copy(current.url);
-      toast('Magma is open', 'Paste the address into Magma’s bar to continue.');
+      const target = current && current.url && !current.url.startsWith('about:') ? current.url : '';
+      openMagma(target);
+      toast(
+        target ? 'Magma opened · address copied' : 'Magma opened in a new tab',
+        target
+          ? 'Paste it into Magma’s bar to load the page through the proxy.'
+          : 'Type an address into its bar. The proxy runs there, not in this frame.',
+      );
     });
 
     $('#webBlank').addEventListener('click', openBlank);
@@ -508,9 +556,18 @@
     /* hand-off from the Media tab: open Magma and put the search on the clipboard */
     const yt = new URLSearchParams(location.search).get('yt');
     if (yt) {
-      load(MAGMA, { label: 'Magma' });
-      copy(`https://www.youtube.com/results?search_query=${encodeURIComponent(yt)}`);
-      toast('Magma is open · YouTube search copied', 'Paste it into Magma’s bar to search all of YouTube here.');
+      openMagma(`https://www.youtube.com/results?search_query=${encodeURIComponent(yt)}`);
+      toast('Magma opened · YouTube search copied', 'Paste it into Magma’s bar to search all of YouTube there.');
+    }
+
+    /* hand-off from AI (and anywhere else): open Magma with the address ready
+       to paste, because Magma's new front end takes the address in its own bar
+       rather than a URL route. */
+    const proxyTarget = new URLSearchParams(location.search).get('proxy');
+    if (proxyTarget) {
+      const target = normalize(decodeURIComponent(proxyTarget));
+      openMagma(target);
+      toast('Magma opened · address copied', 'Paste it into Magma’s bar to load it through the proxy.');
     }
 
     const hash = (location.hash || '').replace('#', '');

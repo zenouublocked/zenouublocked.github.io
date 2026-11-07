@@ -1,4 +1,4 @@
-/* Zenou Unblocked, the "plus" layer.
+/* ZenouMath, the "plus" layer.
  *
  * One script shared by every page. It adds the parts of the site that are not
  * tied to a single screen: the command palette, toasts, the library store
@@ -250,7 +250,7 @@
   function gameCard(g, extra = {}) {
     const a = document.createElement('a');
     a.className = 'card';
-    a.href = `play.html?id=${encodeURIComponent(g.id)}`;
+    a.href = `/play?id=${encodeURIComponent(g.id)}`;
     a.setAttribute('aria-label', g.t);
     if (g.img) {
       const img = document.createElement('img');
@@ -446,13 +446,13 @@
       if (cached && Array.isArray(cached.games) && cached.games.length) {
         window.__zenouGames = cached.games;
         // refresh in the background for next time
-        fetch('catalog/games.json?v=2026-10-31b').then(r => r.ok ? r.json() : null).then(d => {
+        fetch('/catalog/games.json?v=2026-10-31b').then(r => r.ok ? r.json() : null).then(d => {
           if (d && d.games) { LS.set(K.catalog, { ts: Date.now(), games: d.games }); window.__zenouGames = d.games; }
         }).catch(() => {});
         return window.__zenouGames;
       }
       try {
-        const r = await fetch('catalog/games.json?v=2026-10-31b');
+        const r = await fetch('/catalog/games.json?v=2026-10-31b');
         if (!r.ok) throw new Error(r.status);
         const d = await r.json();
         window.__zenouGames = d.games;
@@ -469,12 +469,12 @@
      command palette
      ================================================================ */
   const PAGES = [
-    ['All games', 'index.html', 'Home, rails and the full catalogue'],
-    ['Social', 'social.html', 'YouTube, TikTok, Instagram, Twitch, Discord'],
-    ['Music', 'music.html', 'Spotify and SoundCloud embeds'],
-    ['My Library', 'library.html', 'Favourites, playlists, stats'],
-    ['No pre-roll ads', 'index.html?c=noads', 'Games that start without an ad screen'],
-    ['HoodaMath builds', 'index.html?c=hoodamath', 'Publisher builds that start instantly'],
+    ['All games', '/', 'Home, rails and the full catalogue'],
+    ['Social', '/social', 'YouTube, TikTok, Instagram, Twitch, Discord'],
+    ['Music', '/music', 'Spotify and SoundCloud embeds'],
+    ['My Library', '/library', 'Favourites, playlists, stats'],
+    ['No pre-roll ads', '/?c=noads', 'Games that start without an ad screen'],
+    ['HoodaMath builds', '/?c=hoodamath', 'Publisher builds that start instantly'],
   ];
 
   let palette = null;
@@ -503,8 +503,8 @@
     let games = [];
 
     const ACTIONS = [
-      { label: 'Surprise me, random playable game', run: () => { location.href = 'play.html?id=' + pickRandom() ; } },
-      { label: 'Surprise me from the ad-free shelf', run: () => { location.href = 'play.html?id=' + pickRandom(true); } },
+      { label: 'Surprise me, random playable game', run: () => { location.href = '/play?id=' + pickRandom() ; } },
+      { label: 'Surprise me from the ad-free shelf', run: () => { location.href = '/play?id=' + pickRandom(true); } },
       { label: 'Open settings', run: () => { close(); document.querySelector('#settingsBtn')?.click() || toast('Settings unavailable here'); } },
       { label: 'Toggle list / grid view', run: () => { const v = LS.get(K.view, 'grid') === 'grid' ? 'list' : 'grid'; LS.set(K.view, v); document.documentElement.dataset.view = v; toast(`View: ${v}`); } },
       { label: 'Toggle calm motion', run: () => { cyclePref('motion', ['full', 'calm']); } },
@@ -584,7 +584,7 @@
           label: g.t,
           sub: [SOURCE_LABEL[g.s] || '', g.pc ? g.pc.toLocaleString() + ' plays' : '', (g.cs || [])[0] || ''].filter(Boolean).join(' · '),
           icon: '▶',
-          run: () => { location.href = `play.html?id=${encodeURIComponent(g.id)}`; },
+          run: () => { location.href = `/play?id=${encodeURIComponent(g.id)}`; },
         })));
       }
 
@@ -592,7 +592,7 @@
         const recents = store.recent.slice(0, 5).map(r => games.find(g => g.id === r.id)).filter(Boolean);
         push('Pick up where you left off', recents.map(g => ({
           label: g.t, sub: 'Recently played', icon: '↺',
-          run: () => { location.href = `play.html?id=${encodeURIComponent(g.id)}`; },
+          run: () => { location.href = `/play?id=${encodeURIComponent(g.id)}`; },
         })));
       }
 
@@ -842,7 +842,7 @@
     if (location.protocol === 'file:') return;
     // Keep local development honest: a cached shell would hide edits.
     if (/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) return;
-    navigator.serviceWorker.register('sw.js').catch(() => { /* offline shell is optional */ });
+    navigator.serviceWorker.register('/sw.js').catch(() => { /* offline shell is optional */ });
   }
 
   /* ================================================================
@@ -866,14 +866,14 @@
         e.preventDefault();
         const box = document.querySelector('.searchbox input, #search');
         if (box) box.focus();
-        else location.href = 'search.html';
+        else location.href = '/search';
       }
       else if (e.key === map.random) {
         const random = document.querySelector('#randomBtn');
         if (random) { e.preventDefault(); random.click(); }
       }
-      else if (e.key === map.games) { location.href = 'index.html'; }
-      else if (e.key === map.library) { location.href = 'library.html'; }
+      else if (e.key === map.games) { location.href = '/'; }
+      else if (e.key === map.library) { location.href = '/library'; }
       else if (e.key === map.settings) { document.querySelector('#settingsBtn')?.click(); }
     });
   }
@@ -896,7 +896,7 @@
     mountScroll();
     mountGamepad();
     registerWorker();
-    const isHome = /(^|\/)(index\.html)?(\?.*)?$/.test(location.pathname + location.search) || location.pathname.endsWith('index.html');
+    const isHome = /(^|\/)(index\.html)?(\?.*)?$/.test(location.pathname + location.search) || location.pathname.endsWith('/');
     if (isHome && !LS.get(K.tour, false) && !store.recent.length) setTimeout(tour, 900);
     loadCatalog().then(() => checkAchievements({ quiet: true }));
   }

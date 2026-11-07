@@ -1,0 +1,17 @@
+{
+  "name": "zenou-unblocked",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Zenou Unblocked: a static arcade plus a TMDB-backed movie and TV discovery API.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server/index.mjs",
+    "dev": "node --watch server/index.mjs",
+    "test": "node scripts/test-api.mjs",
+    "verify:ai": "node scripts/verify-ai.mjs",
+    "verify:movies": "node scripts/verify-movies.mjs"
+  }
+}

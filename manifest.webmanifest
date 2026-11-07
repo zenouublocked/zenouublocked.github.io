@@ -1,36 +1,38 @@
 {
-  "name": "Zenou Unblocked",
-  "short_name": "Zenou",
-  "description": "Browser games, film discovery and playlists. Free, no account, no install.",
-  "start_url": "index.html",
-  "scope": "./",
+  "name": "ZenouMath",
+  "short_name": "ZenouMath",
+  "description": "A study bench: practice sets, a reference desk, a lecture library, a tutor console and audio for focus. Free, no account, no install.",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#07080e",
   "theme_color": "#07080e",
   "orientation": "any",
-  "categories": ["games", "entertainment"],
+  "categories": ["education", "productivity"],
   "icons": [
     {
-      "src": "assets/logo-192.png",
+      "src": "/assets/logo-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "assets/logo.png",
+      "src": "/assets/logo.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "assets/logo.png",
+      "src": "/assets/logo.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     }
   ],
   "shortcuts": [
-    { "name": "No pre-roll ads", "url": "index.html?c=noads" },
-    { "name": "My Library", "url": "library.html" }
+    { "name": "Practice", "url": "/" },
+    { "name": "Lecture hall", "url": "/movies" },
+    { "name": "Tutor room", "url": "/ai" },
+    { "name": "My shelf", "url": "/library" }
   ]
 }

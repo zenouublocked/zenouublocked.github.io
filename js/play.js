@@ -1,4 +1,4 @@
-/* Zenou Unblocked, game player page. */
+/* ZenouMath, game player page. */
 'use strict';
 
 const $ = (sel) => document.querySelector(sel);
@@ -29,7 +29,7 @@ async function boot() {
   const id = p.get('id') || '';
   let GAMES;
   try {
-    const res = await fetch('catalog/games.json?v=2026-10-31b');
+    const res = await fetch('/catalog/games.json?v=2026-10-31b');
     if (!res.ok) throw new Error(res.status);
     GAMES = (await res.json()).games;
   } catch {
@@ -43,8 +43,8 @@ async function boot() {
   }
 
   document.title = window.zenouMaskedTitle
-    ? window.zenouMaskedTitle(`${g.t}, Zenou Unblocked`)
-    : `${g.t}, Zenou Unblocked`;
+    ? window.zenouMaskedTitle(`${g.t}, ZenouMath`)
+    : `${g.t}, ZenouMath`;
   touchRecent(g.id);
   if (g.wrap || g.direct) { location.replace(g.wrap ? g.u : g.direct); return; }
   $('#playerView').hidden = false;
@@ -211,7 +211,7 @@ async function boot() {
   pool.forEach(x => rg.append(relatedCard(x)));
 
   $('#backBtn').addEventListener('click', () => {
-    if (history.length > 1) history.back(); else location.href = 'index.html';
+    if (history.length > 1) history.back(); else location.href = '/';
   });
 
   /* Space toggles fullscreen unless the user is typing somewhere */
@@ -345,7 +345,7 @@ function showFail(g) {
 function relatedCard(g) {
   const a = document.createElement('a');
   a.className = 'card';
-  a.href = `play.html?id=${encodeURIComponent(g.id)}`;
+  a.href = `/play?id=${encodeURIComponent(g.id)}`;
   if (g.img) {
     const img = document.createElement('img');
     img.className = 'card-thumb';

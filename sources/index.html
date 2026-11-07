@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>try{if(!localStorage.getItem('zenoumath.consent'))document.documentElement.classList.add('consent-pending')}catch(e){document.documentElement.classList.add('consent-pending')}setTimeout(function(){document.documentElement.classList.remove('consent-pending')},3000)</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{var r=document.documentElement,p=JSON.parse(localStorage.getItem('zenou_prefs')||'{}'),m=JSON.parse(localStorage.getItem('zenou_mask')||'{}');var t=p.theme||m.theme;if(t)r.dataset.theme=t;['glow','radius','density','bg','motion'].forEach(function(k){if(p[k])r.dataset[k]=p[k]});if(p.bgDim!=null)r.style.setProperty('--bg-dim',Math.max(0,Math.min(85,+p.bgDim))/100);if(p.hue!=null&&p.hueRgb){r.style.setProperty('--accent','hsl('+p.hue+' 92% 64%)');r.style.setProperty('--accent-2','hsl('+(((+p.hue)+42)%360)+' 92% 68%)');r.style.setProperty('--accent-rgb',p.hueRgb);r.style.setProperty('--accent-2-rgb',p.hue2Rgb)}var g=localStorage.getItem('zenou_bgimg');if(g){r.style.setProperty('--custom-bg','url("'+g+'")');r.classList.add('has-custom')}}catch(e){}</script>
+<title>Source index | ZenouMath</title>
+<meta name="description" content="Every lecture and reference site in one table, graded by framing verdict and last check date, with the dead ones kept and dated.">
+<meta name="theme-color" content="#07080e">
+<link rel="canonical" href="https://zenoumath.space/sources">
+<meta property="og:site_name" content="ZenouMath">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Source index | ZenouMath">
+<meta property="og:description" content="Every lecture and reference site in one table, graded by framing verdict and last check date, with the dead ones kept and dated.">
+<meta property="og:url" content="https://zenoumath.space/sources">
+<meta property="og:image" content="https://zenoumath.space/assets/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/logo-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plus.css">
+<link rel="stylesheet" href="/css/movies.css">
+<link rel="stylesheet" href="/css/consent.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="wordmark" href="/" aria-label="ZenouMath home">
+    <span class="brand-mark" aria-hidden="true"><img src="/assets/logo.png" alt="" width="38" height="38" decoding="async"></span>
+    <span class="wordmark-text">
+      <span class="wordmark-lines">Zenou</span>
+      <span class="wordmark-sub">math</span>
+    </span>
+  </a>
+  <nav class="mainnav" aria-label="Sections">
+    <a href="/" data-nav>Practice</a>
+    <a href="/web" data-nav>Reference</a>
+    <a href="/movies" data-nav>Lectures</a>
+    <a href="/ai" data-nav>Tutor</a>
+    <a href="/social" data-nav>Media</a>
+    <a href="/music" data-nav>Audio</a>
+    <a href="/library" data-nav>My shelf</a>
+  </nav>
+  <div class="bar-tools">
+    <form class="searchbox" role="search" action="/search" method="get">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 3a7.5 7.5 0 1 1-4.32 13.64L3 19.85 3.94 20.8l3.18-3.18A7.5 7.5 0 0 1 10.5 3zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z"/></svg>
+      <input name="q" type="search" placeholder="Search everything…" autocomplete="off" spellcheck="false" aria-label="Search games">
+    </form>
+  </div>
+</header>
+
+<main class="movies-main">
+  <header class="movies-hero">
+    <p class="movies-kicker">Sources</p>
+    <h1>Any film, any episode,<br><em>in this frame.</em></h1>
+    <p class="movies-deck">Every "streaming site" in this corner of the web is a shell around somebody else's player, and those players are what actually allow framing. So this page goes straight to them. <b>Search on StreamEx or Movy to find a title, then paste its id here: a player that allows framing runs in the stage, and one that refuses opens a tab.</b> The directory underneath says, per site, whether it frames or needs a tab.</p>
+  </header>
+
+  <!-- ---------- watch panel ---------- -->
+  <section class="movies-watch" aria-label="Play by id">
+    <div class="movies-watch-head">
+      <div>
+        <span class="movies-kicker">Watch now</span>
+        <h2>One id, eleven players</h2>
+        <p>Paste the number from a themoviedb.org film page, an IMDb <code>tt</code> id, or the whole link. Series need a season and an episode.</p>
+      </div>
+      <div class="movies-seg" role="group" aria-label="What to play">
+        <button type="button" data-kind="movie" aria-pressed="true">Film</button>
+        <button type="button" data-kind="tv" aria-pressed="false">Series</button>
+      </div>
+    </div>
+
+    <form class="movies-watch-form" id="watchForm">
+      <input id="watchId" type="text" autocomplete="off" spellcheck="false"
+             placeholder="550, tt1375666, or https://www.themoviedb.org/movie/550" aria-label="TMDB or IMDb id">
+      <span class="movies-ep" id="watchEp" hidden>
+        <input id="watchS" type="number" min="1" max="60" value="1" aria-label="Season">
+        <span aria-hidden="true">×</span>
+        <input id="watchE" type="number" min="1" max="999" value="1" aria-label="Episode">
+      </span>
+      <select id="watchPlayer" aria-label="Player"></select>
+      <button class="btn btn-solid" type="submit">Play here</button>
+    </form>
+
+    <p class="movies-watch-hint" id="watchHint">Numbers work on every player. IMDb <code>tt</code> ids work on the VidNest, VidFast, VidRock, VidUp and VidCore hosts.</p>
+  </section>
+
+  <!-- ---------- stage ---------- -->
+  <section class="movies-stage" id="moviesStage" aria-label="Player">
+    <div class="movies-stage-bar">
+      <div class="movies-stage-id">
+        <span class="movies-stage-mark" id="moviesStageMark" aria-hidden="true">—</span>
+        <span class="movies-stage-name">
+          <b id="moviesStageName">Nothing loaded</b>
+          <small id="moviesStageHost">Pick a player or a source</small>
+        </span>
+      </div>
+      <div class="movies-stage-tools">
+        <span class="movie-badge" id="moviesStageMeta"></span>
+        <button class="btn btn-ghost" type="button" id="moviesReload">Reload</button>
+        <button class="btn btn-ghost" type="button" id="moviesCopy">Copy link</button>
+        <button class="btn" type="button" id="moviesTab">Open in tab</button>
+        <button class="btn" type="button" id="moviesFull">Fullscreen</button>
+        <button class="btn btn-ghost" type="button" id="moviesClose">Close</button>
+      </div>
+    </div>
+
+    <div class="movies-frame">
+      <div class="movies-idle" id="moviesIdle">
+        <div class="movies-state-inner">
+          <span>Nothing loaded</span>
+          <h2>Pick a player, or paste an id above</h2>
+          <p>Players marked “Frames here” allow embedding, so they run in this box. The directory further down lists catalogue sites, and the tile says whether each one can be framed at all.</p>
+        </div>
+      </div>
+
+      <div class="movies-blocked" id="moviesBlocked" hidden>
+        <div class="movies-state-inner">
+          <span>Their server says no</span>
+          <h2>This source refuses to be framed</h2>
+          <p>It sends X-Frame-Options or frame-ancestors, so the browser blanks the frame no matter what this page does. Open it in its own tab, or use a player above with a TMDB id instead.</p>
+          <div class="play-tools">
+            <a class="btn btn-solid" data-act="tab" href="#" target="_blank" rel="noopener">Open in a new tab</a>
+            <button class="btn" data-act="try" type="button">Try the frame anyway</button>
+            <span class="play-tools" data-act="doors" hidden></span>
+          </div>
+        </div>
+      </div>
+
+      <div id="moviesFrame"></div>
+    </div>
+  </section>
+
+  <section aria-label="Recently opened">
+    <div id="moviesRecent" class="movies-flags" style="margin-bottom:24px"></div>
+  </section>
+
+  <!-- ---------- players ---------- -->
+  <section class="movies-section" aria-label="Players">
+    <div class="movies-section-head">
+      <div>
+        <h2>Players</h2>
+        <p class="movies-section-sub">These are the embed hosts the streaming sites build on. Every one of them was asked for a film and an episode during the last check, and every one answered without a framing block. Press a card to browse that player's own catalogue inside the stage.</p>
+      </div>
+      <span class="movies-count" id="playersCount"></span>
+    </div>
+    <div class="movies-player-grid" id="playersGrid"></div>
+  </section>
+
+  <!-- ---------- directory ---------- -->
+  <section class="movies-section" aria-label="Catalogue sites">
+    <div class="movies-section-head">
+      <div>
+        <h2>The directory</h2>
+        <p class="movies-section-sub">Catalogue sites, checked the same way: follow every redirect, then read the framing headers. A site that lands on a parking page or a survey farm is marked as sold, not as working.</p>
+      </div>
+    </div>
+
+    <div class="movies-tools">
+      <label class="movies-search" for="moviesSearch">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 3a7.5 7.5 0 1 1-4.32 13.64L3 19.85 3.94 20.8l3.18-3.18A7.5 7.5 0 0 1 10.5 3zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z"/></svg>
+        <input id="moviesSearch" type="search" placeholder="Filter by name, host, or what it is good at" autocomplete="off" spellcheck="false">
+      </label>
+      <div class="movies-cats" id="moviesCats" role="group" aria-label="Categories"></div>
+      <button class="movies-flag" id="moviesShowDown" type="button" aria-pressed="false" title="Sold domains, dead hosts and sites that answer with an error">Show broken links</button>
+      <span class="movies-count" id="moviesCount"></span>
+    </div>
+
+    <div class="movies-grid" id="moviesGrid" aria-live="polite"></div>
+    <p class="movies-empty" id="moviesEmpty" hidden>Nothing matches that filter. Clear the search, or turn on broken links to see what has gone quiet.</p>
+  </section>
+
+  <details class="movies-doors" id="moviesDoors">
+    <summary>
+      Proxy doors
+      <small>Optional, stored in this browser only</small>
+    </summary>
+    <div class="movies-doors-body">
+      <p id="moviesDoorHint">A door is any proxy that takes a target URL in its own address. Add yours with a template: <code>{url}</code> is the address, <code>{enc}</code> is its encoded form, <code>{b64}</code> is base64.</p>
+      <form class="movies-door-form" id="moviesDoorForm">
+        <input id="moviesDoorName" type="text" autocomplete="off" spellcheck="false" placeholder="Name (optional)">
+        <input id="moviesDoorTpl" type="text" autocomplete="off" spellcheck="false" placeholder="https://proxy.example/service/{enc}" aria-label="Door template">
+        <button class="btn btn-solid" type="submit">Add door</button>
+      </form>
+      <ul class="movies-door-list" id="moviesDoorList"></ul>
+    </div>
+  </details>
+
+  <section class="movies-notes">
+    <article>
+      <h2>Why the sites were failing</h2>
+      <p>StreamEx, Tubi, Plex, Roku, HydraHD and Movy all send <code>X-Frame-Options</code> or a CSP <code>frame-ancestors</code> list. That is enforced by the browser, so no page can override it. Separately, StreamEx's own player, <code>player.zxcprime.xyz</code>, no longer resolves in DNS, so playback there fails even in a normal tab.</p>
+    </article>
+    <article>
+      <h2>Why the players work</h2>
+      <p>The VidNest, VidFast, VidRock, VidUp and VidCore family, plus VA Player, VidSrc, VidLink, MultiEmbed and 2Embed, all serve a film from <code>/movie/&lt;id&gt;</code> and an episode from <code>/tv/&lt;id&gt;/&lt;season&gt;/&lt;episode&gt;</code>, and none of them send a framing header. They are the layer the catalogue sites sit on, so this page uses them directly.</p>
+    </article>
+    <article>
+      <h2>How the shelf is graded</h2>
+      <p><code>scripts/verify-movies.mjs</code> follows every redirect and grades the final response, because a 200 on the way to a survey farm is not a working site. Sold domains, dead hosts and framing blocks are recorded, not hidden, and the check date rides on every record.</p>
+    </article>
+    <article>
+      <h2>About the doors</h2>
+      <p>A door is a proxy you trust, added here with a template, used only when you press it on a site that refuses framing. Public proxies die constantly, so the shelf never ships a hardcoded one. Nothing is mirrored or re-hosted here either way.</p>
+    </article>
+  </section>
+</main>
+
+<footer class="sitefoot">
+  <div class="foot-grid">
+    <div>
+      <span class="foot-mark">Zenou <b>Math</b></span>
+      <p>Practice sets, a reference desk, a lecture library and audio for focus, in one tab. Free, no account, no install.</p>
+      <p class="foot-small">Published at <a href="https://zenoumath.space/" rel="noopener">zenoumath.space</a></p>
+    </div>
+    <div>
+      <h3>Where it comes from</h3>
+      <p>Every practice set runs inside this page, embedded from its publisher's own build: <a href="https://www.hoodamath.com" rel="noopener">HoodaMath</a>, <a href="https://www.crazygames.com" rel="noopener">CrazyGames</a>, <a href="https://scratch.mit.edu" rel="noopener">Scratch</a> or the developer's own server. Nothing is re-hosted and credit stays with each creator.</p>
+      <p>Lecture pages show metadata from TMDB and frame other people's players. Audio plays through the Spotify and SoundCloud official embeds.</p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <p>Corrections, takedown notices and privacy requests: <a href="/legal/contact">the contact page</a>.</p>
+      <p class="foot-small">ZenouMath is an independent study site. It is not a school and is not affiliated with one.</p>
+    </div>
+    <div>
+      <h3>Legal</h3>
+      <p class="foot-small">
+        <a href="/legal">Legal centre</a> ·
+        <a href="/legal/terms">Terms</a> ·
+        <a href="/legal/privacy">Privacy</a> ·
+        <a href="/legal/acceptable-use">Acceptable use</a> ·
+        <a href="/legal/copyright">Copyright</a> ·
+        <a href="/legal/takedown">Takedown</a> ·
+        <a href="/legal/disclaimer">Disclaimer</a> ·
+        <a href="/legal/contact">Contact</a>
+      </p>
+      <p class="foot-small"><a href="#" data-consent-review>Review the use agreement</a></p>
+    </div>
+  </div>
+</footer>
+
+<div id="pbHost"></div>
+<script src="/js/atmosphere.js" defer></script>
+<script src="/js/settings.js" defer></script>
+<script src="/js/zenou-plus.js" defer></script>
+<script src="/js/music-player.js" defer></script>
+<script src="/js/movies.js" defer></script>
+<script src="/js/consent.js" defer></script>
+</body>
+</html>

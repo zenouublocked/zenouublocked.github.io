@@ -1,0 +1,10 @@
+# Local secrets and generated files.
+.env
+.env.local
+node_modules/
+.tmp/
+.tmp-test/
+
+# Editor and OS noise.
+.DS_Store
+Thumbs.db

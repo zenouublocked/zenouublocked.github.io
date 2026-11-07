@@ -1,0 +1,186 @@
+/* Zenou Unblocked, legal pages.
+ * Long-form reading layout. Same tokens as the rest of the site, but the type
+ * scale is set for prose rather than cards.
+ */
+
+.legal-main {
+  max-width: 78ch;
+  margin: 0 auto;
+  padding: 40px var(--gutter) 100px;
+}
+
+.legal-head {
+  margin-bottom: 28px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.legal-kicker {
+  margin: 0 0 10px;
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
+.legal-head h1 {
+  margin: 0 0 10px;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4.4vw, 42px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -.025em;
+  font-stretch: 106%;
+}
+
+.legal-head p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+/* "this is a draft, finish it before relying on it" — deliberately not styled
+   as decoration, so it cannot be mistaken for boilerplate. */
+.legal-status {
+  margin: 0 0 24px;
+  padding: 14px 16px;
+  border: 1px solid rgb(255 190 92 / .34);
+  border-left-width: 3px;
+  border-radius: 10px;
+  background: rgb(255 190 92 / .07);
+  font-size: 13px;
+  line-height: 1.6;
+  color: #d9c7a6;
+}
+
+.legal-status strong { color: #ffd9a0; }
+.legal-status code { background: rgb(255 255 255 / .08); color: #fff; }
+.legal-status a { color: #ffd9a0; }
+
+.legal-toc {
+  margin: 0 0 30px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.legal-toc h2 {
+  margin: 0 0 8px;
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  font-weight: 600;
+}
+
+.legal-toc ol {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.85;
+}
+
+.legal-toc a { color: var(--muted); text-decoration: none; }
+.legal-toc a:hover { color: #fff; text-decoration: underline; }
+
+.legal-body { font-size: 14.5px; line-height: 1.75; color: #c6ccdb; }
+
+.legal-body h2 {
+  margin: 38px 0 12px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -.012em;
+  color: var(--text);
+  scroll-margin-top: 90px;
+}
+
+.legal-body h3 {
+  margin: 24px 0 8px;
+  font-size: 14.5px;
+  font-weight: 650;
+  color: var(--text);
+}
+
+.legal-body p { margin: 0 0 14px; }
+.legal-body ul, .legal-body ol { margin: 0 0 16px; padding-left: 22px; }
+.legal-body li { margin-bottom: 7px; }
+.legal-body strong { color: var(--text); font-weight: 600; }
+.legal-body a { color: rgb(var(--accent-rgb)); }
+
+.legal-body code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 12.5px;
+  padding: 1px 6px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, .07);
+  color: #fff;
+}
+
+.legal-callout {
+  margin: 20px 0;
+  padding: 16px 18px;
+  border: 1px solid rgb(var(--accent-rgb) / .28);
+  border-left-width: 3px;
+  border-radius: 10px;
+  background: rgb(var(--accent-rgb) / .07);
+  font-size: 14px;
+}
+
+.legal-callout strong { color: #fff; }
+
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 18px;
+  font-size: 13.5px;
+  display: block;
+  overflow-x: auto;
+}
+
+.legal-table thead, .legal-table tbody { display: table; width: 100%; border-collapse: collapse; }
+
+@media (max-width: 620px) {
+  .legal-main { padding: 28px 18px 80px; }
+  .legal-body { font-size: 14px; }
+  .legal-table { font-size: 12.5px; }
+  .legal-nav a { font-size: 12px; padding: 6px 10px; }
+}
+
+.legal-table th, .legal-table td {
+  text-align: left;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.legal-table th { color: var(--muted-2); font-weight: 600; font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; }
+
+.legal-foot {
+  margin-top: 44px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  color: var(--muted-2);
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+
+.legal-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 26px;
+}
+
+.legal-nav a {
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12.5px;
+  text-decoration: none;
+}
+
+.legal-nav a:hover { color: #fff; border-color: var(--line-strong); }

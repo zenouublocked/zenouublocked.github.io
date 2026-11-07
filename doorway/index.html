@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>try{if(!localStorage.getItem('zenoumath.consent'))document.documentElement.classList.add('consent-pending')}catch(e){document.documentElement.classList.add('consent-pending')}setTimeout(function(){document.documentElement.classList.remove('consent-pending')},3000)</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{var r=document.documentElement,p=JSON.parse(localStorage.getItem('zenou_prefs')||'{}');var t=p.theme;if(t)r.dataset.theme=t;['glow','radius','density','bg','motion'].forEach(function(k){if(p[k])r.dataset[k]=p[k]})}catch(e){}</script>
+<title>Doorways | ZenouMath</title>
+<meta name="description" content="Every doorway this site knows about, each opening at the top level where a proxy can actually run.">
+<meta name="theme-color" content="#07080e">
+<link rel="canonical" href="https://zenoumath.space/doorway">
+<meta property="og:site_name" content="ZenouMath">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Doorways | ZenouMath">
+<meta property="og:description" content="Every doorway this site knows about, each opening at the top level where a proxy can actually run.">
+<meta property="og:url" content="https://zenoumath.space/doorway">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/logo-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plus.css">
+<link rel="stylesheet" href="/css/doorway.css">
+<link rel="stylesheet" href="/css/consent.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="wordmark" href="/" aria-label="ZenouMath home">
+    <span class="brand-mark" aria-hidden="true"><img src="/assets/logo.png" alt="" width="38" height="38" decoding="async"></span>
+    <span class="wordmark-text">
+      <span class="wordmark-lines">Zenou</span>
+      <span class="wordmark-sub">math</span>
+    </span>
+  </a>
+  <nav class="mainnav" aria-label="Sections">
+    <a href="/" data-nav>Practice</a>
+    <a href="/web" data-nav aria-current="page">Reference</a>
+    <a href="/movies" data-nav>Lectures</a>
+    <a href="/ai" data-nav>Tutor</a>
+    <a href="/social" data-nav>Media</a>
+    <a href="/music" data-nav>Audio</a>
+    <a href="/library" data-nav>My shelf</a>
+  </nav>
+  <div class="bar-tools">
+    <form class="searchbox" role="search" action="/search" method="get">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 3a7.5 7.5 0 1 1-4.32 13.64L3 19.85 3.94 20.8l3.18-3.18A7.5 7.5 0 0 1 10.5 3zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z"/></svg>
+      <input name="q" type="search" placeholder="Search everything…" aria-label="Search everything">
+    </form>
+  </div>
+</header>
+
+<main class="dw-main">
+  <header class="dw-head">
+    <p class="dw-kicker">Doorways</p>
+    <h1>Places to go when a page will not load</h1>
+    <p>Five third-party doorways, listed with the address they actually live at. Each one opens in its own tab, at the top level, because that is the only place these tools work: a proxy needs its own origin to register a service worker, and a sandboxed frame never allows one.</p>
+  </header>
+
+  <p class="dw-note">Every doorway below is somebody else's service. This page does not run them, cannot see what you send through them and cannot promise they stay up. They are checked from your browser when the page loads, so the dot shows whether <em>you</em> can reach the address right now, not what some server saw yesterday.</p>
+
+  <div class="dw-grid" id="dwGrid"></div>
+
+  <p class="dw-foot">If a doorway is down, it is down for everyone: these are volunteer-run services with no uptime promise, and their addresses move every few months. Nothing here is copied or re-hosted. Rules for using a doorway are in the <a href="/legal/acceptable-use#desk">Acceptable Use Policy</a>; the short version is that a doorway is not permission to reach something you are not allowed to reach.</p>
+</main>
+
+<footer class="sitefoot">
+  <div class="foot-grid">
+    <div>
+      <span class="foot-mark">Zenou <b>Math</b></span>
+      <p>Practice sets, a reference desk, a lecture library and audio for focus, in one tab. Free, no account, no install.</p>
+      <p class="foot-small">Published at <a href="https://zenoumath.space/" rel="noopener">zenoumath.space</a></p>
+    </div>
+    <div>
+      <h3>Where it comes from</h3>
+      <p>Every practice set runs inside this page, embedded from its publisher's own build: <a href="https://www.hoodamath.com" rel="noopener">HoodaMath</a>, <a href="https://www.crazygames.com" rel="noopener">CrazyGames</a>, <a href="https://scratch.mit.edu" rel="noopener">Scratch</a> or the developer's own server. Nothing is re-hosted and credit stays with each creator.</p>
+      <p>Lecture pages show metadata from TMDB and frame other people's players. Audio plays through the Spotify and SoundCloud official embeds.</p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <p>Corrections, takedown notices and privacy requests: <a href="/legal/contact">the contact page</a>.</p>
+      <p class="foot-small">ZenouMath is an independent study site. It is not a school and is not affiliated with one.</p>
+    </div>
+    <div>
+      <h3>Legal</h3>
+      <p class="foot-small">
+        <a href="/legal">Legal centre</a> ·
+        <a href="/legal/terms">Terms</a> ·
+        <a href="/legal/privacy">Privacy</a> ·
+        <a href="/legal/acceptable-use">Acceptable use</a> ·
+        <a href="/legal/copyright">Copyright</a> ·
+        <a href="/legal/takedown">Takedown</a> ·
+        <a href="/legal/disclaimer">Disclaimer</a> ·
+        <a href="/legal/contact">Contact</a>
+      </p>
+      <p class="foot-small"><a href="#" data-consent-review>Review the use agreement</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/atmosphere.js" defer></script>
+<script src="/js/zenou-plus.js" defer></script>
+<script src="/js/consent.js" defer></script>
+<script>
+(function () {
+  'use strict';
+
+  var DOORS = [
+    {
+      name: 'Magma',
+      role: 'Proxy',
+      url: 'https://magma-mantle.truegrid.cloud/',
+      desc: 'Type an address, get the page. The only one of the five with a plain URL bar, and the one to try first.',
+    },
+    {
+      name: 'Slate',
+      role: 'Assistant',
+      url: 'https://slate-mantle.truegrid.cloud/',
+      desc: 'A chat front end. It frames fine, so the tutor room loads it in place; this is the tab version for when a frame is not enough.',
+    },
+    {
+      name: 'Basalt',
+      role: 'Proxy',
+      url: 'https://basalt.mantleunblocked.workers.dev/',
+      desc: 'A Cloudflare-hosted fallback. Same family, different infrastructure, so one going down rarely takes the other with it.',
+    },
+    {
+      name: 'Vent',
+      role: 'Portal',
+      url: 'https://vent.mantleunblocked.workers.dev/',
+      desc: 'A doorway index rather than a proxy — it lists other mirrors, which is useful when both proxies above are stale.',
+    },
+  ];
+
+  var grid = document.getElementById('dwGrid');
+
+  function hostOf(url) {
+    try { return new URL(url).host; } catch (e) { return url; }
+  }
+
+  function card(door) {
+    var el = document.createElement('article');
+    el.className = 'dw-card';
+    el.innerHTML =
+      '<div class="dw-card-top"><h2 class="dw-name"></h2><span class="dw-role"></span></div>' +
+      '<p class="dw-host"></p>' +
+      '<p class="dw-desc"></p>' +
+      '<span class="dw-status" data-state="checking"><i class="dw-dot"></i><span class="dw-label">checking…</span></span>' +
+      '<div class="dw-actions">' +
+      '<a class="btn btn-solid" target="_blank" rel="noopener noreferrer">Open</a>' +
+      '<button class="btn btn-ghost" type="button">Copy address</button>' +
+      '</div>';
+
+    el.querySelector('.dw-name').textContent = door.name;
+    el.querySelector('.dw-role').textContent = door.role;
+    el.querySelector('.dw-host').textContent = hostOf(door.url);
+    el.querySelector('.dw-desc').textContent = door.desc;
+    el.querySelector('a').href = door.url;
+
+    var status = el.querySelector('.dw-status');
+    var label = el.querySelector('.dw-label');
+
+    function set(state, text) {
+      status.dataset.state = state;
+      label.textContent = text;
+    }
+
+    var button = el.querySelector('button');
+    button.addEventListener('click', function () {
+      var done = function () {
+        button.textContent = 'Copied';
+        setTimeout(function () { button.textContent = 'Copy address'; }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(door.url).then(done, done);
+      } else {
+        done();
+      }
+    });
+
+    /* A no-cors request cannot read the response, but it does tell us whether
+       the network answered at all. That is the only honest claim to make from
+       a browser: reachable from here, or not. */
+    var settled = false;
+    var timer = setTimeout(function () {
+      if (settled) return;
+      settled = true;
+      set('bad', 'no answer');
+    }, 9000);
+
+    fetch(door.url, { mode: 'no-cors', cache: 'no-store' }).then(
+      function () {
+        if (settled) return;
+        settled = true;
+        clearTimeout(timer);
+        set('ok', 'reachable from here');
+      },
+      function () {
+        if (settled) return;
+        settled = true;
+        clearTimeout(timer);
+        set('bad', 'no answer');
+      },
+    );
+
+    return el;
+  }
+
+  DOORS.forEach(function (door) { grid.appendChild(card(door)); });
+
+  /* Mineral is ours, so it links in-site rather than out. */
+  var mineral = document.createElement('article');
+  mineral.className = 'dw-card';
+  mineral.innerHTML =
+    '<div class="dw-card-top"><h2 class="dw-name">Mineral</h2><span class="dw-role">Local</span></div>' +
+    '<p class="dw-host">zenoumath.space/mineral</p>' +
+    '<p class="dw-desc">A Minecraft client build, JavaScript or WASM, served from a public mirror and framed here. No proxy involved, so it is the one doorway that is always up if the site is.</p>' +
+    '<span class="dw-status" data-state="ok"><i class="dw-dot"></i><span class="dw-label">on this site</span></span>' +
+    '<div class="dw-actions"><a class="btn btn-solid" href="/mineral">Open</a></div>';
+  grid.appendChild(mineral);
+})();
+</script>
+</body>
+</html>

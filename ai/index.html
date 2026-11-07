@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>try{if(!localStorage.getItem('zenoumath.consent'))document.documentElement.classList.add('consent-pending')}catch(e){document.documentElement.classList.add('consent-pending')}setTimeout(function(){document.documentElement.classList.remove('consent-pending')},3000)</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{var r=document.documentElement,p=JSON.parse(localStorage.getItem('zenou_prefs')||'{}'),m=JSON.parse(localStorage.getItem('zenou_mask')||'{}');var t=p.theme||m.theme;if(t)r.dataset.theme=t;['glow','radius','density','bg','motion'].forEach(function(k){if(p[k])r.dataset[k]=p[k]});if(p.bgDim!=null)r.style.setProperty('--bg-dim',Math.max(0,Math.min(85,+p.bgDim))/100);if(p.hue!=null&&p.hueRgb){r.style.setProperty('--accent','hsl('+p.hue+' 92% 64%)');r.style.setProperty('--accent-2','hsl('+(((+p.hue)+42)%360)+' 92% 68%)');r.style.setProperty('--accent-rgb',p.hueRgb);r.style.setProperty('--accent-2-rgb',p.hue2Rgb)}var g=localStorage.getItem('zenou_bgimg');if(g){r.style.setProperty('--custom-bg','url(\"'+g+'\")');r.classList.add('has-custom')}}catch(e){}</script>
+<title>Tutor room | ZenouMath</title>
+<meta name="description" content="A live assistant console plus a directory of AI study tools, each graded by whether it can actually be framed.">
+<meta name="theme-color" content="#07080e">
+<link rel="canonical" href="https://zenoumath.space/ai">
+<meta property="og:site_name" content="ZenouMath">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tutor room | ZenouMath">
+<meta property="og:description" content="A live assistant console plus a directory of AI study tools, each graded by whether it can actually be framed.">
+<meta property="og:url" content="https://zenoumath.space/ai">
+<meta property="og:image" content="https://zenoumath.space/assets/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/logo-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plus.css">
+<link rel="stylesheet" href="/css/ai.css">
+<link rel="stylesheet" href="/css/consent.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="wordmark" href="/" aria-label="ZenouMath home">
+    <span class="brand-mark" aria-hidden="true"><img src="/assets/logo.png" alt="" width="38" height="38" decoding="async"></span>
+    <span class="wordmark-text">
+      <span class="wordmark-lines">Zenou</span>
+      <span class="wordmark-sub">math</span>
+    </span>
+  </a>
+  <nav class="mainnav" aria-label="Sections">
+    <a href="/" data-nav>Practice</a>
+    <a href="/web" data-nav>Reference</a>
+    <a href="/movies" data-nav>Lectures</a>
+    <a href="/ai" data-nav aria-current="page">Tutor</a>
+    <a href="/social" data-nav>Media</a>
+    <a href="/music" data-nav>Audio</a>
+    <a href="/library" data-nav>My shelf</a>
+  </nav>
+  <div class="bar-tools">
+    <form class="searchbox" role="search" action="/search" method="get">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 3a7.5 7.5 0 1 1-4.32 13.64L3 19.85 3.94 20.8l3.18-3.18A7.5 7.5 0 0 1 10.5 3zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z"/></svg>
+      <input name="q" type="search" placeholder="Search everything…" autocomplete="off" spellcheck="false" aria-label="Search games">
+    </form>
+  </div>
+</header>
+
+<main class="ai-main">
+  <header class="ai-hero">
+    <p class="ai-kicker">Tutor room</p>
+    <h1>Every model in one room,<br><em>one of them inside the frame.</em></h1>
+    <p class="ai-deck">Almost every assistant on the web sends <code>X-Frame-Options</code> and refuses to sit in a page it does not own. <b>Slate is the exception.</b> It is Mantle's own chat, it answers with no framing headers, and it runs live in the console below. Everything else in the directory is graded the same way: green means it opens here, amber means it wants its own tab, and any of them can be carried through the proxy when a network blocks the domain outright.</p>
+  </header>
+
+  <section class="ai-console" aria-label="AI console">
+    <div class="ai-console-bar">
+      <span class="ai-console-mark" aria-hidden="true">✦</span>
+      <span class="ai-console-id">
+        <b id="aiStageName">Slate</b>
+        <span id="aiStageNote">Mantle's chat front end · verified framable</span>
+      </span>
+      <span class="ai-live">In the frame</span>
+      <span class="ai-console-tools">
+        <button class="ai-icon-btn" type="button" id="aiReload" title="Reload the console" aria-label="Reload the console">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/></svg>
+        </button>
+        <a class="ai-icon-btn" id="aiOpenTab" href="https://slate-mantle.truegrid.cloud/" target="_blank" rel="noopener" title="Open in a new tab" aria-label="Open in a new tab">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>
+        </a>
+        <button class="ai-icon-btn" type="button" id="aiFull" title="Fullscreen the console" aria-label="Fullscreen the console">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H3v5"/><path d="M16 3h5v5"/><path d="M21 16v5h-5"/><path d="M3 16v5h5"/></svg>
+        </button>
+      </span>
+    </div>
+
+    <div class="ai-stage" id="aiStageHost">
+      <iframe id="aiStage" title="Slate, embedded AI chat"
+        src="about:blank"
+        allow="clipboard-read; clipboard-write; fullscreen; microphone; autoplay"
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-modals allow-downloads allow-presentation"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="ai-shroud" id="aiShroud">
+        <span class="ai-shroud-ring" aria-hidden="true"></span>
+        <b id="aiShroudTitle">Connecting to Slate</b>
+        <span>Their first paint, not a copy of it. A cold start takes a moment.</span>
+      </div>
+      <div class="ai-stage-fallback" id="aiFallback" hidden>
+        <div class="ai-fallback-card">
+          <h3 id="aiFallbackTitle">Nothing drawn yet</h3>
+          <p id="aiFallbackText">A server that refuses framing leaves the frame empty no matter what this page does. Open it in its own tab, or carry it through Magma.</p>
+          <div class="play-tools" style="justify-content:center">
+            <a class="btn btn-solid" id="aiFallbackOpen" href="#" target="_blank" rel="noopener">Open in a tab</a>
+            <a class="btn" id="aiFallbackProxy" href="/web">Carry through Magma</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-console-foot">
+      <span><b>Loads here:</b> tools whose server allows framing. Anything else gets a tab, not a black rectangle.</span>
+      <div class="ai-switch" id="aiSwitch" role="group" aria-label="Choose what runs in the console"></div>
+    </div>
+  </section>
+
+  <section class="ai-dir" aria-label="AI directory">
+    <div class="ai-dir-head">
+      <h2>The rest of the field</h2>
+      <p>Twenty-three assistants, graded on the final response after redirects. Green opens in the console; amber needs its own tab. Every card also has a Magma route, for when the domain itself is blocked.</p>
+    </div>
+    <div class="ai-filters" id="aiFilters" role="group" aria-label="Filter the directory"></div>
+    <div class="ai-grid" id="aiGrid"></div>
+  </section>
+
+  <section class="ai-notes">
+    <article>
+      <h2>Why only one runs in the frame</h2>
+      <p><code>X-Frame-Options</code> and <code>frame-ancestors</code> are the server's decision, not a bug here. OpenAI, Anthropic, Google, Perplexity and xAI all send one. Slate does not, which is exactly why this room is built around it.</p>
+    </article>
+    <article>
+      <h2>Magma is the way around a block</h2>
+      <p>When the network blocks the domain rather than the frame, the Magma route opens the proxy in its own tab with the address already on your clipboard. Paste it into Magma's bar and it loads there. Magma cannot run in the console above — it is a service-worker proxy, and a sandboxed frame is not allowed to register the worker it needs — so the route is a tab, not a frame.</p>
+    </article>
+    <article>
+      <h2>Graded, not guessed</h2>
+      <p><code>scripts/verify-ai.mjs</code> follows every redirect and grades the final hop, because a 200 on the way to a challenge page is not a working tool. The check date rides on the catalogue, and the verdicts are re-runnable in one command.</p>
+    </article>
+  </section>
+</main>
+
+<footer class="sitefoot">
+  <div class="foot-grid">
+    <div>
+      <span class="foot-mark">Zenou <b>Math</b></span>
+      <p>Practice sets, a reference desk, a lecture library and audio for focus, in one tab. Free, no account, no install.</p>
+      <p class="foot-small">Published at <a href="https://zenoumath.space/" rel="noopener">zenoumath.space</a></p>
+    </div>
+    <div>
+      <h3>Where it comes from</h3>
+      <p>Every practice set runs inside this page, embedded from its publisher's own build: <a href="https://www.hoodamath.com" rel="noopener">HoodaMath</a>, <a href="https://www.crazygames.com" rel="noopener">CrazyGames</a>, <a href="https://scratch.mit.edu" rel="noopener">Scratch</a> or the developer's own server. Nothing is re-hosted and credit stays with each creator.</p>
+      <p>Lecture pages show metadata from TMDB and frame other people's players. Audio plays through the Spotify and SoundCloud official embeds.</p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <p>Corrections, takedown notices and privacy requests: <a href="/legal/contact">the contact page</a>.</p>
+      <p class="foot-small">ZenouMath is an independent study site. It is not a school and is not affiliated with one.</p>
+    </div>
+    <div>
+      <h3>Legal</h3>
+      <p class="foot-small">
+        <a href="/legal">Legal centre</a> ·
+        <a href="/legal/terms">Terms</a> ·
+        <a href="/legal/privacy">Privacy</a> ·
+        <a href="/legal/acceptable-use">Acceptable use</a> ·
+        <a href="/legal/copyright">Copyright</a> ·
+        <a href="/legal/takedown">Takedown</a> ·
+        <a href="/legal/disclaimer">Disclaimer</a> ·
+        <a href="/legal/contact">Contact</a>
+      </p>
+      <p class="foot-small"><a href="#" data-consent-review>Review the use agreement</a></p>
+    </div>
+  </div>
+</footer>
+
+<div id="pbHost"></div>
+<script src="/js/atmosphere.js" defer></script>
+<script src="/js/settings.js" defer></script>
+<script src="/js/zenou-plus.js" defer></script>
+<script src="/js/music-player.js" defer></script>
+<script src="/js/ai.js" defer></script>
+<script src="/js/consent.js" defer></script>
+</body>
+</html>

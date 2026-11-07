@@ -1,122 +1,162 @@
-127.0.0.1 - - [31/Oct/2026 17:22:07] "GET /index.html HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:22:26] "GET /index.html HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:22:26] "GET /css/plus.css HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:22:26] "GET /css/style.css HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:22:26] "GET /css/home.css HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:22:26] "GET /assets/logo.png HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:22:26] "GET /js/atmosphere.js HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:22:26] "GET /js/music-player.js HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:22:26] "GET /js/settings.js HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:22:26] "GET /js/app.js HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:22:26] "GET /js/zenou-plus.js HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:22:27] "GET /catalog/games.json?v=2026-10-31b HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:22:28] "GET /assets/favicon.png HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:12] "GET /index.html HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:12] "GET /css/style.css HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:12] "GET /css/plus.css HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:12] "GET /css/home.css HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:12] "GET /assets/logo.png HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:12] "GET /js/atmosphere.js HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:12] "GET /js/music-player.js HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:12] "GET /js/settings.js HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:12] "GET /js/zenou-plus.js HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:12] "GET /js/app.js HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:13] "GET /catalog/games.json?v=2026-10-31b HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:13] "GET /assets/favicon.png HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:16] "GET /assets/thumbs/skate-3.jpg HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:16] "GET /assets/thumbs/clustertruck.jpg HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:16] "GET /assets/thumbs/crossy-road.jpg HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:16] "GET /assets/thumbs/how-to-fish.jpg HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:16] "GET /assets/thumbs/fiveplay.jpg HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:16] "GET /assets/thumbs/among-us.jpg HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:16] "GET /assets/thumbs/mineral.svg HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:16] "GET /assets/thumbs/buildnow-gg.jpg HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:16] "GET /assets/thumbs/geometry-dash.jpg HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:16] "GET /assets/thumbs/hexgl.svg HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:49] "GET /index.html HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:49] "GET /css/plus.css HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:49] "GET /css/home.css HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:49] "GET /css/style.css HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:49] "GET /assets/logo.png HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:49] "GET /js/atmosphere.js HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:49] "GET /js/music-player.js HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:49] "GET /js/settings.js HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:49] "GET /js/zenou-plus.js HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:49] "GET /js/app.js HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:50] "GET /catalog/games.json?v=2026-10-31b HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:50] "GET /assets/favicon.png HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:53] "GET /assets/thumbs/skate-3.jpg HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:53] "GET /assets/thumbs/crossy-road.jpg HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:53] "GET /assets/thumbs/clustertruck.jpg HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:53] "GET /assets/thumbs/how-to-fish.jpg HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:53] "GET /assets/thumbs/fiveplay.jpg HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:53] "GET /assets/thumbs/mineral.svg HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:53] "GET /assets/thumbs/among-us.jpg HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:53] "GET /assets/thumbs/buildnow-gg.jpg HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:53] "GET /assets/thumbs/geometry-dash.jpg HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:54] "GET /assets/thumbs/granny.jpg HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:23:54] "GET /assets/thumbs/hexgl.svg HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:25:53] "GET /trailer.html HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:25:53] "GET /css/style.css HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:25:53] "GET /css/plus.css HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:25:53] "GET /media/zenou-trailer.jpg HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:25:53] "GET /assets/logo.png HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:25:53] "GET /js/atmosphere.js HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:25:53] "GET /js/music-player.js HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:25:53] "GET /js/settings.js HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:25:53] "GET /js/zenou-plus.js HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:25:53] "GET /media/zenou-trailer.mp4 HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:25:53] "GET /catalog/games.json?v=2026-10-31b HTTP/1.1" 200 -
-127.0.0.1 - - [31/Oct/2026 17:25:54] "GET /assets/favicon.png HTTP/1.1" 200 -
-----------------------------------------
-Exception occurred during processing of request from ('127.0.0.1', 56748)
-Traceback (most recent call last):
-  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 697, in process_request_thread
-    self.finish_request(request, client_address)
-  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 1311, in finish_request
-    self.RequestHandlerClass(request, client_address, self,
-  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 672, in __init__
-    super().__init__(*args, **kwargs)
-  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 766, in __init__
-    self.handle()
-  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 436, in handle
-    self.handle_one_request()
-  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 424, in handle_one_request
-    method()
-  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 679, in do_GET
-    self.copyfile(f, self.wfile)
-  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 878, in copyfile
-    shutil.copyfileobj(source, outputfile)
-  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 204, in copyfileobj
-    fdst_write(buf)
-  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 845, in write
-    self._sock.sendall(b)
-ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
-----------------------------------------
-127.0.0.1 - - [31/Oct/2026 17:26:09] "GET /media/zenou-trailer.mp4 HTTP/1.1" 200 -
-----------------------------------------
-Exception occurred during processing of request from ('127.0.0.1', 61455)
-Traceback (most recent call last):
-  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 697, in process_request_thread
-    self.finish_request(request, client_address)
-  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 1311, in finish_request
-    self.RequestHandlerClass(request, client_address, self,
-  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 672, in __init__
-    super().__init__(*args, **kwargs)
-  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 766, in __init__
-    self.handle()
-  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 436, in handle
-    self.handle_one_request()
-  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 424, in handle_one_request
-    method()
-  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 679, in do_GET
-    self.copyfile(f, self.wfile)
-  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 878, in copyfile
-    shutil.copyfileobj(source, outputfile)
-  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 204, in copyfileobj
-    fdst_write(buf)
-  File "C:\Users\ayman\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 845, in write
-    self._sock.sendall(b)
-ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
-----------------------------------------
-127.0.0.1 - - [31/Oct/2026 17:28:29] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:09] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:09] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:10] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:10] "GET /css/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:10] "GET /css/plus.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:10] "GET /css/home.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:11] "GET /assets/logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:11] "GET /js/atmosphere.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:11] "GET /js/music-player.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:11] "GET /js/settings.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:11] "GET /js/zenou-plus.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:11] "GET /js/app.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:11] "GET /manifest.webmanifest HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:11] "GET /catalog/games.json?v=2026-10-31b HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:12] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:12] "GET /assets/favicon.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:12] "GET /assets/logo-192.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:29] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:32] "GET /assets/thumbs/skate-3.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:32] "GET /assets/thumbs/clustertruck.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:32] "GET /assets/thumbs/crossy-road.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:32] "GET /assets/thumbs/how-to-fish.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:32] "GET /assets/thumbs/fiveplay.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:32] "GET /assets/thumbs/mineral.svg HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:32] "GET /assets/thumbs/among-us.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:32] "GET /assets/thumbs/buildnow-gg.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:32] "GET /assets/thumbs/geometry-dash.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:33] "GET /movies.html HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:33] "GET /css/movies.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:33] "GET /js/movies.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:34] "GET /catalog/movies.json HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:34] "GET /manifest.webmanifest HTTP/1.1" 304 -
+127.0.0.1 - - [07/Nov/2026 10:04:37] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:37] "GET /movies.html HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:04:37] "GET /movies.html HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:10:49] "GET /web.html HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:10:49] "GET /css/web.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:10:49] "GET /js/web.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:10:49] "GET /manifest.webmanifest HTTP/1.1" 304 -
+127.0.0.1 - - [07/Nov/2026 10:13:17] "GET /web.html HTTP/1.1" 304 -
+127.0.0.1 - - [07/Nov/2026 10:13:17] "GET /manifest.webmanifest HTTP/1.1" 304 -
+127.0.0.1 - - [07/Nov/2026 10:14:02] "GET /movies.html HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:14:08] "GET /movies.html HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:14:49] "GET /social.html HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:14:49] "GET /css/social.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:14:49] "GET /js/social.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:14:49] "GET /manifest.webmanifest HTTP/1.1" 304 -
+127.0.0.1 - - [07/Nov/2026 10:14:49] "GET /catalog/media.json HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:14:51] "GET /movies.html HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:14:51] "GET /css/movies.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:14:51] "GET /js/movies.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:14:52] "GET /catalog/movies.json HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:20:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:20:07] "GET /ai.html HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:20:07] "GET /css/ai.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:20:07] "GET /js/ai.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:20:07] "GET /catalog/ai.json HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:20:56] "GET /ai.html HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:20:56] "GET /css/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:20:56] "GET /css/plus.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:20:56] "GET /css/ai.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:20:56] "GET /assets/logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:20:56] "GET /js/atmosphere.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:20:56] "GET /js/settings.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:20:56] "GET /js/zenou-plus.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:20:56] "GET /js/music-player.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:20:56] "GET /js/ai.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:20:56] "GET /manifest.webmanifest HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:20:57] "GET /catalog/games.json?v=2026-10-31b HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:20:57] "GET /catalog/ai.json HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:21:31] "GET /ai.html HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:21:31] "GET /css/ai.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:21:31] "GET /js/ai.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:21:31] "GET /catalog/ai.json HTTP/1.1" 304 -
+127.0.0.1 - - [07/Nov/2026 10:21:32] "GET /manifest.webmanifest HTTP/1.1" 304 -
+127.0.0.1 - - [07/Nov/2026 10:21:32] "GET /assets/favicon.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:21:32] "GET /assets/logo-192.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:21:34] "GET /movies.html HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:21:34] "GET /css/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:21:34] "GET /css/plus.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:21:34] "GET /css/movies.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:21:34] "GET /assets/logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:21:34] "GET /js/atmosphere.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:21:34] "GET /js/zenou-plus.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:21:34] "GET /js/settings.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:21:34] "GET /js/music-player.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:21:34] "GET /js/movies.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:21:34] "GET /manifest.webmanifest HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:21:34] "GET /catalog/games.json?v=2026-10-31b HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:21:34] "GET /catalog/movies.json HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:21:34] "GET /assets/favicon.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:21:34] "GET /assets/logo-192.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:22:18] "GET /ai.html HTTP/1.1" 304 -
+127.0.0.1 - - [07/Nov/2026 10:22:18] "GET /css/ai.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:22:18] "GET /js/ai.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Nov/2026 10:22:18] "GET /catalog/ai.json HTTP/1.1" 304 -
+127.0.0.1 - - [07/Nov/2026 10:22:18] "GET /manifest.webmanifest HTTP/1.1" 304 -
+127.0.0.1 - - [07/Nov/2026 10:22:24] "GET /movies.html HTTP/1.1" 304 -
+127.0.0.1 - - [07/Nov/2026 10:22:24] "GET /css/movies.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:22:24] "GET /js/movies.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Nov/2026 10:22:24] "GET /manifest.webmanifest HTTP/1.1" 304 -
+127.0.0.1 - - [07/Nov/2026 10:22:42] "GET /ai.html HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:22:42] "GET /css/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:22:42] "GET /css/plus.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:22:42] "GET /css/ai.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:22:42] "GET /assets/logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:22:42] "GET /js/atmosphere.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:22:42] "GET /js/music-player.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:22:42] "GET /js/settings.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:22:42] "GET /js/ai.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:22:42] "GET /js/zenou-plus.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:22:42] "GET /manifest.webmanifest HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:22:43] "GET /catalog/games.json?v=2026-10-31b HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:22:43] "GET /catalog/ai.json HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:22:47] "GET /assets/favicon.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:22:47] "GET /assets/logo-192.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:00] "GET /web.html?proxy=https%3A%2F%2Fwww.tiktok.com%2F HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:00] "GET /css/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:00] "GET /css/plus.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:00] "GET /css/web.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:00] "GET /assets/logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:00] "GET /js/atmosphere.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:00] "GET /js/music-player.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:00] "GET /js/settings.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:00] "GET /js/zenou-plus.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:00] "GET /js/web.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:00] "GET /manifest.webmanifest HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:01] "GET /catalog/games.json?v=2026-10-31b HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:04] "GET /assets/favicon.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:04] "GET /assets/logo-192.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:07] "GET /search.html?q=chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:07] "GET /css/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:07] "GET /css/plus.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:07] "GET /assets/logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:07] "GET /js/settings.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:07] "GET /js/zenou-plus.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:07] "GET /js/media.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:08] "GET /js/atmosphere.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:08] "GET /js/music-player.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:08] "GET /js/search.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:08] "GET /manifest.webmanifest HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:08] "GET /catalog/games.json?v=2026-10-31b HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:08] "GET /catalog/movies.json?v=2026-11-07 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:08] "GET /catalog/ai.json?v=2026-11-07 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:08] "GET /assets/favicon.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:08] "GET /assets/logo-192.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:17] "GET /ai.html HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:17] "GET /css/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:17] "GET /css/plus.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:17] "GET /css/ai.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:17] "GET /assets/logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:17] "GET /js/atmosphere.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:17] "GET /js/settings.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:17] "GET /js/zenou-plus.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:17] "GET /js/music-player.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:17] "GET /js/ai.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:18] "GET /manifest.webmanifest HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:18] "GET /catalog/games.json?v=2026-10-31b HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:18] "GET /catalog/ai.json HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:22] "GET /assets/logo-192.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:22] "GET /assets/favicon.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2026 10:23:24] "GET /ai.html HTTP/1.1" 200 -

@@ -1,4 +1,4 @@
-/* Zenou Unblocked, shared media data layer.
+/* ZenouMath, shared media data layer.
  * localStorage-backed library (watchlist, liked, recently viewed) + TMDB image URLs.
  */
 'use strict';
@@ -63,7 +63,7 @@ function watchHref(m, kind, ep) {
 
 document.addEventListener('DOMContentLoaded', () => {
   // highlight the current nav item
-  const here = location.pathname.split('/').pop() || 'index.html';
+  const here = location.pathname.split('/').pop() || '/';
   document.querySelectorAll('[data-nav]').forEach(a => {
     if (a.getAttribute('href').split('?')[0] === here) a.setAttribute('aria-current', 'page');
   });

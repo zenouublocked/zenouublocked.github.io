@@ -1,0 +1,350 @@
+{
+  "generated": "2026-11-07",
+  "checked": "2026-11-07",
+  "method": "scripts/verify-ai.mjs — GET with redirects followed, framing graded on the final hop",
+  "stage": {
+    "id": "slate",
+    "name": "Slate",
+    "url": "https://slate-mantle.truegrid.cloud/",
+    "vendor": "Mantle",
+    "note": "Mantle's own chat front end. Verified framable: no X-Frame-Options, no frame-ancestors.",
+    "fallback": "https://slate-mantle.truegrid.cloud/"
+  },
+  "tools": [
+    {
+      "id": "slate",
+      "name": "Slate",
+      "url": "https://slate-mantle.truegrid.cloud/",
+      "vendor": "Mantle",
+      "blurb": "Chat with frontier models in the browser, run by the same people as Magma. Asks for an account before it will answer.",
+      "tags": [
+        "chat",
+        "free"
+      ],
+      "frame": "inline",
+      "status": "live",
+      "note": "no framing header · 200",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "you",
+      "name": "You.com",
+      "url": "https://you.com/",
+      "vendor": "You.com",
+      "blurb": "Search plus chat, with several models behind one box. Framing allowed, so it opens in the stage.",
+      "tags": [
+        "chat",
+        "search"
+      ],
+      "frame": "inline",
+      "status": "live",
+      "note": "no framing header · 200",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "kimi",
+      "name": "Kimi",
+      "url": "https://www.kimi.com/",
+      "vendor": "Moonshot AI",
+      "blurb": "Long-context chat that reads whole documents and PDFs without complaining. Framable, opens in the stage.",
+      "tags": [
+        "chat",
+        "build"
+      ],
+      "frame": "inline",
+      "status": "live",
+      "note": "no framing header · 200",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "blackbox",
+      "name": "Blackbox",
+      "url": "https://www.blackbox.ai/",
+      "vendor": "Blackbox AI",
+      "blurb": "Code-first chat with a file drop. The one coding assistant here that still allows framing.",
+      "tags": [
+        "chat",
+        "build"
+      ],
+      "frame": "inline",
+      "status": "live",
+      "note": "no framing header · 200",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "url": "https://chatgpt.com/",
+      "vendor": "OpenAI",
+      "blurb": "The default for most people. Free tier covers GPT-5 class models with limits.",
+      "tags": [
+        "chat"
+      ],
+      "frame": "tab",
+      "status": "live",
+      "note": "X-Frame-Options: SAMEORIGIN · 200",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "claude",
+      "name": "Claude",
+      "url": "https://claude.ai/",
+      "vendor": "Anthropic",
+      "blurb": "Long prose, careful edits, strong at code review. Free tier is time-limited per session.",
+      "tags": [
+        "chat",
+        "build"
+      ],
+      "frame": "tab",
+      "status": "live",
+      "note": "frame-ancestors 'self' · 200",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "url": "https://gemini.google.com/",
+      "vendor": "Google",
+      "blurb": "Google's assistant, tied to your account, good with images and anything sitting in Drive.",
+      "tags": [
+        "chat"
+      ],
+      "frame": "tab",
+      "status": "down",
+      "note": "unreachable · TypeError",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "copilot",
+      "name": "Copilot",
+      "url": "https://copilot.microsoft.com/",
+      "vendor": "Microsoft",
+      "blurb": "Free chat on Microsoft's stack, with image generation and web grounding.",
+      "tags": [
+        "chat",
+        "search"
+      ],
+      "frame": "tab",
+      "status": "live",
+      "note": "X-Frame-Options: SAMEORIGIN · 200",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "url": "https://www.perplexity.ai/",
+      "vendor": "Perplexity",
+      "blurb": "Answers with the sources attached. Best of this list when you need to check a claim, not write one.",
+      "tags": [
+        "search",
+        "chat"
+      ],
+      "frame": "tab",
+      "status": "live",
+      "note": "X-Frame-Options: DENY · 200",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "grok",
+      "name": "Grok",
+      "url": "https://grok.com/",
+      "vendor": "xAI",
+      "blurb": "xAI's assistant, wired into the X firehose for anything current.",
+      "tags": [
+        "chat",
+        "search"
+      ],
+      "frame": "tab",
+      "status": "live",
+      "note": "X-Frame-Options: DENY · 200",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "url": "https://chat.deepseek.com/",
+      "vendor": "DeepSeek",
+      "blurb": "Free reasoning models, no card, no trial clock. The one most people reach for at 2am.",
+      "tags": [
+        "chat",
+        "build"
+      ],
+      "frame": "tab",
+      "status": "challenge",
+      "note": "edge answered 202 (challenge)",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "qwen",
+      "name": "Qwen Chat",
+      "url": "https://chat.qwen.ai/",
+      "vendor": "Alibaba",
+      "blurb": "Qwen's own chat, generous free limits, good multilingual and image work.",
+      "tags": [
+        "chat"
+      ],
+      "frame": "tab",
+      "status": "live",
+      "note": "X-Frame-Options: SAMEORIGIN · 200",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "lechat",
+      "name": "Le Chat",
+      "url": "https://chat.mistral.ai/chat",
+      "vendor": "Mistral",
+      "blurb": "Fast European models with a free tier. Sits behind a Cloudflare check, so it wants its own tab.",
+      "tags": [
+        "chat",
+        "build"
+      ],
+      "frame": "tab",
+      "status": "challenge",
+      "note": "edge answered 403 · Just a moment... (challenge)",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "poe",
+      "name": "Poe",
+      "url": "https://poe.com/",
+      "vendor": "Quora",
+      "blurb": "One subscription, dozens of models and community bots side by side.",
+      "tags": [
+        "chat"
+      ],
+      "frame": "tab",
+      "status": "challenge",
+      "note": "edge answered 403 · Just a moment... (challenge)",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "huggingchat",
+      "name": "HuggingChat",
+      "url": "https://huggingface.co/chat/",
+      "vendor": "Hugging Face",
+      "blurb": "Open-weight models, free, swappable per message. The closest thing to a public lab bench.",
+      "tags": [
+        "chat"
+      ],
+      "frame": "tab",
+      "status": "live",
+      "note": "frame-ancestors https://huggingface.co · 200",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "openrouter",
+      "name": "OpenRouter",
+      "url": "https://openrouter.ai/chat",
+      "vendor": "OpenRouter",
+      "blurb": "Every model from one key, free tiers included. The playground compares them side by side.",
+      "tags": [
+        "build",
+        "chat"
+      ],
+      "frame": "tab",
+      "status": "live",
+      "note": "X-Frame-Options: SAMEORIGIN · 200",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "together",
+      "name": "Together",
+      "url": "https://api.together.ai/playground",
+      "vendor": "Together AI",
+      "blurb": "Playground on top of open-weight inference. Good for testing a model before you pay for it.",
+      "tags": [
+        "build"
+      ],
+      "frame": "tab",
+      "status": "live",
+      "note": "X-Frame-Options: SAMEORIGIN · 200",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "lmarena",
+      "name": "LMArena",
+      "url": "https://lmarena.ai/",
+      "vendor": "LMArena",
+      "blurb": "Blind side-by-side battles. Vote and you find out afterwards which model you actually preferred.",
+      "tags": [
+        "build"
+      ],
+      "frame": "tab",
+      "status": "challenge",
+      "note": "edge answered 403 · Just a moment... (challenge)",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "t3",
+      "name": "T3 Chat",
+      "url": "https://t3.chat/",
+      "vendor": "T3",
+      "blurb": "Fast, quiet chat client over several frontier models with a cheap paid tier.",
+      "tags": [
+        "chat"
+      ],
+      "frame": "tab",
+      "status": "challenge",
+      "note": "edge answered 429 · Vercel Security Checkpoint (challenge)",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "duck",
+      "name": "Duck.ai",
+      "url": "https://duck.ai/",
+      "vendor": "DuckDuckGo",
+      "blurb": "Anonymous chat: no account, prompts not tied to you. The private option.",
+      "tags": [
+        "chat",
+        "search"
+      ],
+      "frame": "tab",
+      "status": "live",
+      "note": "X-Frame-Options: SAMEORIGIN · 200",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "phind",
+      "name": "Phind",
+      "url": "https://www.phind.com/",
+      "vendor": "Phind",
+      "blurb": "Answers built for engineers, with the docs it read listed underneath.",
+      "tags": [
+        "search",
+        "build"
+      ],
+      "frame": "tab",
+      "status": "challenge",
+      "note": "edge answered 403 · Just a moment... (challenge)",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "kagi",
+      "name": "Kagi Assistant",
+      "url": "https://kagi.com/",
+      "vendor": "Kagi",
+      "blurb": "Paid, ad-free search with an assistant bolted on. No free tier, no tracking.",
+      "tags": [
+        "search"
+      ],
+      "frame": "tab",
+      "status": "live",
+      "note": "X-Frame-Options: SAMEORIGIN · 200",
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "character",
+      "name": "Character.AI",
+      "url": "https://character.ai/",
+      "vendor": "Character.AI",
+      "blurb": "Character chat rather than an assistant. Walled behind Cloudflare, so it needs its own tab.",
+      "tags": [
+        "chat"
+      ],
+      "frame": "tab",
+      "status": "challenge",
+      "note": "edge answered 403 · Attention Required! | Cloudflare (challenge)",
+      "checked": "2026-11-07"
+    }
+  ]
+}

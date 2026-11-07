@@ -2,18 +2,80 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="refresh" content="0; url=index.html">
-<title>Zenou Unblocked</title>
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="assets/favicon.png" type="image/png">
-<link rel="apple-touch-icon" href="assets/logo-192.png">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/plus.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found | ZenouMath</title>
+<meta name="description" content="That address is not here. Every section of ZenouMath is one click away.">
+<meta name="robots" content="noindex,follow">
+<meta name="theme-color" content="#07080e">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/logo-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plus.css">
+<link rel="stylesheet" href="/css/consent.css">
+<style>
+  .nf { max-width: 640px; margin: 0 auto; padding: 90px var(--gutter) 80px; }
+  .nf-kicker { margin: 0 0 12px; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted-2); }
+  .nf h1 { margin: 0 0 14px; font-family: var(--font-display); font-size: clamp(30px, 5vw, 46px); font-weight: 800; line-height: 1.04; letter-spacing: -.03em; font-stretch: 106%; }
+  .nf p { margin: 0 0 12px; color: var(--muted); font-size: 14.5px; line-height: 1.65; }
+  .nf code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 13px; padding: 1px 6px; border-radius: 5px; background: rgba(255,255,255,.07); color: #fff; }
+  .nf-links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 26px; }
+</style>
 </head>
-<body style="display:grid;place-items:center;min-height:100vh;margin:0">
-<script>location.replace('index.html');</script>
-<script src="js/atmosphere.js" defer></script>
-<script src="js/zenou-plus.js" defer></script>
+<body data-consent-exempt>
 
+<header class="topbar">
+  <a class="wordmark" href="/" aria-label="ZenouMath home">
+    <span class="brand-mark" aria-hidden="true"><img src="/assets/logo.png" alt="" width="38" height="38" decoding="async"></span>
+    <span class="wordmark-text">
+      <span class="wordmark-lines">Zenou</span>
+      <span class="wordmark-sub">math</span>
+    </span>
+  </a>
+  <nav class="mainnav" aria-label="Sections">
+    <a href="/" data-nav>Practice</a>
+    <a href="/web" data-nav>Reference</a>
+    <a href="/movies" data-nav>Lectures</a>
+    <a href="/ai" data-nav>Tutor</a>
+    <a href="/social" data-nav>Media</a>
+    <a href="/music" data-nav>Audio</a>
+    <a href="/library" data-nav>My shelf</a>
+  </nav>
+  <div class="bar-tools">
+    <form class="searchbox" role="search" action="/search" method="get">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 3a7.5 7.5 0 1 1-4.32 13.64L3 19.85 3.94 20.8l3.18-3.18A7.5 7.5 0 0 1 10.5 3zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z"/></svg>
+      <input name="q" type="search" placeholder="Search everything…" aria-label="Search everything">
+    </form>
+  </div>
+</header>
+
+<main class="nf">
+  <p class="nf-kicker">404</p>
+  <h1>That address is not here</h1>
+  <p>Every page on this site lives at a clean path with no extension in it, so a link that still ends in <code>.html</code> may have come from an older bookmark. The stubs that remain redirect themselves; a path typed by hand may simply not exist.</p>
+  <p id="nfPath" class="nf-small"></p>
+  <div class="nf-links">
+    <a class="btn btn-solid" href="/">Practice</a>
+    <a class="btn" href="/movies">Lecture hall</a>
+    <a class="btn" href="/web">Reference desk</a>
+    <a class="btn" href="/search">Search</a>
+    <a class="btn btn-ghost" href="/legal">Legal centre</a>
+  </div>
+</main>
+
+<script src="/js/atmosphere.js" defer></script>
+<script src="/js/zenou-plus.js" defer></script>
+<script src="/js/consent.js" defer></script>
+<script>
+(function () {
+  var el = document.getElementById('nfPath');
+  if (el && location.pathname) {
+    el.textContent = 'You asked for ' + location.pathname + '.';
+  }
+})();
+</script>
 </body>
 </html>

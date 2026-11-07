@@ -1,4 +1,4 @@
-/* Zenou Unblocked, My Library hub.
+/* ZenouMath, My Library hub.
  *
  * Nine panels over one local store: overview + stats, favourites, recent,
  * playlists, ratings & notes, achievements, hidden games, the film shelf and
@@ -111,7 +111,7 @@
       p.textContent = 'Nothing played yet. Pick something from the arcade and it will show up here.';
       const a = document.createElement('a');
       a.className = 'btn btn-solid';
-      a.href = 'index.html';
+      a.href = '/';
       a.textContent = 'Browse games';
       panel.append(p, a);
     }
@@ -150,7 +150,7 @@
   function renderFavourites() {
     const panel = $('#panel-favourites');
     const list = [...Z.store.favs].map(id => byId.get(id)).filter(Boolean);
-    if (!list.length) return empty(panel, 'No favourites yet. Tap the heart on any game page.', ['Browse games', 'index.html']);
+    if (!list.length) return empty(panel, 'No favourites yet. Tap the heart on any game page.', ['Browse games', '/']);
     sectionHead(panel, `Favourites (${list.length})`, 'Stored in this browser');
     panel.append(gridFor(list));
   }
@@ -158,7 +158,7 @@
   function renderRecent() {
     const panel = $('#panel-recent');
     const list = Z.store.recent.map(r => byId.get(r.id)).filter(Boolean);
-    if (!list.length) return empty(panel, 'Your history is empty.', ['Browse games', 'index.html']);
+    if (!list.length) return empty(panel, 'Your history is empty.', ['Browse games', '/']);
     sectionHead(panel, `Recently played (${list.length})`, 'Most recent first');
     panel.append(gridFor(list, { actions: false }));
   }
@@ -192,7 +192,7 @@
     const ids = new Set([...Object.keys(Z.store.ratings), ...Object.keys(Z.store.notes)]);
     const list = [...ids].map(id => byId.get(id)).filter(Boolean)
       .sort((a, b) => (Z.store.ratings[b.id] || 0) - (Z.store.ratings[a.id] || 0));
-    if (!list.length) return empty(panel, 'Rate a game or write a note on its page and it will be collected here.', ['Browse games', 'index.html']);
+    if (!list.length) return empty(panel, 'Rate a game or write a note on its page and it will be collected here.', ['Browse games', '/']);
     sectionHead(panel, `Ratings & notes (${list.length})`, 'Your own scores, kept locally');
     const wrap = document.createElement('div');
     wrap.style.display = 'grid';
@@ -201,7 +201,7 @@
       const row = document.createElement('div');
       row.className = 'play-side-card';
       const title = document.createElement('a');
-      title.href = `play.html?id=${encodeURIComponent(g.id)}`;
+      title.href = `/play?id=${encodeURIComponent(g.id)}`;
       title.textContent = g.t;
       title.style.fontWeight = '650';
       row.append(title);
@@ -270,7 +270,7 @@
       play.addEventListener('click', () => {
         const pool = pl.ids.map(id => byId.get(id)).filter(Boolean);
         if (!pool.length) { Z.toast('Nothing playable in this playlist'); return; }
-        location.href = `play.html?id=${encodeURIComponent(pool[Math.floor(Math.random() * pool.length)].id)}`;
+        location.href = `/play?id=${encodeURIComponent(pool[Math.floor(Math.random() * pool.length)].id)}`;
       });
 
       const rename = document.createElement('button');
@@ -393,7 +393,7 @@
         const row = document.createElement('div');
         row.className = 'play-tools';
         const a = document.createElement('a');
-        a.href = `play.html?id=${encodeURIComponent(r.id)}`;
+        a.href = `/play?id=${encodeURIComponent(r.id)}`;
         a.textContent = r.t || r.id;
         a.style.fontSize = '13px';
         row.append(a);
@@ -421,14 +421,14 @@
     $$('.lib-panel').forEach(p => { p.hidden = p.id !== `panel-${tab}`; });
     const fn = RENDERERS[tab];
     if (fn) fn();
-    history.replaceState(null, '', `library.html#${tab}`);
+    history.replaceState(null, '', `/library#${tab}`);
   }
 
   async function boot() {
     Z = window.Zenou;
     if (!Z) { console.warn('library: shared layer missing'); return; }
     try {
-      const res = await fetch('catalog/games.json?v=2026-10-31b');
+      const res = await fetch('/catalog/games.json?v=2026-10-31b');
       const data = await res.json();
       GAMES = data.games;
       byId = new Map(GAMES.map(g => [g.id, g]));

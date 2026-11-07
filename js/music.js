@@ -1,4 +1,4 @@
-/* Zenou Unblocked, Music page.
+/* ZenouMath, Music page.
  * Discovery: Spotify web search (no API key / terms conflict in browser).
  * Playback: official Spotify embed + official SoundCloud Widget for pasted links.
  */

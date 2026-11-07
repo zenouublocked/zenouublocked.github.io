@@ -1,22 +1,28 @@
-/* Zenou Unblocked, service worker.
+/* ZenouMath, service worker.
  *
  * Deliberately small: a stale shell beats a blank page when the network drops,
  * but nobody wants yesterday's catalogue forever. So:
  *   · HTML + catalogue + JSON  -> network first, cache as a fallback
  *   · CSS / JS / images        -> cache first, refreshed in the background
  *
+ * Clean URLs matter here: with no .html on any public path, "is this a page?"
+ * is answered by a request with no file extension, not by a filename match.
+ * That is the `extensionless` test below.
+ *
  * Bump CACHE_VERSION when the shell changes shape.
  */
-const CACHE_VERSION = 'zenou-v1';
+const CACHE_VERSION = 'zenoumath-v2';
 const SHELL = [
-  'index.html',
-  'css/style.css',
-  'css/plus.css',
-  'js/zenou-plus.js',
-  'js/settings.js',
-  'js/atmosphere.js',
-  'assets/favicon.png',
-  'assets/logo-192.png',
+  '/',
+  '/css/style.css',
+  '/css/plus.css',
+  '/css/consent.css',
+  '/js/zenou-plus.js',
+  '/js/settings.js',
+  '/js/atmosphere.js',
+  '/js/consent.js',
+  '/assets/favicon.png',
+  '/assets/logo-192.png',
 ];
 
 self.addEventListener('install', (event) => {
@@ -41,9 +47,12 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(req.url);
   if (url.origin !== location.origin) return; // never touch other origins
+  if (url.pathname.startsWith('/api/')) return; // never cache API responses
 
+  const extensionless = !/\.[a-z0-9]+$/i.test(url.pathname);
   const networkFirst = req.mode === 'navigate'
-    || /\.(html|json|webmanifest)$/i.test(url.pathname)
+    || extensionless
+    || /\.(json|webmanifest)$/i.test(url.pathname)
     || url.pathname.endsWith('/');
 
   if (networkFirst) {
@@ -54,7 +63,7 @@ self.addEventListener('fetch', (event) => {
           caches.open(CACHE_VERSION).then(c => c.put(req, copy)).catch(() => {});
           return res;
         })
-        .catch(() => caches.match(req).then(hit => hit || caches.match('index.html')))
+        .catch(() => caches.match(req).then(hit => hit || caches.match('/')))
     );
     return;
   }

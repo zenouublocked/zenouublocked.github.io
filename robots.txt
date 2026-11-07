@@ -1,0 +1,10 @@
+# ZenouMath
+# Legal pages are indexable on purpose: a visitor has to be able to read what
+# they are agreeing to. The .html redirect stubs are not, and carry noindex.
+
+User-agent: *
+Allow: /
+Disallow: /legal/*.html$
+Disallow: /*.html$
+
+Sitemap: https://zenoumath.space/sitemap.xml
