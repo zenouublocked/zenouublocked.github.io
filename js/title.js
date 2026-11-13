@@ -134,7 +134,7 @@
   function renderTitle(t) {
     state.title = t;
 
-    document.title = `${t.title}${t.year ? ' (' + t.year + ')' : ''} | ZenouMath`;
+    document.title = `${t.title}${t.year ? ' (' + t.year + ')' : ''} · Zenou Arcade`;
     const desc = document.querySelector('meta[name="description"]');
     if (desc && t.overview) desc.setAttribute('content', t.overview.slice(0, 155));
 

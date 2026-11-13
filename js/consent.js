@@ -89,7 +89,7 @@
       '<div class="consent-card">' +
       '<div class="consent-top">' +
       '<p class="consent-kicker">' + (reviewing ? 'Your agreement' : 'Before you start') + '</p>' +
-      '<h2 id="consentTitle">How ZenouMath works, and what you are agreeing to</h2>' +
+      '<h2 id="consentTitle">Using Zenou Arcade</h2>' +
       '<p id="consentIntro">One short read. It takes about a minute, and it is the same document whether or not you read it.</p>' +
       '</div>' +
       '<div class="consent-scroll">' +

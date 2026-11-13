@@ -43,8 +43,8 @@ async function boot() {
   }
 
   document.title = window.zenouMaskedTitle
-    ? window.zenouMaskedTitle(`${g.t}, ZenouMath`)
-    : `${g.t}, ZenouMath`;
+    ? window.zenouMaskedTitle(`${g.t} · Zenou Arcade`)
+    : `${g.t} · Zenou Arcade`;
   touchRecent(g.id);
   if (g.wrap || g.direct) { location.replace(g.wrap ? g.u : g.direct); return; }
   $('#playerView').hidden = false;
