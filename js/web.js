@@ -17,20 +17,6 @@
 
   const SIZE_KEY = 'zenou_web_size';
   const RECENT_KEY = 'zenou_web_recent';
-  /* Magma is an Ultraviolet/Scramjet proxy: the page you ask for is fetched by
-     a service worker it registers on its own origin. A document inside a
-     sandboxed iframe cannot register a service worker at all, and a proxy
-     whose worker never installed is a page that looks fine and loads nothing.
-     So the door is a top-level tab — the only context where the worker, and
-     therefore the proxy, actually runs.
-
-     This replaces the previous approach, which wrapped Mantle's menu in a
-     srcdoc frame and then opened the app from a window.open() issued after an
-     await: the popup arrived outside the click gesture, so browsers dropped it
-     and the row did nothing. It also depended on seven CDN mirrors before it
-     could draw anything. Neither problem exists now.
-
-     The upstream app is third-party and its address moves every few months. */
   const MAGMA = 'https://magma-mantle.truegrid.cloud/';
   const HOME_TITLE = 'Reference desk, ZenouMath';
 
@@ -50,7 +36,7 @@
     {
       id: 'magma', label: 'Magma', glyph: '⌁',
       url: MAGMA,
-      note: 'The proxy itself. Opens in its own tab, because it needs a service worker and a frame forbids one.',
+      note: 'Open Magma in the viewer.',
       kind: 'doorway',
     },
     {
@@ -244,19 +230,9 @@
   }
 
   /* ---------- built-in sites ---------- */
-  /* Opening a tab from here is deliberately an anchor click, not window.open():
-     a real <a target="_blank"> is never dropped by a popup blocker, and it keeps
-     the new tab out of this window's opener chain. */
   function openMagma(target) {
     if (target) copy(target);
-    const a = document.createElement('a');
-    a.href = MAGMA;
-    a.target = '_blank';
-    a.rel = 'noopener noreferrer';
-    a.style.display = 'none';
-    document.body.append(a);
-    a.click();
-    a.remove();
+    load(MAGMA, { label: 'Magma' });
   }
 
   function openSite(site) {
@@ -264,12 +240,12 @@
     if (site.newPage) { location.href = site.url; return; }
     if (site.kind === 'doorway') {
       openMagma();
-      toast('Magma opened in a new tab', 'Type or paste an address into its bar. It runs there, not here, because a proxy needs its own origin.');
+      toast('Magma opened in the viewer', 'Type or paste an address into its bar.');
       return;
     }
     if (site.kind === 'proxy') {
       openMagma(site.url);
-      toast(`Magma opened · ${site.label} address copied`, 'Paste it into Magma’s bar. The tab is already waiting.');
+      toast(`Magma opened · ${site.label} address copied`, 'Paste it into Magma’s bar.');
       return;
     }
     load(site.url, { label: site.label });
@@ -538,10 +514,10 @@
       const target = current && current.url && !current.url.startsWith('about:') ? current.url : '';
       openMagma(target);
       toast(
-        target ? 'Magma opened · address copied' : 'Magma opened in a new tab',
+        target ? 'Magma opened · address copied' : 'Magma opened in the viewer',
         target
           ? 'Paste it into Magma’s bar to load the page through the proxy.'
-          : 'Type an address into its bar. The proxy runs there, not in this frame.',
+          : 'Type an address into its bar.',
       );
     });
 
@@ -565,7 +541,7 @@
        rather than a URL route. */
     const proxyTarget = new URLSearchParams(location.search).get('proxy');
     if (proxyTarget) {
-      const target = normalize(decodeURIComponent(proxyTarget));
+      const target = normalize(proxyTarget);
       openMagma(target);
       toast('Magma opened · address copied', 'Paste it into Magma’s bar to load it through the proxy.');
     }

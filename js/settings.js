@@ -16,6 +16,7 @@
 
   /* ---------- appearance ---------- */
   const THEMES = [
+    ['white', 'White'],
     ['aurora', 'Aurora'],
     ['cyan', 'Cyan'],
     ['violet', 'Violet'],
@@ -35,10 +36,11 @@
     ['glow', 'Glow strength', [['off', 'Off'], ['soft', 'Soft'], ['medium', 'Medium'], ['strong', 'Strong']]],
     ['radius', 'Corner style', [['sharp', 'Sharp'], ['soft', 'Soft'], ['round', 'Round']]],
     ['density', 'Card density', [['cozy', 'Cozy'], ['compact', 'Compact']]],
-    ['bg', 'Background', [['aurora', 'Aurora'], ['stars', 'Stars'], ['snow', 'Snow'], ['night', 'Stars + snow'], ['grid', 'Grid'], ['plain', 'Plain'], ['custom', 'Custom image']]],
+    ['bg', 'Background', [['white', 'White'],
+    ['aurora', 'Aurora'], ['stars', 'Stars'], ['snow', 'Snow'], ['night', 'Stars + snow'], ['grid', 'Grid'], ['plain', 'Plain'], ['custom', 'Custom image']]],
     ['motion', 'Motion', [['full', 'Full'], ['calm', 'Calm']]],
   ];
-  const DEFAULTS = { theme: 'aurora', glow: 'medium', radius: 'soft', density: 'cozy', bg: 'aurora', motion: 'full', bgDim: 45, hue: null };
+  const DEFAULTS = { theme: 'white', glow: 'medium', radius: 'soft', density: 'cozy', bg: 'aurora', motion: 'full', bgDim: 45, hue: null };
   const PREF_KEY = 'zenou_prefs';
   const BG_KEY = 'zenou_bgimg';
 
@@ -105,6 +107,7 @@
   function setPref(key, value) {
     const p = readPrefs();
     p[key] = value;
+    if (key === 'theme') { p.hue = null; delete p.hueRgb; delete p.hue2Rgb; }
     if (key === 'hue') {
       if (value == null) { delete p.hueRgb; delete p.hue2Rgb; }
       else {
@@ -374,7 +377,8 @@
 
     /* accent chips */
     const paintThemes = () => {
-      const cur = readPrefs().theme;
+      const prefs = readPrefs();
+      const cur = prefs.hue == null ? prefs.theme : null;
       themeWrap.innerHTML = '';
       THEMES.forEach(([id, name]) => {
         const b = document.createElement('button');
@@ -386,6 +390,7 @@
         b.querySelector('span').textContent = name;
         b.addEventListener('click', () => {
           setPref('theme', id);
+          paintHue();
           paintThemes();
         });
         themeWrap.append(b);
@@ -410,6 +415,7 @@
     $('#seHueClear', root).addEventListener('click', () => {
       setPref('hue', null);
       paintHue();
+      paintThemes();
     });
 
     /* web tab binder */

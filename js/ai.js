@@ -209,7 +209,7 @@
       const magma = card.querySelector('.ai-mini:not(.ai-mini-solid)');
       magma.href = proxyHref(tool.url);
       magma.textContent = 'Magma';
-      magma.title = 'Open Magma in a tab, with ' + hostOf(tool.url) + ' copied to the clipboard';
+      magma.title = 'Open Magma in the viewer, with ' + hostOf(tool.url) + ' copied to the clipboard';
 
       if (tool.frame === 'inline') {
         const run = document.createElement('button');
